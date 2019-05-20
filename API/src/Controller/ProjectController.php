@@ -41,15 +41,15 @@ class ProjectController extends FOSRestController
     }
     /**
      * List one Page.
-     * @Rest\Get("/projectsUrl/{metaogurl}")
+     * @Rest\Get("/projectsUser/{userid}")
      *
-     * @param $metaogurl
+     * @param $userid
      * @return Response
      */
-    public function getSingleProjectActionurl($metaogurl)
+    public function getSingleProjectActionurl($userid)
     {
         $repository = $this->getDoctrine()->getRepository(Project::class);
-        $pages = $repository->findOneBy([ 'metaogurl' => $metaogurl]);
+        $pages = $repository->findOneBy([ 'userid' => $userid]);
         return $this->handleView($this->view($pages));
     }
 
