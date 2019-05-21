@@ -39,6 +39,19 @@ class BillController extends FOSRestController
         $pages = $repository->find($id);
         return $this->handleView($this->view($pages));
     }
+    /**
+     * List one Page.
+     * @Rest\Get("/billsProject/{project_id}")
+     *
+     * @param $project_id
+     * @return Response
+     */
+    public function getSingleBillProjectAction($project_id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Bill::class);
+        $pages = $repository->find($project_id);
+        return $this->handleView($this->view($pages));
+    }
 
     /**
      * Create Page.
