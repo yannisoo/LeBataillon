@@ -40,6 +40,7 @@ getProjectByUserId(id): Observable<Project> {
 return this.http.get<Project>(this.apiURL + '/projectsUser/' + id, this.httpOptions)
 .pipe(
 retry(1),
+
 catchError(this.handleError)
 )
 }
