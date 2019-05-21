@@ -84,7 +84,7 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice;
+    private $unitPrice4;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -252,14 +252,14 @@ class Bill
         return $this;
     }
 
-    public function getUnitPrice(): ?int
+    public function getUnitPrice4(): ?int
     {
-        return $this->unitPrice;
+        return $this->unitPrice4;
     }
 
-    public function setUnitPrice(?int $unitPrice): self
+    public function setUnitPrice4(?int $unitPrice4): self
     {
-        $this->unitPrice = $unitPrice;
+        $this->unitPrice4 = $unitPrice4;
 
         return $this;
     }

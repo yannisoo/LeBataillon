@@ -1,5 +1,5 @@
 export class Project {
-  id: string;
+  id: number;
   userid: string;
   name: string;
   description: string;
@@ -7,5 +7,5 @@ export class Project {
   city: string;
   postcode: string;
   email: string;
-  phone: string;
+  phone: number;
 }
