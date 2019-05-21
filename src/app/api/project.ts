@@ -1,11 +1,11 @@
 export class Project {
-  id: int;
-  userid: int;
+  id: string;
+  userid: string;
   name: string;
   description: string;
   address: string;
   city: string;
   postcode: string;
   email: string;
-  phone: int;
+  phone: string;
 }
