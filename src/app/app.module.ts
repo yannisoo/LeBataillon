@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './home/main/main.component';
 import { ListeComponent } from './liste-devis/liste/liste.component';
+import { FormComponent } from './create-project/form/form.component';
 import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 
@@ -16,8 +17,10 @@ import { ProjectSingleComponent } from './project/project-single/project-single.
     HeaderComponent,
     MainComponent,
     ListeComponent,
+    FormComponent,
     ProjectNavbarComponent,
     ProjectSingleComponent
+
   ],
   imports: [
     BrowserModule,
@@ -25,5 +28,5 @@ import { ProjectSingleComponent } from './project/project-single/project-single.
   ],
   providers: [],
   bootstrap: [AppComponent]
-})
+})  
 export class AppModule { }
