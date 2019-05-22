@@ -37,7 +37,7 @@ catchError(this.handleError)
 }
 // HttpClient API get() method => Fetch bill with id
 getBillsByProjectId(project_id): Observable<Bill> {
-return this.http.get<Bill>(this.apiURL + '/billsProject/' + id, this.httpOptions)
+return this.http.get<Bill>(this.apiURL + '/billsProject/' + project_id, this.httpOptions)
 .pipe(
 retry(1),
 catchError(this.handleError)
