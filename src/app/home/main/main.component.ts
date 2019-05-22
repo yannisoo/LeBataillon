@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiprojectService } from '../../api/api-project.service';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent implements OnInit {
-
-  constructor() { }
+Project: any = [];
+  constructor(
+    public api: ApiprojectService
+  ) { }
 
   ngOnInit() {
+    this.loadProjects()
+  }
+  loadProjects(){
+    return this.api.getProjects().subscribe((data: {})=>{
+      this.Project = data;
+    })
   }
 
 }
