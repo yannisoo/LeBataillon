@@ -252,7 +252,7 @@ class Bill
         return $this;
     }
 
-    public function getUnitPrice4(): ?int
+    public function getUnitPrice4(): ?i
     {
         return $this->unitPrice4;
     }
