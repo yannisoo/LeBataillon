@@ -24,6 +24,7 @@ class BillType extends AbstractType
             ->add('description4')
             ->add('unit_price4')
             ->add('quantity4')
+            ->add('project_id')
             ->add('save', SubmitType::class)
         ;
     }
