@@ -7,7 +7,7 @@ import { MainComponent } from './home/main/main.component';
 import { LoginComponent } from './login/login.component'
 
 const routes: Routes = [
-  { path: 'project-single', component: ProjectSingleComponent},
+  { path: 'project/:id', component: ProjectSingleComponent},
   { path: 'create-project', component: FormComponent},
   { path: '', component: MainComponent},
   { path: 'login', component: LoginComponent}

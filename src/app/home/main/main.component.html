@@ -5,7 +5,8 @@
     <ul>
       <li><a href=""><img src="/assets/images/folderAdd.png" alt=""></a></li>
       <li *ngFor="let Project of Project">
-        <a [ngSwitch]="this.Project.status" routerLink="/project-single">
+        <a [ngSwitch]="this.Project.status" routerLink="/project/{{this.Project.id}}">
+          <img style="width: 200px; height: 200px" *ngSwitchCase="0" src="assets/images/folderInProgress.png" alt="">
           <img style="width: 200px; height: 200px" *ngSwitchCase="1" src="assets/images/folderDone.png" alt="">
           <img style="width: 200px; height: 200px" *ngSwitchCase="2" src="assets/images/folderError.png" alt="">
         </a>
