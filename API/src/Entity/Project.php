@@ -28,6 +28,13 @@ class Project
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
      */
+
+    private $contact;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+
     private $description;
 
     /**
@@ -85,6 +92,18 @@ class Project
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getContact(): ?string
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?string $contact): self
+    {
+        $this->contact = $contact;
 
         return $this;
     }
