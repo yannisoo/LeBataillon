@@ -55,6 +55,11 @@ class Project
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $status;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -152,6 +157,18 @@ class Project
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
