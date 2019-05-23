@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiprojectService } from '../../api/api-project.service';
-import { Project } from 'src/app/api/class/project';
 
 @Component({
   selector: 'app-main',
@@ -17,7 +16,7 @@ Project: any = [];
 
   ngOnInit() {
     this.loadProjects()
-    
+
   }
   loadProjects(){
     return this.api.getProjects().subscribe((data: {})=>{
