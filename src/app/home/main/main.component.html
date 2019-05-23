@@ -9,9 +9,14 @@
       <li *ngFor="let Project of Project">
         <a routerLink="/project-single">
           <img src="assets/images/folderDone.png" alt="">
-          {{Project.name}}
+          <p>{{Project.name}}</p>
         </a>
       </li>
     </ul>
   </div>
 </main>
+
+<a [ngSwitch]="statut">
+  <img *ngSwitchCase="'done'" src="assets/images/folderDone.png" alt="">
+  <img *ngSwitchCase="'error'" src="assets/images/folderError.png" alt="">
+</a>
