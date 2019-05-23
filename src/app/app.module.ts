@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
-
+import { EventService } from './auth/event.service';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth.guard';
 import {TokenInterceptorService} from './auth/token-interceptor.service';
@@ -17,7 +17,7 @@ import { ListeComponent } from './liste-devis/liste/liste.component';
 import { FormComponent } from './create-project/form/form.component';
 import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
-import { EventService } from './auth/event.service';
+import { ProjectMainComponent } from './project/project-main/project-main.component'
 import { LandingPageComponent } from './landing-page/landing-page.component'
 
 
@@ -31,6 +31,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component'
     ProjectNavbarComponent,
     ProjectSingleComponent,
     LoginComponent,
+    ProjectMainComponent,
     LandingPageComponent
 
   ],

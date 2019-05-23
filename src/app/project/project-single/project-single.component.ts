@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiprojectService} from '../../api/api-project.service';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-project-single',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectSingleComponent implements OnInit {
 
-  constructor() { }
+  Project: any = {};
+  constructor(
+      private route: ActivatedRoute,
+      public api: ApiprojectService,
+      public router: Router,
+  ) {
+    this.route.params.subscribe( params =>  this.loadProject(params['id']));
+  }
 
   ngOnInit() {
+
+  }
+  loadProject(id){
+    return this.api.getProjectById(id).subscribe((data: {}) => {
+      this.Project = data;
+    })
   }
 
 }
