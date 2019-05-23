@@ -17,7 +17,8 @@ import { ListeComponent } from './liste-devis/liste/liste.component';
 import { FormComponent } from './create-project/form/form.component';
 import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
-import { EventService } from './auth/event.service'
+import { EventService } from './auth/event.service';
+import { LandingPageComponent } from './landing-page/landing-page.component'
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { EventService } from './auth/event.service'
     FormComponent,
     ProjectNavbarComponent,
     ProjectSingleComponent,
-    LoginComponent
+    LoginComponent,
+    LandingPageComponent
 
   ],
   imports: [
