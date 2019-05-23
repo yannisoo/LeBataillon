@@ -8,4 +8,5 @@ export class Project {
   postcode: string;
   email: string;
   phone: number;
+  status: number;
 }
