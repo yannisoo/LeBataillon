@@ -4,9 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
-  selector: 'app-project-main',
-  templateUrl: './project-main.component.html',
-  styleUrls: ['./project-main.component.sass']
+  selector: 'app-project-single',
+  templateUrl: './project-single.component.html',
+  styleUrls: ['./project-single.component.sass']
 })
 export class ProjectSingleComponent implements OnInit {
 
