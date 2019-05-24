@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
   }
