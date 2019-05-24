@@ -19,7 +19,8 @@ import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { ProjectMainComponent } from './project/project-main/project-main.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SuiviClientComponent } from './suivi-client/suivi-client.component'
+import { SuiviClientComponent } from './suivi-client/suivi-client.component';
+import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SuiviClientComponent } from './suivi-client/suivi-client.component'
     LoginComponent,
     ProjectMainComponent,
     LandingPageComponent,
-    SuiviClientComponent
+    SuiviClientComponent,
+    PdfGenComponent
 
   ],
   imports: [

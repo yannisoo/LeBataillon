@@ -8,6 +8,7 @@ import { ProjectSingleComponent } from './project/project-single/project-single.
 import { MainComponent } from './home/main/main.component';
 import { LoginComponent } from './login/login.component'
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
+import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'projects', component: MainComponent, canActivate:[AuthGuard] },
   { path: '', component: LandingPageComponent, canActivate:[AuthGuard] },
   { path: 'login', component: LoginComponent},
-  { path: 'suivi-client', component: SuiviClientComponent,canActivate:[AuthGuard]}
+  { path: 'suivi-client', component: SuiviClientComponent,canActivate:[AuthGuard]},
+  { path: 'create-bill', component: PdfGenComponent, canActivate:[AuthGuard]}
 ];
 
 
