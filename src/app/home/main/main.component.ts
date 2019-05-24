@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiprojectService } from '../../api/api-project.service';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -15,12 +16,14 @@ Project: any = [];
 
 
   ngOnInit() {
+
     this.loadProjects()
 
   }
   loadProjects(){
-    return this.api.getProjects().subscribe((data: {})=>{
-      this.Project = data;
+    return this.api.getProjectByUserId(localStorage.getItem('token')).subscribe((data: {})=>{
+      //this.Project = data;
+      console.log('ca marche')
     })
   }
 

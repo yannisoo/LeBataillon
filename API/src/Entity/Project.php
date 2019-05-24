@@ -16,7 +16,7 @@ class Project
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $userid;
 
@@ -72,12 +72,12 @@ class Project
         return $this->id;
     }
 
-    public function getUserid(): ?int
+    public function getUserid(): ?string
     {
         return $this->userid;
     }
 
-    public function setUserid(?int $userid): self
+    public function setUserid(?string $userid): self
     {
         $this->userid = $userid;
 
