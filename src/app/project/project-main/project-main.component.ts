@@ -23,9 +23,7 @@ export class ProjectMainComponent implements OnInit {
     contact: '',
   }
 
-  @Input() Bill = {
-    id: '',
-  }
+  Bill: any = {}
 
   constructor(
       public api: ApibillService,
