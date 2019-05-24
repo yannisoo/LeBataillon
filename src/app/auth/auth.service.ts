@@ -26,14 +26,14 @@ export class AuthService {
   }
 
    loggedIn(){
-
+     
      return !!localStorage.getItem('token')
    }
 
    logoutUser(){
 
      localStorage.removeItem('token')
-     this._router.navigate(['/events'])
+     this._router.navigate(['/login'])
    }
 
    getToken(){
