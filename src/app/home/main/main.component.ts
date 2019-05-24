@@ -21,9 +21,8 @@ Project: any = [];
 
   }
   loadProjects(){
-    return this.api.getProjectByUserId(localStorage.getItem('token')).subscribe((data: {})=>{
-      //this.Project = data;
-      console.log('ca marche')
+    return this.api.getProjects().subscribe((data: {})=>{
+      this.Project = data;
     })
   }
 
