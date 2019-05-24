@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ApibillService} from '../../api/api-bill.service';
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-project-main',
@@ -19,9 +22,23 @@ export class ProjectMainComponent implements OnInit {
     status: '',
     contact: '',
   }
-  constructor() { }
+
+  @Input() Bill = {
+    id: '',
+  }
+
+  constructor(
+      public api: ApibillService,
+      public router: Router,
+  ) {
+  }
 
   ngOnInit() {
   }
 
+  delBill(id) {
+    this.api.deleteBill(id).subscribe((data: {}) => {
+      this.Bill = data;
+    })
+  }
 }

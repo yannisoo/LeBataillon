@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190523214846 extends AbstractMigration
+final class Version20190524094520 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,7 @@ final class Version20190523214846 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE project ADD contact VARCHAR(1000) DEFAULT NULL');
+        $this->addSql('ALTER TABLE bill ADD created_at DATETIME NOT NULL, ADD email_reminder DATETIME DEFAULT NULL, ADD call_reminder DATETIME DEFAULT NULL, DROP date');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20190523214846 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE project DROP contact');
+        $this->addSql('ALTER TABLE bill ADD date VARCHAR(255) DEFAULT NULL COLLATE utf8mb4_unicode_ci, DROP created_at, DROP email_reminder, DROP call_reminder');
     }
 }
