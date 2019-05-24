@@ -9,4 +9,5 @@ export class Project {
   email: string;
   phone: number;
   status: number;
+  contact: string;
 }
