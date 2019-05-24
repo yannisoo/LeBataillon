@@ -16,6 +16,7 @@
     <p>email: {{this.Project.email}}</p>
     </div>
 
+
     <div class="radio">
       <h6>Délai de paiement :</h6>
       <div>
@@ -43,22 +44,6 @@
         <i class="material-icons right">send</i>
       </button>
     </div>
-
-    <input type="checkbox" id="23" ng-model="selected">
-    <label for="23">Check me to select: </label><br/>
-    <select aria-label="ngSelected demo">
-      <option>Hello!</option>
-      <option id="greet" ng-selected="selected">Greetings!</option>
-    </select>
-
-    <script>
-      it('should select Greetings!', function() {
-        expect(element(by.id('greet')).getAttribute('selected')).toBeFalsy();
-        element(by.model('selected')).click();
-        expect(element(by.id('greet')).getAttribute('selected')).toBeTruthy();
-      });
-    </script>
-
   </div>
 
 </div>
