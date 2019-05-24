@@ -18,7 +18,8 @@ import { FormComponent } from './create-project/form/form.component';
 import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { ProjectMainComponent } from './project/project-main/project-main.component'
-import { LandingPageComponent } from './landing-page/landing-page.component'
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SuiviClientComponent } from './suivi-client/suivi-client.component'
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component'
     ProjectSingleComponent,
     LoginComponent,
     ProjectMainComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    SuiviClientComponent
 
   ],
   imports: [

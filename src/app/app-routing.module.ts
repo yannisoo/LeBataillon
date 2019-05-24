@@ -7,6 +7,7 @@ import { FormComponent } from './create-project/form/form.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { MainComponent } from './home/main/main.component';
 import { LoginComponent } from './login/login.component'
+import { SuiviClientComponent } from './suivi-client/suivi-client.component';
 
 const routes: Routes = [
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'create-project', component: FormComponent, canActivate:[AuthGuard] },
   { path: 'projects', component: MainComponent, canActivate:[AuthGuard] },
   { path: '', component: LandingPageComponent, canActivate:[AuthGuard] },
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'suivi-client', component: SuiviClientComponent,canActivate:[AuthGuard]}
 ];
 
 
