@@ -5,64 +5,64 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use App\Entity\Bill;
-use App\Form\BillType;
+use App\Entity\Quotation;
+use App\Form\QuotationType;
 /**
  * Movie controller.
  * @Route("/api", name="api_")
  */
-class BillController extends FOSRestController
+class QuotationController extends FOSRestController
 {
     /**
      * Lists all Pages.
-     * @Rest\Get("/bills")
+     * @Rest\Get("/quotations")
      *
      * @return Response
      */
-    public function getBillAction()
+    public function getQuotationAction()
     {
-        $repository = $this->getDoctrine()->getRepository(Bill::class);
+        $repository = $this->getDoctrine()->getRepository(Quotation::class);
         $pages = $repository->findall();
         return $this->handleView($this->view($pages));
     }
 
     /**
      * List one Page.
-     * @Rest\Get("/bills/{id}")
+     * @Rest\Get("/quotations/{id}")
      *
      * @param $id
      * @return Response
      */
-    public function getSingleBillAction($id)
+    public function getSingleQuotationAction($id)
     {
-        $repository = $this->getDoctrine()->getRepository(Bill::class);
+        $repository = $this->getDoctrine()->getRepository(Quotation::class);
         $pages = $repository->find($id);
         return $this->handleView($this->view($pages));
     }
     /**
      * List one Page.
-     * @Rest\Get("/billsProject/{project_id}")
+     * @Rest\Get("/quotationsUser/{project_id}")
      *
      * @param $project_id
      * @return Response
      */
-    public function getSingleBillProjectAction($project_id)
+    public function getSingleQuotationByProjectId($project_id)
     {
-        $repository = $this->getDoctrine()->getRepository(Bill::class);
-        $pages = $repository->findOneBy(['project_id' => $project_id]);
+        $repository = $this->getDoctrine()->getRepository(Quotation::class);
+        $pages = $repository->findOneBy([ 'project_id' => $project_id]);
         return $this->handleView($this->view($pages));
     }
 
     /**
      * Create Page.
-     * @Rest\Post("/bill")
+     * @Rest\Post("/quotation")
      *
      * @return Response
      */
-    public function postBillAction(Request $request)
+    public function postQuotationAction(Request $request)
     {
-        $page = new Bill();
-        $form = $this->createForm(BillType::class, $page);
+        $page = new Quotation();
+        $form = $this->createForm(QuotationType::class, $page);
         $data = json_decode($request->getContent(), true);
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -76,13 +76,13 @@ class BillController extends FOSRestController
 
     /**
      * Update Page.
-     * @Rest\Put("/billUpdate/{id}")
+     * @Rest\Put("/quotationUpdate/{id}")
      *
      * @return Response
      */
-    public function UpdatePage(Request $request, Bill $page)
+    public function UpdatePage(Request $request, Quotation $page)
     {
-        $form = $this->createForm(BillType::class, $page);
+        $form = $this->createForm(QuotationType::class, $page);
         $data = json_decode($request->getContent(), true);
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -95,18 +95,18 @@ class BillController extends FOSRestController
     }
 
     /**
-     * Delete Bill.
-     * @Rest\Delete("/billDelete/{id}")
+     * Delete Quotation.
+     * @Rest\Delete("/quotationDelete/{id}")
      *
      * @param $id
      * @return Response
      */
-    public function DeleteBill($id)
+    public function DeleteQuotation($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $bill =  $em->getRepository(Bill::class)->find($id);
+        $quotation =  $em->getRepository(Quotation::class)->find($id);
 
-        $em->remove($bill);
+        $em->remove($quotation);
         $em->flush();
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));

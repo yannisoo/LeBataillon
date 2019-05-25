@@ -1,10 +1,12 @@
+<app-project-navbar [Project]= Project></app-project-navbar>
+
 <div class="container">
 
   <div class="pdf">
     <embed src="assets/pdf/bill_template.pdf" width="100%" height="100%" type="application/pdf">
   </div>
-  <a class="btn-floating btn-large waves-effect waves-light grey"><i class="material-icons">delete</i></a>
   <div class="left-main">
+    <button (click)="delBill(2)" class="btn-floating btn-large waves-effect waves-light grey bin" [routerLinkActive]=""><i class="material-icons">delete</i></button>
     <div class="client">
     <h5>Informations client</h5>
     <p>Nom Entreprise: {{this.Project.name}}</p>
@@ -15,6 +17,27 @@
     <p>Téléphone: {{this.Project.phone}}</p>
     <p>email: {{this.Project.email}}</p>
     </div>
+
+
+    <div class="radio">
+      <h6>Délai de paiement :</h6>
+      <div>
+        <input class="with-gap" type="radio" id="30" name="drone" value="huey"
+               checked>
+        <label for="30">30 jours</label>
+      </div>
+
+      <div>
+        <input class="with-gap" type="radio" id="60" name="drone" value="dewey">
+        <label for="60">60 jours</label>
+      </div>
+
+      <div>
+        <input class="with-gap" type="radio" id="45" name="drone" value="louie">
+        <label for="45">45 jours fin de mois</label>
+      </div>
+    </div>
+
     <div class="button">
       <button class="btn waves-effect waves-light">Modifier
         <i class="material-icons right">edit</i>

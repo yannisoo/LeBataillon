@@ -4,14 +4,20 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use App\Entity\Project;
-class ProjectType extends AbstractType
+use App\Entity\Quotation;
+class QuotationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
         ->add('date')
-        ->add('bill_number')
+        ->add('name')
+        ->add('contact')
+        ->add('address')
+        ->add('city')
+        ->add('postcode')
+        ->add('project_name')
+        ->add('quotation_number')
         ->add('description1')
         ->add('unit_price1')
         ->add('quantity1')
@@ -27,7 +33,7 @@ class ProjectType extends AbstractType
         ->add('description5')
         ->add('unit_price5')
         ->add('quantity5')
-        ->add('project_id')
+        ->add('quotation_id')
         ->add('description6')
         ->add('unit_price6')
         ->add('quantity6')
@@ -66,7 +72,7 @@ class ProjectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Project::class,
+            'data_class' => Quotation::class,
             'csrf_protection' => false
         ));
     }
