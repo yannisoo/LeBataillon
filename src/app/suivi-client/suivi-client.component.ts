@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiprojectService } from '../api/api-project.service';
+import { ApibillService } from '../api/api-bill.service';
 
 
 @Component({
@@ -8,21 +8,21 @@ import { ApiprojectService } from '../api/api-project.service';
   styleUrls: ['./suivi-client.component.sass']
 })
 export class SuiviClientComponent implements OnInit {
-  Project: any = [];
+  Bill: any = [];
     constructor(
-      public api: ApiprojectService
+      public api: ApibillService
     ) { }
-  
-  
+
+
   ngOnInit() {
     this.loadProjects()
 
   }
   loadProjects(){
-    return this.api.getProjects().subscribe((data: {})=>{
-      this.Project = data;
+    return this.api.getBills().subscribe((data: {})=>{
+      this.Bill = data;
     })
   }
-  
+
 
 }

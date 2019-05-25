@@ -282,6 +282,31 @@ class Bill
      */
     private $paymentPeriod;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $downpayment;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $remaining;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $limit_date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $client;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -931,6 +956,66 @@ class Bill
     public function setPaymentPeriod(int $paymentPeriod): self
     {
         $this->paymentPeriod = $paymentPeriod;
+
+        return $this;
+    }
+
+    public function getDownpayment(): ?int
+    {
+        return $this->downpayment;
+    }
+
+    public function setDownpayment(?int $downpayment): self
+    {
+        $this->downpayment = $downpayment;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getRemaining(): ?int
+    {
+        return $this->remaining;
+    }
+
+    public function setRemaining(?int $remaining): self
+    {
+        $this->remaining = $remaining;
+
+        return $this;
+    }
+
+    public function getLimitDate(): ?\DateTimeInterface
+    {
+        return $this->limit_date;
+    }
+
+    public function setLimitDate(?\DateTimeInterface $limit_date): self
+    {
+        $this->limit_date = $limit_date;
+
+        return $this;
+    }
+
+    public function getClient(): ?string
+    {
+        return $this->client;
+    }
+
+    public function setClient(?string $client): self
+    {
+        $this->client = $client;
 
         return $this;
     }

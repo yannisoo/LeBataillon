@@ -8,7 +8,6 @@
         <th>Statut</th>
         <th>Reste a percevoir</th>
         <th>Date limite de reglement</th>
-        <th>Statut</th>
         <th>1ère relance  email</th>
         <th>2ème relance téléphonique</th>
         <th>Paiement réel</th>
@@ -16,122 +15,34 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Facture</td>
-      <td>Client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 1</td>
-    </tr>
-    <tr>
-      <td>facture 1</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 1</td>
-    </tr>
-    <tr>
-      <td>facture 1</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 1</td>
-    </tr>
-    <tr>
-      <td>facture 1</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 1</td>
-    </tr>
-    <tr>
-      <td>facture 1</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 1</td>
-    </tr>
-    <tr>
-      <td>facture 1</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 1</td>
-    </tr>
-    <tr>
-      <td>facture 1</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
+    <tr *ngFor="let Bill of Bill">
+      <td>{{this.Bill.bill_number}}</td>
+      <td>{{this.Bill.client}}</td>
+      <td>{{this.Bill.total_price}}€</td>
+      <td>{{this.Bill.downpayment}}</td>
+      <td>{{this.Bill.status}}</td>
+      <td>{{this.Bill.remaining}}</td>
+      <td>{{this.Bill.limit_date  | date }}</td>
+      <td>{{this.Bill.email_reminder  | date }}</td>
+      <td>{{this.Bill.call_reminder  | date }}</td>
+      <td>{{this.Bill.total_price }}</td>
       <td>Ecart 1</td>
     </tr>
   </tbody>
-  <br>
-  <br>
-  <br>
+
   <tfoot>
     <tr>
       <td>Total</td>
-      <td>client 1</td>
-      <td>Montant 1</td>
-      <td>Accompte 1</td>
-      <td>Statut 1</td>
-      <td>Reste 1</td>
-      <td>Date limite 1</td>
-      <td>Statut bis 1</td>
-      <td>relance email 1</td>
-      <td>relance téléphonique 1</td>
-      <td>paiement réel 1</td>
-      <td>Ecart 2</td>
+      <td></td>
+      <td>Montant total</td>
+      <td></td>
+      <td></td>
+      <td>Reste  total</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>paiement réel total</td>
+      <td></td>
     </tr>
   </tfoot>
 </table>
