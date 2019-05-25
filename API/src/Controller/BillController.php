@@ -49,7 +49,7 @@ class BillController extends FOSRestController
     public function getSingleBillProjectAction($project_id)
     {
         $repository = $this->getDoctrine()->getRepository(Bill::class);
-        $pages = $repository->findOneBy(['project_id' => $project_id]);
+        $pages = $repository->findBy(['project_id' => $project_id]);
         return $this->handleView($this->view($pages));
     }
 

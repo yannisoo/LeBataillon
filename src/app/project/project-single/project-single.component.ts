@@ -11,7 +11,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ProjectSingleComponent implements OnInit {
 
   Project: any = {};
-  Bill: any = {};
   constructor(
       private route: ActivatedRoute,
       public api: ApiprojectService,

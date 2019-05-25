@@ -1,3 +1,4 @@
+<app-project-main [Project]= Project [selected]= selected></app-project-main>
 <nav>
   <ul>
 
@@ -6,19 +7,19 @@
     </li>
 
     <li>
-      <a class="sidebar-subtitle first-subtitle">Devis</a>
+      <a class="sidebar-subtitle first-subtitle">Facture</a>
       <div>
         <ul>
-          <li (click)="onSelect(bill)"><a href="#">Devis_01</a></li>
+          <li *ngFor="let Bill of Bill" (click)="onSelect(this.Bill)"><a>{{this.Bill.bill_number}}</a></li>
         </ul>
       </div>
     </li>
 
     <li>
-      <a class="sidebar-subtitle">Facture</a>
+      <a class="sidebar-subtitle">Devis</a>
         <div>
           <ul>
-            <li (click)="onSelect(bill)" *ngFor="let bill of bill"><a href="#">{{bill.bill_number}}_Facture</a></li>
+            <li (click)="onSelect(this.Quotation)" *ngFor="let Quotation of Quotation"><a>{{this.Quotation.quotation_number}}</a></li>
           </ul>
         </div>
     </li>

@@ -22,8 +22,7 @@ export class ProjectMainComponent implements OnInit {
     status: '',
     contact: '',
   }
-
-  Bill: any = {}
+  @Input() selected = {}
 
   constructor(
       public api: ApibillService,
@@ -34,9 +33,10 @@ export class ProjectMainComponent implements OnInit {
   ngOnInit() {
   }
 
-  delBill(id) {
-    this.api.deleteBill(id).subscribe((data: {}) => {
-      this.Bill = data;
-    })
-  }
+  // delBill(id) {
+  // return this.api.deleteBill(id).subscribe((data: {}) => {
+  //
+  // })
+  // }
+
 }

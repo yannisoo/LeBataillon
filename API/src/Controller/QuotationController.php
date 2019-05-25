@@ -41,7 +41,7 @@ class QuotationController extends FOSRestController
     }
     /**
      * List one Page.
-     * @Rest\Get("/quotationsUser/{project_id}")
+     * @Rest\Get("/quotationsProject/{project_id}")
      *
      * @param $project_id
      * @return Response
@@ -49,7 +49,7 @@ class QuotationController extends FOSRestController
     public function getSingleQuotationByProjectId($project_id)
     {
         $repository = $this->getDoctrine()->getRepository(Quotation::class);
-        $pages = $repository->findOneBy([ 'project_id' => $project_id]);
+        $pages = $repository->findBy([ 'project_id' => $project_id]);
         return $this->handleView($this->view($pages));
     }
 
