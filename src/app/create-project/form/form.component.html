@@ -1,52 +1,57 @@
 <h3>Création d'un compte client</h3>
 <div class="row">
-   <form class="col s12">
-     <div class="row">
-       <div class="input-field col s7">
-         <input  type="text" class="validate">
-         <label for="first_name">Client</label>
-       </div>
-
-       <div class="input-field col s7">
-         <input id="last_name" type="text" class="validate">
-         <label for="last_name">Entreprise</label>
-       </div>
-     </div>
 
      <div class="row">
        <div class="input-field col s7">
-         <input id="email" type="email" class="validate">
-         <label for="email">Email</label>
+         <input [(ngModel)]="this.Project.contact" type="text" class="validate">
+         <label >Client</label>
+       </div>
+
+       <div class="input-field col s7">
+         <input [(ngModel)]="this.Project.name" type="text" class="validate">
+         <label>Entreprise</label>
        </div>
      </div>
 
      <div class="row">
        <div class="input-field col s7">
-         <input id="password" class="validate">
-         <label for="password">Téléphone</label>
+         <input [(ngModel)]="this.Project.email" type="email" class="validate">
+         <label>Email</label>
        </div>
      </div>
 
      <div class="row">
        <div class="input-field col s7">
-         <input id="email" class="validate">
-         <label for="email">Addresse</label>
+         <input [(ngModel)]="this.Project.phone" name="" type="text" name="name" class="validate">
+         <label>Téléphone</label>
        </div>
      </div>
 
      <div class="row">
        <div class="input-field col s7">
-         <input id="email" type="text" class="validate">
-         <label for="email">Ville</label>
+         <input [(ngModel)]="this.Project.address" type="text" name="name" class="validate">
+         <label>Addresse</label>
+       </div>
+     </div>
+
+     <div class="row">
+       <div  class="input-field col s7">
+         <input [(ngModel)]="this.Project.city" name="name" type="text" class="validate">
+         <label>Ville</label>
        </div>
      </div>
 
      <div class="row">
        <div class="input-field col s7">
-         <input id="email" type="text" class="validate">
+         <input [(ngModel)]="this.Project.postcode" name="name" id="email" type="text" class="validate">
          <label for="email">Code postal</label>
        </div>
      </div>
-
-   </form>
+     <div class="row">
+       <div class="input-field col s7">
+         <input [(ngModel)]="this.Project.description" name="name" id="email" type="text" class="validate">
+         <label for="email">Description</label>
+       </div>
+     </div>
+    <a class="waves-effect waves-light btn" (click)="add()">Créer le compte</a>
  </div>
