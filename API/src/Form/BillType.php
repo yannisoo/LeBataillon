@@ -3,6 +3,7 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Bill;
 class BillType extends AbstractType
@@ -10,7 +11,6 @@ class BillType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('date')
         ->add('bill_number')
         ->add('description1')
         ->add('unit_price1')
@@ -64,6 +64,7 @@ class BillType extends AbstractType
         ->add('call_reminder')
         ->add('bill_description')
         ->add('payment_period')
+        ->add('pdf', FileType::class, ['label' => 'Pdf (PDF file)'])
             ->add('save', SubmitType::class)
         ;
     }

@@ -67,6 +67,11 @@ class Project
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $remaining;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +193,17 @@ class Project
     public function setStatus(?int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+    public function getRemaining(): ?int
+    {
+        return $this->remaining;
+    }
+
+    public function setRemaining(?int $remaining): self
+    {
+        $this->remaining = $remaining;
 
         return $this;
     }

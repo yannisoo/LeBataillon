@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef ,ViewChild } from '@angular/core';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ApibillService } from 'src/app/api/api-bill.service';
 
 @Component({
   selector: 'app-pdf-gen',
@@ -9,7 +10,9 @@ import html2canvas from 'html2canvas';
 })
 export class PdfGenComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+      public api: ApibillService
+  ) { }
 
   ngOnInit() {
   }
@@ -27,7 +30,8 @@ export class PdfGenComponent implements OnInit {
       let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save("assets/pdf" + new Date() + ".pdf"); // Generated PDF
+      console.log(pdf)
+      // pdf.save("assets/pdf" + new Date() + ".pdf"); // Generated PDF
     });
   }
 

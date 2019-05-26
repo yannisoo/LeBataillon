@@ -52,7 +52,7 @@ export class ProjectNavbarComponent implements OnInit {
       console.log(this.Bill);
     })
   }
-  onSelect(id): void {
-  this.selected = id;
+  onSelect(object): void {
+  this.selected = object;
 }
 }

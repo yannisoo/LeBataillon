@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BillRepository")
@@ -307,21 +308,10 @@ class Bill
      */
     private $client;
 
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDate(): ?string
-    {
-        return $this->date;
-    }
-
-    public function setDate(?string $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function getBillNumber(): ?string
