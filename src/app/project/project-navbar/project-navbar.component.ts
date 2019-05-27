@@ -9,19 +9,7 @@ import { ApiQuotationService } from 'src/app/api/api-quotation.service';
   styleUrls: ['./project-navbar.component.sass']
 })
 export class ProjectNavbarComponent implements OnInit {
-  @Input() Project = {
-    id: '',
-    userid: '',
-    name: '',
-    description: '',
-    address: '',
-    city: '',
-    postcode: '',
-    phone: '',
-    email: '',
-    status: '',
-    contact: '',
-  }
+  @Input() Project = {}
 
   Bill: any = [];
   selected: any = [];

@@ -10,24 +10,8 @@ import {ApiprojectService} from "../../api/api-project.service";
   styleUrls: ['./project-main.component.sass']
 })
 export class ProjectMainComponent implements OnInit {
-  @Input() Project = {
-    id: '',
-    userid: '',
-    name: '',
-    description: '',
-    address: '',
-    city: '',
-    postcode: '',
-    phone: '',
-    email: '',
-    status: '',
-    contact: '',
-    remaining: '' ,
-  }
-  @Input() selected = {
-    total_price: '',
-    project_id: '',
-  }
+  @Input() Project: any;
+  @Input() selected: any;
 
   constructor(
       public apiBill: ApibillService,
@@ -53,6 +37,7 @@ export class ProjectMainComponent implements OnInit {
     //console.log(projectRemaining)
     //let billTotalPrice: any = this.selected.total_price
     //console.log(billTotalPrice)
+
 
     console.log(this.Project.remaining)
     console.log(this.selected.total_price)
