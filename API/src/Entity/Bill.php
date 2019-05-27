@@ -307,6 +307,7 @@ class Bill
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $client;
+    
 
 
     public function getId(): ?int

@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { MatButtonModule } from '@angular/material';
 
 import { EventService } from './auth/event.service';
 import {AuthService} from './auth/auth.service';
@@ -43,7 +46,10 @@ import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PdfViewerModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    // MatButtonModule
   ],
   providers: [AuthService, AuthGuard, EventService,{
        provide: HTTP_INTERCEPTORS,
