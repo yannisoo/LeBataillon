@@ -10,4 +10,5 @@ export class Project {
   phone: number;
   status: number;
   contact: string;
+  remaining: any;
 }

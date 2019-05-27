@@ -20,6 +20,7 @@ class ProjectType extends AbstractType
         ->add('description')
         ->add('userid')
         ->add('status')
+        ->add('remaining')
             ->add('save', SubmitType::class)
         ;
     }
