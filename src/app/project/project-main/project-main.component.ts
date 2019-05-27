@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApibillService} from '../../api/api-bill.service';
 import {Router} from "@angular/router";
+import {ApiprojectService} from "../../api/api-project.service";
 
 
 @Component({
@@ -9,28 +10,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./project-main.component.sass']
 })
 export class ProjectMainComponent implements OnInit {
-  @Input() Project = {
-    id: '',
-    userid: '',
-    name: '',
-    description: '',
-    address: '',
-    city: '',
-    postcode: '',
-    phone: '',
-    email: '',
-    status: '',
-    contact: '',
-  }
-  @Input() selected = {}
+  @Input() Project: any;
+  @Input() selected: any;
 
   constructor(
-      public api: ApibillService,
+      public apiBill: ApibillService,
+      public apiProject: ApiprojectService,
       public router: Router,
   ) {
   }
 
   ngOnInit() {
+
   }
 
   // delBill(id) {
@@ -39,4 +30,27 @@ export class ProjectMainComponent implements OnInit {
   // })
   // }
 
+  updateRemaining(id){
+
+    //console.log(this.Project)
+    //let projectRemaining: any = this.Project.remaining
+    //console.log(projectRemaining)
+    //let billTotalPrice: any = this.selected.total_price
+    //console.log(billTotalPrice)
+
+
+    console.log(this.Project.remaining)
+    console.log(this.selected.total_price)
+
+    this.Project.remaining = this.Project.remaining - this.selected.total_price
+    console.log(this.Project.remaining)
+    console.log(this.Project)
+
+
+    this.apiProject.updateProject(this.Project.id, this.Project).subscribe((data: {}) => {
+      this.Project = data;
+      console.log(this.Project)
+    })
+
+  }
 }

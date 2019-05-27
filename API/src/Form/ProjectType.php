@@ -20,6 +20,7 @@ class ProjectType extends AbstractType
         ->add('description')
         ->add('userid')
         ->add('status')
+        ->add('remaining')
             ->add('save', SubmitType::class)
         ;
     }
@@ -27,7 +28,8 @@ class ProjectType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Project::class,
-            'csrf_protection' => false
+            'csrf_protection' => false,
+            "allow_extra_fields" => true
         ));
     }
 }

@@ -39,11 +39,10 @@ export class SuiviClientComponent implements OnInit {
       console.log('test')
 
     for (Bill of Bill) {
-        console.log(Bill)
+        //console.log(Bill)
       var tempProj = this.Project.find(item => item.id === Bill.project_id)
       console.log(tempProj)
       Bill.xpatate = tempProj.remaining
-      console
     }
 
   }
