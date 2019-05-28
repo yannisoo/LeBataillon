@@ -1,3 +1,5 @@
+import DateTimeFormat = Intl.DateTimeFormat;
+
 export class Bill {
   id: number;
   date: string;
@@ -48,5 +50,5 @@ export class Bill {
   description15: string;
   unit_price15: number;
   project_id: number;
-  create_at: Date;
+  created_at: Date;
 }
