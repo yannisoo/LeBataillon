@@ -26,6 +26,9 @@ class ProjectFixtures extends Fixture
             $project->setEmail('email'.$i.'@gmail.com');
             $project->setStatus(rand(0,2));
             $project->setContact('contact'.$i);
+            $project->setDownpayment(rand( 10,15));
+            $project->setTotalPrice(rand( 15,100));
+            $project->setRemaining($project->getTotalPrice() - $project->getDownpayment());
             $manager->persist($project);
         }
         $metadata = $manager->getClassMetaData(get_class($project));
