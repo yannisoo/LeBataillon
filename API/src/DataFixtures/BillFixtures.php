@@ -24,8 +24,8 @@ class BillFixtures extends Fixture
             $bill->setStatus(rand(0,2));
             $bill->setProjectId('1');
             $bill->setPriceTotal($bill->getUnitPrice1() + $bill->getUnitPrice2());
-
             $bill->setMainbillDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ipsum nibh. Curabitur at luctus mi. Pellentesque pharetra bibendum.');
+
             $manager->persist($bill);
         }
         for ($i = 0 ; $i < 3; $i++) {
@@ -41,8 +41,8 @@ class BillFixtures extends Fixture
             $bill->setStatus(rand(0,2));
             $bill->setProjectId('2');
             $bill->setPriceTotal($bill->getUnitPrice1() + $bill->getUnitPrice2());
-
             $bill->setMainbillDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ipsum nibh. Curabitur at luctus mi. Pellentesque pharetra bibendum.');
+
             $manager->persist($bill);
         }
 
