@@ -3,7 +3,6 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Bill;
 class BillType extends AbstractType
@@ -58,11 +57,11 @@ class BillType extends AbstractType
         ->add('description15')
         ->add('unit_price15')
         ->add('quantity15')
-        ->add('total_price')
+        ->add('price_total')
         ->add('created_at')
         ->add('email_reminder')
         ->add('call_reminder')
-        ->add('bill_description')
+        ->add('mainbill_description')
         ->add('payment_period')
             ->add('save', SubmitType::class)
         ;
@@ -71,7 +70,8 @@ class BillType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Bill::class,
-            'csrf_protection' => false
+            'csrf_protection' => false,
+            "allow_extra_fields" => true
         ));
     }
 }

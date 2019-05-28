@@ -254,11 +254,6 @@ class Bill
     private $unitPrice15;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $totalPrice;
-
-    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $createdAt;
@@ -274,11 +269,6 @@ class Bill
     private $callReminder;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $bill_description;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $paymentPeriod;
@@ -286,20 +276,10 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $downpayment;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
     private $status;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $remaining;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $limit_date;
 
@@ -307,6 +287,16 @@ class Bill
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $client;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $mainbill_description;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $price_total;
 
 
 
@@ -885,18 +875,6 @@ class Bill
         return $this;
     }
 
-    public function getTotalPrice(): ?int
-    {
-        return $this->totalPrice;
-    }
-
-    public function setTotalPrice(int $totalPrice): self
-    {
-        $this->totalPrice = $totalPrice;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?string
     {
         return $this->createdAt;
@@ -933,18 +911,6 @@ class Bill
         return $this;
     }
 
-    public function getBillDescription(): ?string
-    {
-        return $this->bill_description;
-    }
-
-    public function setBillDescription(string $bill_description): self
-    {
-        $this->bill_description = $bill_description;
-
-        return $this;
-    }
-
     public function getPaymentPeriod(): ?int
     {
         return $this->paymentPeriod;
@@ -957,18 +923,6 @@ class Bill
         return $this;
     }
 
-    public function getDownpayment(): ?int
-    {
-        return $this->downpayment;
-    }
-
-    public function setDownpayment(?int $downpayment): self
-    {
-        $this->downpayment = $downpayment;
-
-        return $this;
-    }
-
     public function getStatus(): ?int
     {
         return $this->status;
@@ -977,18 +931,6 @@ class Bill
     public function setStatus(?int $status): self
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    public function getRemaining(): ?int
-    {
-        return $this->remaining;
-    }
-
-    public function setRemaining(?int $remaining): self
-    {
-        $this->remaining = $remaining;
 
         return $this;
     }
@@ -1013,6 +955,30 @@ class Bill
     public function setClient(?string $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getMainbillDescription(): ?string
+    {
+        return $this->mainbill_description;
+    }
+
+    public function setMainbillDescription(?string $mainbill_description): self
+    {
+        $this->mainbill_description = $mainbill_description;
+
+        return $this;
+    }
+
+    public function getPriceTotal(): ?int
+    {
+        return $this->price_total;
+    }
+
+    public function setPriceTotal(?int $price_total): self
+    {
+        $this->price_total = $price_total;
 
         return $this;
     }

@@ -72,6 +72,16 @@ class Project
      */
     private $remaining;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $downpayment;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $total_price;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -210,6 +220,30 @@ class Project
     public function setRemaining(?int $remaining): self
     {
         $this->remaining = $remaining;
+
+        return $this;
+    }
+
+    public function getDownpayment(): ?int
+    {
+        return $this->downpayment;
+    }
+
+    public function setDownpayment(?int $downpayment): self
+    {
+        $this->downpayment = $downpayment;
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?int
+    {
+        return $this->total_price;
+    }
+
+    public function setTotalPrice(?int $total_price): self
+    {
+        $this->total_price = $total_price;
 
         return $this;
     }

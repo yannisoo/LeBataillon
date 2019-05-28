@@ -21,12 +21,11 @@ class BillFixtures extends Fixture
             $bill->setQuantity2('1');
             $bill->setUnitPrice1(rand(1,30));
             $bill->setUnitPrice2(rand(1,30));
+            $bill->setStatus(rand(0,2));
             $bill->setProjectId('1');
-            $bill->setTotalPrice($bill->getUnitPrice1() + $bill->getUnitPrice2());
+            $bill->setPriceTotal($bill->getUnitPrice1() + $bill->getUnitPrice2());
 
-            $bill->setBillDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ipsum nibh. Curabitur at luctus mi. Pellentesque pharetra bibendum.');
-            $bill->setDownpayment(rand( 10,15));
-            $bill->setRemaining($bill->getDownpayment() - $bill->getTotalPrice());
+            $bill->setMainbillDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ipsum nibh. Curabitur at luctus mi. Pellentesque pharetra bibendum.');
             $manager->persist($bill);
         }
         for ($i = 0 ; $i < 3; $i++) {
@@ -39,12 +38,11 @@ class BillFixtures extends Fixture
             $bill->setQuantity2('1');
             $bill->setUnitPrice1(rand(1,30));
             $bill->setUnitPrice2(rand(1,30));
+            $bill->setStatus(rand(0,2));
             $bill->setProjectId('2');
-            $bill->setTotalPrice($bill->getUnitPrice1() + $bill->getUnitPrice2());
+            $bill->setPriceTotal($bill->getUnitPrice1() + $bill->getUnitPrice2());
 
-            $bill->setBillDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ipsum nibh. Curabitur at luctus mi. Pellentesque pharetra bibendum.');
-            $bill->setDownpayment(rand( 10,15));
-            $bill->setRemaining($bill->getDownpayment() - $bill->getTotalPrice());
+            $bill->setMainbillDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ipsum nibh. Curabitur at luctus mi. Pellentesque pharetra bibendum.');
             $manager->persist($bill);
         }
 

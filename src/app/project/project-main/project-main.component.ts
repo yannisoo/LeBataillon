@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApibillService} from '../../api/api-bill.service';
-import {Router} from "@angular/router";
-import {ApiprojectService} from "../../api/api-project.service";
+import {Router} from '@angular/router';
+import {ApiprojectService} from '../../api/api-project.service';
 
 
 @Component({
@@ -31,29 +31,27 @@ export class ProjectMainComponent implements OnInit {
   // })
   // }
 
-  updateRemaining(id){
-    console.log(this.Project.remaining)
-    console.log(this.selected.total_price)
-    console.log(this.selected)
+  updateRemaining(id) {
+    console.log(this.Project.remaining);
+    console.log(this.selected.price_total);
+    console.log(this.selected);
 
-    this.Project.remaining = this.Project.remaining - this.selected.total_price
-    console.log(this.Project.remaining)
+    this.Project.remaining = this.Project.remaining - this.selected.price_total;
+    console.log(this.Project.remaining);
     console.log(this.Project)
-    this.selected.status = 1
+;
+    if (window.confirm('La facture a-t-elle bien été payé ?')) {
 
-   // this.selected.created_at = new Date(this.selected.created_at);
+      this.selected.status = 0;
 
-    console.log(this.selected.created_at)
-
-    if(window.confirm('La facture a-t-elle bien été payé ?')) {
       this.apiProject.updateProject(this.Project.id, this.Project).subscribe((data: {}) => {
         this.Project = data;
-        console.log(this.Project)
-      })
-      //this.apiBill.updateBill(this.selected.id, this.selected).subscribe((data: {}) => {
-        //this.selected = data;
-        //console.log(this.selected)
-      //})
+        console.log(this.Project);
+      });
+      this.apiBill.updateBill(this.selected.id, this.selected).subscribe((data: {}) => {
+        this.selected = data;
+        console.log(this.selected);
+      });
     }
   }
 }
