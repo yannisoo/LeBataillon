@@ -22,7 +22,7 @@ class ProjectController extends FOSRestController
     public function getProjectAction()
     {
         $repository = $this->getDoctrine()->getRepository(Project::class);
-        $pages = $repository->findall();
+        $pages = $repository->findProjects();
         return $this->handleView($this->view($pages));
     }
 
@@ -69,7 +69,7 @@ class ProjectController extends FOSRestController
             $em = $this->getDoctrine()->getManager();
             $em->persist($page);
             $em->flush();
-            return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+            return $this->handleView($this->view($page), Response::HTTP_CREATED);
         }
         return $this->handleView($this->view($form->getErrors()));
     }
