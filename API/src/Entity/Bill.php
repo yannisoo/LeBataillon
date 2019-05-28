@@ -259,17 +259,17 @@ class Bill
     private $totalPrice;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $emailReminder;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $callReminder;
 
@@ -289,7 +289,7 @@ class Bill
     private $downpayment;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $status;
 
@@ -891,36 +891,36 @@ class Bill
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(string $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getEmailReminder(): ?\DateTimeInterface
+    public function getEmailReminder(): ?string
     {
         return $this->emailReminder;
     }
 
-    public function setEmailReminder(?\DateTimeInterface $emailReminder): self
+    public function setEmailReminder(?string $emailReminder): self
     {
         $this->emailReminder = $emailReminder;
 
         return $this;
     }
 
-    public function getCallReminder(): ?\DateTimeInterface
+    public function getCallReminder(): ?string
     {
         return $this->callReminder;
     }
 
-    public function setCallReminder(?\DateTimeInterface $callReminder): self
+    public function setCallReminder(?string $callReminder): self
     {
         $this->callReminder = $callReminder;
 
@@ -963,12 +963,12 @@ class Bill
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?int
     {
         return $this->status;
     }
 
-    public function setStatus(?string $status): self
+    public function setStatus(?int $status): self
     {
         $this->status = $status;
 
@@ -987,12 +987,12 @@ class Bill
         return $this;
     }
 
-    public function getLimitDate(): ?\DateTimeInterface
+    public function getLimitDate(): ?string
     {
         return $this->limit_date;
     }
 
-    public function setLimitDate(?\DateTimeInterface $limit_date): self
+    public function setLimitDate(?string $limit_date): self
     {
         $this->limit_date = $limit_date;
 

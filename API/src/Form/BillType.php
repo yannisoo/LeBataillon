@@ -64,7 +64,6 @@ class BillType extends AbstractType
         ->add('call_reminder')
         ->add('bill_description')
         ->add('payment_period')
-        ->add('pdf', FileType::class, ['label' => 'Pdf (PDF file)'])
             ->add('save', SubmitType::class)
         ;
     }

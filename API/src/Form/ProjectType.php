@@ -29,7 +29,7 @@ class ProjectType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Project::class,
             'csrf_protection' => false,
-            "allow_extra_fields" => true
+            "allow_extra_fields" => true //fuck Yannis le crado
         ));
     }
 }
