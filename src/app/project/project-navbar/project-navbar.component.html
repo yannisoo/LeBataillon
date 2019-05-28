@@ -1,4 +1,5 @@
-<app-project-main [Bill]= Bill [Project]= Project [selected]= selected></app-project-main>
+<app-project-main *ngIf="this.selected" [Bill]= Bill [Project]= Project [selected]= selected></app-project-main>
+<app-project-main-empty *ngIf="!this.selected" [Bill]= Bill [Project]= Project ></app-project-main-empty>
 <nav>
   <ul>
 

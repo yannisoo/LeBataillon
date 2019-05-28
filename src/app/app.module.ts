@@ -23,7 +23,8 @@ import { ProjectSingleComponent } from './project/project-single/project-single.
 import { ProjectMainComponent } from './project/project-main/project-main.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
-import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
+import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
+import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component'
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
     ProjectMainComponent,
     LandingPageComponent,
     SuiviClientComponent,
-    PdfGenComponent
+    PdfGenComponent,
+    ProjectMainEmptyComponent
 
   ],
   imports: [

@@ -12,7 +12,7 @@ export class ProjectNavbarComponent implements OnInit {
   @Input() Project = {}
 
   Bill: any = [];
-  selected: any = [];
+  selected: any;
   Quotation: any = [];
 
   constructor(
