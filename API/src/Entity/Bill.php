@@ -254,12 +254,12 @@ class Bill
     private $unitPrice15;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $totalPrice;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $createdAt;
 
@@ -274,12 +274,12 @@ class Bill
     private $callReminder;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $bill_description;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $paymentPeriod;
 
@@ -307,12 +307,18 @@ class Bill
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $client;
-    
+
 
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function setUserId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getBillNumber(): ?string
