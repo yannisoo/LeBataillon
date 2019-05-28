@@ -59,6 +59,7 @@ class BillType extends AbstractType
         ->add('quantity15')
         ->add('price_total')
         ->add('created_at')
+        ->add('status')
         ->add('email_reminder')
         ->add('call_reminder')
         ->add('mainbill_description')

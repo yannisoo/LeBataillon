@@ -45,11 +45,9 @@ export class ProjectMainComponent implements OnInit {
       this.selected.status = 0;
 
       this.apiProject.updateProject(this.Project.id, this.Project).subscribe((data: {}) => {
-        this.Project = data;
         console.log(this.Project);
       });
       this.apiBill.updateBill(this.selected.id, this.selected).subscribe((data: {}) => {
-        this.selected = data;
         console.log(this.selected);
       });
     }
