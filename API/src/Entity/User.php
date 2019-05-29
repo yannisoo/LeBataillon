@@ -40,7 +40,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="integer", length=255, nullable=true)
      */
-    private $roles;
+    private $roles = [];
 
     public function getId(): ?int
     {
@@ -116,7 +116,9 @@ class User implements UserInterface
       //   return ['ROLE_USER'];
       // }
 
-      return ['ROLE_USER'];
+       $roles = $this->roles;
+       // guarantee every user at least has ROLE_USER
+       $roles[] = 'ROLE_USER';
 
         }
 
