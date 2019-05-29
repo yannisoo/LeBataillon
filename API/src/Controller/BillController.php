@@ -197,7 +197,9 @@ class BillController extends FOSRestController
                     ['name' => $name]
                 ),
                 'text/html'
-            )
+            );
+          }
+
             /*
              * If you also want to include a plaintext version of the message
             ->addPart(
@@ -208,10 +210,10 @@ class BillController extends FOSRestController
                 'text/plain'
             )
             */
-        ;
+        // ;
 
-        $mailer->send($message);
+        // $mailer->send($message);
+        //
+        // return $this->render(...);
 
-        return $this->render(...);
-    }
 }
