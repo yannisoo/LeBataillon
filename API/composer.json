@@ -6,8 +6,11 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "doctrine/annotations": "^1.6",
         "friendsofsymfony/rest-bundle": "^2.5",
+        "friendsofsymfony/user-bundle": "~2.0",
         "jms/serializer-bundle": "^2.4",
+        "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/cors-bundle": "^1.5",
         "sensio/framework-extra-bundle": "^5.3",
         "symfony/console": "4.2.*",
@@ -16,6 +19,9 @@
         "symfony/form": "4.2.*",
         "symfony/framework-bundle": "4.2.*",
         "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "4.2.*",
+        "symfony/swiftmailer-bundle": "^3.2",
+        "symfony/translation": "4.2.*",
         "symfony/validator": "4.2.*",
         "symfony/yaml": "4.2.*"
     },
@@ -66,6 +72,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.1",
-        "symfony/maker-bundle": "^1.11"
+        "symfony/maker-bundle": "^1.11",
+        "symfony/profiler-pack": "^1.0"
     }
 }

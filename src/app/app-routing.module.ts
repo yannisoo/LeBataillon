@@ -6,14 +6,16 @@ import { LandingPageComponent } from './landing-page/landing-page.component'
 import { FormComponent } from './create-project/form/form.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { MainComponent } from './home/main/main.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent} from './register/register.component'
 
 const routes: Routes = [
 
-  { path: 'project/:id', component: ProjectSingleComponent, canActivate:[AuthGuard]},
-  { path: 'create-project', component: FormComponent, canActivate:[AuthGuard] },
-  { path: 'projects', component: MainComponent, canActivate:[AuthGuard] },
-  { path: '', component: LandingPageComponent, canActivate:[AuthGuard] },
+  { path: 'project/:id', component: ProjectSingleComponent},
+  { path: 'create-project', component: FormComponent},
+  { path: 'projects', component: MainComponent},
+  { path: '', component: LandingPageComponent},
+  { path: 'user', component: RegisterComponent},
   { path: 'login', component: LoginComponent}
 ];
 
