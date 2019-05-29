@@ -5,84 +5,64 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use App\Entity\Project;
-use App\Form\ProjectType;
+use App\Entity\Quotation;
+use App\Form\QuotationType;
 /**
  * Movie controller.
  * @Route("/api", name="api_")
  */
-class ProjectController extends FOSRestController
+class QuotationController extends FOSRestController
 {
     /**
      * Lists all Pages.
-     * @Rest\Get("/projects")
+     * @Rest\Get("/quotations")
      *
      * @return Response
      */
-    public function getProjectAction()
+    public function getQuotationAction()
     {
-        $repository = $this->getDoctrine()->getRepository(Project::class);
-        $pages = $repository->findProjects();
+        $repository = $this->getDoctrine()->getRepository(Quotation::class);
+        $pages = $repository->findall();
         return $this->handleView($this->view($pages));
     }
 
     /**
      * List one Page.
-     * @Rest\Get("/projects/{id}")
+     * @Rest\Get("/quotations/{id}")
      *
      * @param $id
      * @return Response
      */
-    public function getSingleProjectAction($id)
+    public function getSingleQuotationAction($id)
     {
-        $repository = $this->getDoctrine()->getRepository(Project::class);
+        $repository = $this->getDoctrine()->getRepository(Quotation::class);
         $pages = $repository->find($id);
         return $this->handleView($this->view($pages));
     }
     /**
      * List one Page.
-     * @Rest\Get("/projectsUser/{userid}")
+     * @Rest\Get("/quotationsProject/{project_id}")
      *
-     * @param $userid
+     * @param $project_id
      * @return Response
      */
-    public function getSingleProjectActionurl($userid)
+    public function getSingleQuotationByProjectId($project_id)
     {
-        $repository = $this->getDoctrine()->getRepository(Project::class);
-        $pages = $repository->findOneBy([ 'userid' => $userid]);
+        $repository = $this->getDoctrine()->getRepository(Quotation::class);
+        $pages = $repository->findBy([ 'project_id' => $project_id]);
         return $this->handleView($this->view($pages));
     }
 
     /**
      * Create Page.
-     * @Rest\Post("/project")
+     * @Rest\Post("/quotation")
      *
      * @return Response
      */
-    public function postProjectAction(Request $request)
+    public function postQuotationAction(Request $request)
     {
-        $page = new Project();
-        $form = $this->createForm(ProjectType::class, $page);
-        $data = json_decode($request->getContent(), true);
-        $form->submit($data);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($page);
-            $em->flush();
-            return $this->handleView($this->view($page), Response::HTTP_CREATED);
-        }
-        return $this->handleView($this->view($form->getErrors()));
-    }
-
-    /**
-     * Update Page.
-     * @Rest\Put("/projectUpdate/{id}")
-     *
-     * @return Response
-     */
-    public function UpdatePage(Request $request, Project $page)
-    {
-        $form = $this->createForm(ProjectType::class, $page);
+        $page = new Quotation();
+        $form = $this->createForm(QuotationType::class, $page);
         $data = json_decode($request->getContent(), true);
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -95,18 +75,38 @@ class ProjectController extends FOSRestController
     }
 
     /**
-     * Delete Project.
-     * @Rest\Delete("/projectDelete/{id}")
+     * Update Page.
+     * @Rest\Put("/quotationUpdate/{id}")
+     *
+     * @return Response
+     */
+    public function UpdatePage(Request $request, Quotation $page)
+    {
+        $form = $this->createForm(QuotationType::class, $page);
+        $data = json_decode($request->getContent(), true);
+        $form->submit($data);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($page);
+            $em->flush();
+            return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+        }
+        return $this->handleView($this->view($form->getErrors()));
+    }
+
+    /**
+     * Delete Quotation.
+     * @Rest\Delete("/quotationDelete/{id}")
      *
      * @param $id
      * @return Response
      */
-    public function DeleteProject($id)
+    public function DeleteQuotation($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $project =  $em->getRepository(Project::class)->find($id);
+        $quotation =  $em->getRepository(Quotation::class)->find($id);
 
-        $em->remove($project);
+        $em->remove($quotation);
         $em->flush();
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));

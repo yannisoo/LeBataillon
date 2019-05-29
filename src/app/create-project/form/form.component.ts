@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ApiprojectService } from 'src/app/api/api-project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -8,9 +10,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FormComponent implements OnInit {
   @Input('ngModel') Project: any = {};
 
-  constructor() { }
+  constructor(
+    public api: ApiprojectService,
+    public router: Router
+  ) { }
 
   ngOnInit() {
   }
+  add() {
+    this.Project.status = 0
+    this.api.createProject(this.Project).subscribe((data: {}) => {
+    this.Project = data
+    this.router.navigate(['/project/', this.Project.id])
+  })
+}
 
 }

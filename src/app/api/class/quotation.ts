@@ -1,9 +1,12 @@
-import DateTimeFormat = Intl.DateTimeFormat;
-
-export class Bill {
+export class Quotation {
   id: number;
-  date: string;
-  bill_number: string;
+  name: string;
+  contact: string;
+  address: string;
+  city: string;
+  postcode: string;
+  project_name: string;
+  quotation_number: string;
   quantity1: number;
   description1: string;
   unit_price1: number;
@@ -50,5 +53,5 @@ export class Bill {
   description15: string;
   unit_price15: number;
   project_id: number;
-  created_at: Date;
+  created_at: string;
 }

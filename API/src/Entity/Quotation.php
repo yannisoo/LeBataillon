@@ -3,12 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\BillRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\QuotationRepository")
  */
-class Bill
+class Quotation
 {
     /**
      * @ORM\Id()
@@ -20,12 +19,37 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $billNumber;
+    private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $quantity1;
+    private $contact;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $quotation_number;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $postcode;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -35,12 +59,12 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice1;
+    private $unit_price1;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $quantity2;
+    private $quantity1;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -50,12 +74,12 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice2;
+    private $unit_price2;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $quantity3;
+    private $quantity2;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -65,12 +89,12 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice3;
+    private $unit_price3;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $quantity4;
+    private $quantity3;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -80,18 +104,12 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice4;
+    private $unit_price4;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-
-    private $project_id;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $quantity5;
+    private $quantity4;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -101,7 +119,22 @@ class Bill
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice5;
+    private $unit_price5;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $quantity5;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description6;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $unit_price6;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -111,12 +144,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description6;
+    private $description7;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice6;
+    private $unit_price7;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -126,12 +159,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description7;
+    private $description8;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice7;
+    private $unit_price8;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -141,12 +174,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description8;
+    private $description9;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice8;
+    private $unit_price9;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -156,12 +189,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description9;
+    private $description10;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice9;
+    private $unit_price10;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -171,12 +204,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description10;
+    private $description11;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice10;
+    private $unit_price11;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -186,12 +219,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description11;
+    private $description12;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice11;
+    private $unit_price12;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -201,12 +234,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description12;
+    private $description13;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice12;
+    private $unit_price13;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -216,12 +249,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description13;
+    private $description14;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice13;
+    private $unit_price14;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -231,12 +264,12 @@ class Bill
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description14;
+    private $description15;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice14;
+    private $unit_price15;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -244,93 +277,100 @@ class Bill
     private $quantity15;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description15;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $unitPrice15;
+    private $project_id;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $emailReminder;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $callReminder;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $paymentPeriod;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $status;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $limit_date;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $client;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $mainbill_description;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $price_total;
-
-
+    private $CreatedAt;
 
     public function getId(): ?int
     {
         return $this->id;
     }
-    public function setUserId(?int $id): self
+
+    public function getName(): ?string
     {
-        $this->id = $id;
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getBillNumber(): ?string
+    public function getContact(): ?string
     {
-        return $this->billNumber;
+        return $this->contact;
     }
 
-    public function setBillNumber(?string $billNumber): self
+    public function setContact(?string $contact): self
     {
-        $this->billNumber = $billNumber;
+        $this->contact = $contact;
 
         return $this;
     }
 
-    public function getQuantity1(): ?int
+    public function getQuotationNumber(): ?string
     {
-        return $this->quantity1;
+        return $this->quotation_number;
     }
 
-    public function setQuantity1(?int $quantity1): self
+    public function setQuotationNumber(?string $quotation_number): self
     {
-        $this->quantity1 = $quantity1;
+        $this->quotation_number = $quotation_number;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPostcode(): ?string
+    {
+        return $this->postcode;
+    }
+
+    public function setPostcode(?string $postcode): self
+    {
+        $this->postcode = $postcode;
+
+        return $this;
+    }
+
+    public function getProjectName(): ?string
+    {
+        return $this->project_name;
+    }
+
+    public function setProjectName(?string $project_name): self
+    {
+        $this->project_name = $project_name;
 
         return $this;
     }
@@ -349,24 +389,24 @@ class Bill
 
     public function getUnitPrice1(): ?int
     {
-        return $this->unitPrice1;
+        return $this->unit_price1;
     }
 
-    public function setUnitPrice1(?int $unitPrice1): self
+    public function setUnitPrice1(?int $unit_price1): self
     {
-        $this->unitPrice1 = $unitPrice1;
+        $this->unit_price1 = $unit_price1;
 
         return $this;
     }
 
-    public function getQuantity2(): ?int
+    public function getQuantity1(): ?int
     {
-        return $this->quantity2;
+        return $this->quantity1;
     }
 
-    public function setQuantity2(?int $quantity2): self
+    public function setQuantity1(?int $quantity1): self
     {
-        $this->quantity2 = $quantity2;
+        $this->quantity1 = $quantity1;
 
         return $this;
     }
@@ -385,24 +425,24 @@ class Bill
 
     public function getUnitPrice2(): ?int
     {
-        return $this->unitPrice2;
+        return $this->unit_price2;
     }
 
-    public function setUnitPrice2(?int $unitPrice2): self
+    public function setUnitPrice2(?int $unit_price2): self
     {
-        $this->unitPrice2 = $unitPrice2;
+        $this->unit_price2 = $unit_price2;
 
         return $this;
     }
 
-    public function getQuantity3(): ?int
+    public function getQuantity2(): ?int
     {
-        return $this->quantity3;
+        return $this->quantity2;
     }
 
-    public function setQuantity3(?int $quantity3): self
+    public function setQuantity2(?int $quantity2): self
     {
-        $this->quantity3 = $quantity3;
+        $this->quantity2 = $quantity2;
 
         return $this;
     }
@@ -421,24 +461,24 @@ class Bill
 
     public function getUnitPrice3(): ?int
     {
-        return $this->unitPrice3;
+        return $this->unit_price3;
     }
 
-    public function setUnitPrice3(?int $unitPrice3): self
+    public function setUnitPrice3(?int $unit_price3): self
     {
-        $this->unitPrice3 = $unitPrice3;
+        $this->unit_price3 = $unit_price3;
 
         return $this;
     }
 
-    public function getQuantity4(): ?int
+    public function getQuantity3(): ?int
     {
-        return $this->quantity4;
+        return $this->quantity3;
     }
 
-    public function setQuantity4(?int $quantity4): self
+    public function setQuantity3(?int $quantity3): self
     {
-        $this->quantity4 = $quantity4;
+        $this->quantity3 = $quantity3;
 
         return $this;
     }
@@ -455,38 +495,26 @@ class Bill
         return $this;
     }
 
-    public function getUnitPrice4(): ?i
+    public function getUnitPrice4(): ?int
     {
-        return $this->unitPrice4;
+        return $this->unit_price4;
     }
 
-    public function setUnitPrice4(?int $unitPrice4): self
+    public function setUnitPrice4(?int $unit_price4): self
     {
-        $this->unitPrice4 = $unitPrice4;
+        $this->unit_price4 = $unit_price4;
 
         return $this;
     }
 
-    public function getProjectId(): ?int
+    public function getQuantity4(): ?int
     {
-        return $this->project_id;
+        return $this->quantity4;
     }
 
-    public function setProjectId(?int $project_id): self
+    public function setQuantity4(?int $quantity4): self
     {
-        $this->project_id = $project_id;
-
-        return $this;
-    }
-
-    public function getQuantity5(): ?int
-    {
-        return $this->quantity5;
-    }
-
-    public function setQuantity5(?int $quantity5): self
-    {
-        $this->quantity5 = $quantity5;
+        $this->quantity4 = $quantity4;
 
         return $this;
     }
@@ -505,24 +533,24 @@ class Bill
 
     public function getUnitPrice5(): ?int
     {
-        return $this->unitPrice5;
+        return $this->unit_price5;
     }
 
-    public function setUnitPrice5(?int $unitPrice5): self
+    public function setUnitPrice5(?int $unit_price5): self
     {
-        $this->unitPrice5 = $unitPrice5;
+        $this->unit_price5 = $unit_price5;
 
         return $this;
     }
 
-    public function getQuantity6(): ?int
+    public function getQuantity5(): ?int
     {
-        return $this->quantity6;
+        return $this->quantity5;
     }
 
-    public function setQuantity6(?int $quantity6): self
+    public function setQuantity5(?int $quantity5): self
     {
-        $this->quantity6 = $quantity6;
+        $this->quantity5 = $quantity5;
 
         return $this;
     }
@@ -539,26 +567,26 @@ class Bill
         return $this;
     }
 
-    public function getUnitPrice6(): ?string
+    public function getUnitPrice6(): ?int
     {
-        return $this->unitPrice6;
+        return $this->unit_price6;
     }
 
-    public function setUnitPrice6(?string $unitPrice6): self
+    public function setUnitPrice6(?int $unit_price6): self
     {
-        $this->unitPrice6 = $unitPrice6;
+        $this->unit_price6 = $unit_price6;
 
         return $this;
     }
 
-    public function getQuantity7(): ?int
+    public function getQuantity6(): ?int
     {
-        return $this->quantity7;
+        return $this->quantity6;
     }
 
-    public function setQuantity7(?int $quantity7): self
+    public function setQuantity6(?int $quantity6): self
     {
-        $this->quantity7 = $quantity7;
+        $this->quantity6 = $quantity6;
 
         return $this;
     }
@@ -577,24 +605,24 @@ class Bill
 
     public function getUnitPrice7(): ?int
     {
-        return $this->unitPrice7;
+        return $this->unit_price7;
     }
 
-    public function setUnitPrice7(?int $unitPrice7): self
+    public function setUnitPrice7(?int $unit_price7): self
     {
-        $this->unitPrice7 = $unitPrice7;
+        $this->unit_price7 = $unit_price7;
 
         return $this;
     }
 
-    public function getQuantity8(): ?int
+    public function getQuantity7(): ?int
     {
-        return $this->quantity8;
+        return $this->quantity7;
     }
 
-    public function setQuantity8(?int $quantity8): self
+    public function setQuantity7(?int $quantity7): self
     {
-        $this->quantity8 = $quantity8;
+        $this->quantity7 = $quantity7;
 
         return $this;
     }
@@ -613,24 +641,24 @@ class Bill
 
     public function getUnitPrice8(): ?int
     {
-        return $this->unitPrice8;
+        return $this->unit_price8;
     }
 
-    public function setUnitPrice8(?int $unitPrice8): self
+    public function setUnitPrice8(?int $unit_price8): self
     {
-        $this->unitPrice8 = $unitPrice8;
+        $this->unit_price8 = $unit_price8;
 
         return $this;
     }
 
-    public function getQuantity9(): ?int
+    public function getQuantity8(): ?int
     {
-        return $this->quantity9;
+        return $this->quantity8;
     }
 
-    public function setQuantity9(?int $quantity9): self
+    public function setQuantity8(?int $quantity8): self
     {
-        $this->quantity9 = $quantity9;
+        $this->quantity8 = $quantity8;
 
         return $this;
     }
@@ -649,24 +677,24 @@ class Bill
 
     public function getUnitPrice9(): ?int
     {
-        return $this->unitPrice9;
+        return $this->unit_price9;
     }
 
-    public function setUnitPrice9(?int $unitPrice9): self
+    public function setUnitPrice9(?int $unit_price9): self
     {
-        $this->unitPrice9 = $unitPrice9;
+        $this->unit_price9 = $unit_price9;
 
         return $this;
     }
 
-    public function getQuantity10(): ?int
+    public function getQuantity9(): ?int
     {
-        return $this->quantity10;
+        return $this->quantity9;
     }
 
-    public function setQuantity10(?int $quantity10): self
+    public function setQuantity9(?int $quantity9): self
     {
-        $this->quantity10 = $quantity10;
+        $this->quantity9 = $quantity9;
 
         return $this;
     }
@@ -685,24 +713,24 @@ class Bill
 
     public function getUnitPrice10(): ?int
     {
-        return $this->unitPrice10;
+        return $this->unit_price10;
     }
 
-    public function setUnitPrice10(?int $unitPrice10): self
+    public function setUnitPrice10(?int $unit_price10): self
     {
-        $this->unitPrice10 = $unitPrice10;
+        $this->unit_price10 = $unit_price10;
 
         return $this;
     }
 
-    public function getQuantity11(): ?int
+    public function getQuantity10(): ?int
     {
-        return $this->quantity11;
+        return $this->quantity10;
     }
 
-    public function setQuantity11(?int $quantity11): self
+    public function setQuantity10(?int $quantity10): self
     {
-        $this->quantity11 = $quantity11;
+        $this->quantity10 = $quantity10;
 
         return $this;
     }
@@ -721,24 +749,24 @@ class Bill
 
     public function getUnitPrice11(): ?int
     {
-        return $this->unitPrice11;
+        return $this->unit_price11;
     }
 
-    public function setUnitPrice11(?int $unitPrice11): self
+    public function setUnitPrice11(?int $unit_price11): self
     {
-        $this->unitPrice11 = $unitPrice11;
+        $this->unit_price11 = $unit_price11;
 
         return $this;
     }
 
-    public function getQuantity12(): ?int
+    public function getQuantity11(): ?int
     {
-        return $this->quantity12;
+        return $this->quantity11;
     }
 
-    public function setQuantity12(?int $quantity12): self
+    public function setQuantity11(?int $quantity11): self
     {
-        $this->quantity12 = $quantity12;
+        $this->quantity11 = $quantity11;
 
         return $this;
     }
@@ -757,24 +785,24 @@ class Bill
 
     public function getUnitPrice12(): ?int
     {
-        return $this->unitPrice12;
+        return $this->unit_price12;
     }
 
-    public function setUnitPrice12(?int $unitPrice12): self
+    public function setUnitPrice12(?int $unit_price12): self
     {
-        $this->unitPrice12 = $unitPrice12;
+        $this->unit_price12 = $unit_price12;
 
         return $this;
     }
 
-    public function getQuantity13(): ?int
+    public function getQuantity12(): ?int
     {
-        return $this->quantity13;
+        return $this->quantity12;
     }
 
-    public function setQuantity13(?int $quantity13): self
+    public function setQuantity12(?int $quantity12): self
     {
-        $this->quantity13 = $quantity13;
+        $this->quantity12 = $quantity12;
 
         return $this;
     }
@@ -793,24 +821,24 @@ class Bill
 
     public function getUnitPrice13(): ?int
     {
-        return $this->unitPrice13;
+        return $this->unit_price13;
     }
 
-    public function setUnitPrice13(?int $unitPrice13): self
+    public function setUnitPrice13(?int $unit_price13): self
     {
-        $this->unitPrice13 = $unitPrice13;
+        $this->unit_price13 = $unit_price13;
 
         return $this;
     }
 
-    public function getQuantity14(): ?int
+    public function getQuantity13(): ?int
     {
-        return $this->quantity14;
+        return $this->quantity13;
     }
 
-    public function setQuantity14(?int $quantity14): self
+    public function setQuantity13(?int $quantity13): self
     {
-        $this->quantity14 = $quantity14;
+        $this->quantity13 = $quantity13;
 
         return $this;
     }
@@ -829,24 +857,24 @@ class Bill
 
     public function getUnitPrice14(): ?int
     {
-        return $this->unitPrice14;
+        return $this->unit_price14;
     }
 
-    public function setUnitPrice14(?int $unitPrice14): self
+    public function setUnitPrice14(?int $unit_price14): self
     {
-        $this->unitPrice14 = $unitPrice14;
+        $this->unit_price14 = $unit_price14;
 
         return $this;
     }
 
-    public function getQuantity15(): ?int
+    public function getQuantity14(): ?int
     {
-        return $this->quantity15;
+        return $this->quantity14;
     }
 
-    public function setQuantity15(?int $quantity15): self
+    public function setQuantity14(?int $quantity14): self
     {
-        $this->quantity15 = $quantity15;
+        $this->quantity14 = $quantity14;
 
         return $this;
     }
@@ -865,120 +893,48 @@ class Bill
 
     public function getUnitPrice15(): ?int
     {
-        return $this->unitPrice15;
+        return $this->unit_price15;
     }
 
-    public function setUnitPrice15(?int $unitPrice15): self
+    public function setUnitPrice15(?int $unit_price15): self
     {
-        $this->unitPrice15 = $unitPrice15;
+        $this->unit_price15 = $unit_price15;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?string
+    public function getQuantity15(): ?int
     {
-        return $this->createdAt;
+        return $this->quantity15;
     }
 
-    public function setCreatedAt(string $createdAt): self
+    public function setQuantity15(?int $quantity15): self
     {
-        $this->createdAt = $createdAt;
+        $this->quantity15 = $quantity15;
 
         return $this;
     }
 
-    public function getEmailReminder(): ?string
+    public function getProjectId(): ?int
     {
-        return $this->emailReminder;
+        return $this->project_id;
     }
 
-    public function setEmailReminder(?string $emailReminder): self
+    public function setProjectId(?int $project_id): self
     {
-        $this->emailReminder = $emailReminder;
+        $this->project_id = $project_id;
 
         return $this;
     }
 
-    public function getCallReminder(): ?string
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->callReminder;
+        return $this->CreatedAt;
     }
 
-    public function setCallReminder(?string $callReminder): self
+    public function setCreatedAt(?\DateTimeInterface $CreatedAt): self
     {
-        $this->callReminder = $callReminder;
-
-        return $this;
-    }
-
-    public function getPaymentPeriod(): ?int
-    {
-        return $this->paymentPeriod;
-    }
-
-    public function setPaymentPeriod(int $paymentPeriod): self
-    {
-        $this->paymentPeriod = $paymentPeriod;
-
-        return $this;
-    }
-
-    public function getStatus(): ?int
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?int $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    public function getLimitDate(): ?string
-    {
-        return $this->limit_date;
-    }
-
-    public function setLimitDate(?string $limit_date): self
-    {
-        $this->limit_date = $limit_date;
-
-        return $this;
-    }
-
-    public function getClient(): ?string
-    {
-        return $this->client;
-    }
-
-    public function setClient(?string $client): self
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    public function getMainbillDescription(): ?string
-    {
-        return $this->mainbill_description;
-    }
-
-    public function setMainbillDescription(?string $mainbill_description): self
-    {
-        $this->mainbill_description = $mainbill_description;
-
-        return $this;
-    }
-
-    public function getPriceTotal(): ?int
-    {
-        return $this->price_total;
-    }
-
-    public function setPriceTotal(?int $price_total): self
-    {
-        $this->price_total = $price_total;
+        $this->CreatedAt = $CreatedAt;
 
         return $this;
     }

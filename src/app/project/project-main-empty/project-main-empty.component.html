@@ -1,0 +1,35 @@
+<div class="container1">
+
+    <div class="client">
+    <h3>Informations du projet:</h3>
+    <div class="id">
+
+      <div class="namevalue">
+    <p>{{this.Project.contact}}</p>
+    <p>{{this.Project.name}}</p>
+    <p>{{this.Project.phone}}</p>
+      </div>
+      <div class="addressvalue">
+    <p>{{this.Project.address}}</p>
+    <p>{{this.Project.city}}</p>
+    <p>{{this.Project.postcode}}</p>
+      </div>
+    </div>
+
+    <a href="mailto: {{this.Project.email}}"><p class="centered">{{this.Project.email}}</p></a>
+
+    <h4>Avancement:</h4>
+
+    <div [ngSwitch]="this.Project.status">
+      <p class="centered" *ngSwitchCase="0">Statut: <br> En cours <br><i class="material-icons">access_time</i></p>
+      <p class="centered" *ngSwitchCase="1">Statut: <br> Archivé <br> <i class="material-icons">check</i></p>
+      <p class="centered" *ngSwitchCase="2">Statut: <br> Retard de paiement <br><i class="material-icons small">warning</i></p>
+    </div>
+    <div class="pricing">
+    <p class="centered">Accompte: <br> <span class="price">{{this.Project.downpayment}}€</span></p>
+    <p class="centered">Cout total: <br> <span class="price">{{this.Project.total_price}}€</span></p>
+    </div>
+    <p class="centered"> Restant du: <br><span class="price">{{this.Project.remaining}}€</span></p>
+
+</div>
+</div>

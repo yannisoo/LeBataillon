@@ -67,9 +67,30 @@ class Project
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $remaining;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $downpayment;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $total_price;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getUserid(): ?string
@@ -188,6 +209,41 @@ class Project
     public function setStatus(?int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+    public function getRemaining(): ?int
+    {
+        return $this->remaining;
+    }
+
+    public function setRemaining(?int $remaining): self
+    {
+        $this->remaining = $remaining;
+
+        return $this;
+    }
+
+    public function getDownpayment(): ?int
+    {
+        return $this->downpayment;
+    }
+
+    public function setDownpayment(?int $downpayment): self
+    {
+        $this->downpayment = $downpayment;
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?int
+    {
+        return $this->total_price;
+    }
+
+    public function setTotalPrice(?int $total_price): self
+    {
+        $this->total_price = $total_price;
 
         return $this;
     }

@@ -6,17 +6,26 @@ import { LandingPageComponent } from './landing-page/landing-page.component'
 import { FormComponent } from './create-project/form/form.component';
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { MainComponent } from './home/main/main.component';
-import { LoginComponent } from './login/login.component';
+
 import { RegisterComponent} from './register/register.component'
+import { SuiviClientComponent } from './suivi-client/suivi-client.component';
+import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
+import { LoginComponent } from './login/login.component';
+import { ListeComponent } from './liste-devis/liste/liste.component';
+
 
 const routes: Routes = [
 
   { path: 'project/:id', component: ProjectSingleComponent},
   { path: 'create-project', component: FormComponent},
-  { path: 'projects', component: MainComponent},
-  { path: '', component: LandingPageComponent},
   { path: 'user', component: RegisterComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'projects', component: MainComponent },
+  { path: '', component: LandingPageComponent },
+  { path: 'devis', component: ListeComponent },
+  { path: 'suivi-client', component: SuiviClientComponent},
+  { path: 'create-bill', component: PdfGenComponent}
+
 ];
 
 

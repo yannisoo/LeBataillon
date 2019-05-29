@@ -1,12 +1,18 @@
+
+
 <div class="container">
 
   <div class="pdf">
     <embed src="assets/pdf/bill_template.pdf" width="100%" height="100%" type="application/pdf">
   </div>
   <div class="left-main">
-    <a class="btn-floating btn-large waves-effect waves-light grey"><i class="material-icons">delete</i></a>
+
+    <button (click)="delBill(2)" class="btn-floating btn-large waves-effect waves-light grey bin" [routerLinkActive]=""><i class="material-icons">delete</i></button>
+
     <div class="client">
-    <h5>Informations client</h5>
+    <h5 *ngIf="!this.selected.bill_number && !this.selected.quotation_number">Informations client</h5>
+    <h5 *ngIf="this.selected.bill_number">Informations client de la facture: {{this.selected.bill_number}}</h5>
+    <h5 *ngIf="this.selected.quotation_number">Informations client du devis: {{this.selected.quotation_number}}</h5>
     <p>Nom Entreprise: {{this.Project.name}}</p>
     <p>Nom Contact: {{this.Project.contact}}</p>
     <p>Adresse: {{this.Project.address}}</p>
@@ -15,12 +21,43 @@
     <p>Téléphone: {{this.Project.phone}}</p>
     <p>email: {{this.Project.email}}</p>
     </div>
+
+
+    <div class="radio">
+      <h6>Délai de paiement :</h6>
+      <div>
+        <input class="with-gap" type="radio" id="30" name="drone" value="huey"
+               checked>
+        <label for="30">30 jours</label>
+      </div>
+
+      <div>
+        <input class="with-gap" type="radio" id="60" name="drone" value="dewey">
+        <label for="60">60 jours</label>
+      </div>
+
+      <div>
+        <input class="with-gap" type="radio" id="45" name="drone" value="louie">
+        <label for="45">45 jours fin de mois</label>
+      </div>
+    </div>
+
     <div class="button">
       <button class="btn waves-effect waves-light">Modifier
         <i class="material-icons right">edit</i>
       </button>
       <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
         <i class="material-icons right">send</i>
+      </button>
+    </div>
+    <div class="valid">
+      <button *ngIf="this.selected.status == 1" (click)="updateRemaining(this.selected.project_id)" class="btn waves-effect waves-light bouton_waiting" type="submit" name="action">Valider le paiement
+        <i class="material-icons right">check</i>
+      </button>
+      <div *ngIf="this.selected.status == 0" (click)="updateRemaining(this.selected.project_id)" class="btn waves-effect waves-light done " type="submit" name="action">Paiement Validé
+      </div>
+      <button *ngIf="this.selected.status == 2" (click)="updateRemaining(this.selected.project_id)" class="btn waves-effect waves-light bouton_warning" type="submit" name="action">Paiement en retard
+        <i class="material-icons right">warning</i>
       </button>
     </div>
   </div>

@@ -10,14 +10,17 @@ class ProjectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('userid')
-            ->add('description')
-            ->add('address')
-            ->add('city')
-            ->add('phone')
-            ->add('email')
-            ->add('postcode')
+        ->add('name')
+        ->add('contact')
+        ->add('email')
+        ->add('phone')
+        ->add('address')
+        ->add('city')
+        ->add('postcode')
+        ->add('description')
+        ->add('userid')
+        ->add('status')
+        ->add('remaining')
             ->add('save', SubmitType::class)
         ;
     }
@@ -25,7 +28,8 @@ class ProjectType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Project::class,
-            'csrf_protection' => false
+            'csrf_protection' => false,
+            "allow_extra_fields" => true //fuck Yannis le crado
         ));
     }
 }

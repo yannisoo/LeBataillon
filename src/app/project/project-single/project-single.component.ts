@@ -25,6 +25,7 @@ export class ProjectSingleComponent implements OnInit {
   loadProject(id){
     return this.api.getProjectById(id).subscribe((data: {}) => {
       this.Project = data;
+      console.log(this.Project);
     })
   }
 

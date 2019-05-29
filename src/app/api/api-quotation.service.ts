@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Bill } from './class/bill';
+import { Quotation } from './class/quotation';
 @Injectable({
   providedIn: 'root'
 })
-export class ApibillService {
+export class ApiQuotationService {
   // Define API
-  apiURL = 'http://127.0.0.1:8001/api';
+  apiURL = 'http://127.0.0.1:8000/api';
   constructor(private http: HttpClient) { }
   /*========================================
   CRUD Methods for consuming RESTful API
@@ -19,56 +19,49 @@ export class ApibillService {
       'Content-Type': 'application/json',
     })
   }
-  // HttpClient API get() method => Fetch bills list
-  getBills(): Observable<Bill> {
-    return this.http.get<Bill>(this.apiURL + '/bills', this.httpOptions)
+  // HttpClient API get() method => Fetch quotations list
+  getQuotations(): Observable<Quotation> {
+    return this.http.get<Quotation>(this.apiURL + '/quotations', this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
-  // HttpClient API get() method => Fetch bill with id
-  getBillById(id): Observable<Bill> {
-    return this.http.get<Bill>(this.apiURL + '/bills/' + id, this.httpOptions)
+  // HttpClient API get() method => Fetch quotation with id
+  getQuotationById(id): Observable<Quotation> {
+    return this.http.get<Quotation>(this.apiURL + '/quotations/' + id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
-  // HttpClient API get() method => Fetch bill with id
-  getBillsByProjectId(project_id): Observable<Bill> {
-    return this.http.get<Bill>(this.apiURL + '/billsProject/' + project_id, this.httpOptions)
+  // HttpClient API get() method => Fetch quotation with id
+  getQuotationsByProjectId(project_id): Observable<Quotation> {
+    return this.http.get<Quotation>(this.apiURL + '/quotationsProject/' + project_id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
   // HttpClient API post() method => Create admin
-  createBill(terms): Observable<Bill> {
-    return this.http.post<Bill>(this.apiURL + '/bill', JSON.stringify(terms), this.httpOptions)
+  createQuotation(terms): Observable<Quotation> {
+    return this.http.post<Quotation>(this.apiURL + '/quotation', JSON.stringify(terms), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
   // HttpClient API put() method => Update admin
-  updateBill(id, terms): Observable<Bill> {
-    return this.http.put<Bill>(this.apiURL + '/billUpdate/' + id, JSON.stringify(terms), this.httpOptions)
+  updateQuotation(id, terms): Observable<Quotation> {
+    return this.http.put<Quotation>(this.apiURL + '/quotationUpdate/' + id, JSON.stringify(terms), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
   // HttpClient API delete() method => Delete admin
-  deleteBill(id) {
-    return this.http.delete<Bill>(this.apiURL + '/billDelete/' + id, this.httpOptions)
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      )
-  }
-  postPdf(data){
-    return this.http.post(this.apiURL + '/pdf', JSON.stringify(data), this.httpOptions)
+  deleteQuotation(id) {
+    return this.http.delete<Quotation>(this.apiURL + '/quotationDelete/' + id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

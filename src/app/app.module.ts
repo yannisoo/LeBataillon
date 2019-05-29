@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { MatButtonModule } from '@angular/material';
 
 import { EventService } from './auth/event.service';
 import {AuthService} from './auth/auth.service';
@@ -20,6 +23,10 @@ import { ProjectSingleComponent } from './project/project-single/project-single.
 import { ProjectMainComponent } from './project/project-main/project-main.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './register/register.component'
+import { SuiviClientComponent } from './suivi-client/suivi-client.component';
+import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
+import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component'
+
 
 
 @NgModule({
@@ -34,14 +41,21 @@ import { RegisterComponent } from './register/register.component'
     LoginComponent,
     ProjectMainComponent,
     LandingPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    SuiviClientComponent,
+    PdfGenComponent,
+    ProjectMainEmptyComponent
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PdfViewerModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    // MatButtonModule
   ],
   providers: [AuthService, AuthGuard, EventService,{
        provide: HTTP_INTERCEPTORS,
