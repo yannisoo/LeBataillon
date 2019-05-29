@@ -8,8 +8,9 @@ import {Router} from '@angular/router'
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost:3000/api/register"
-  private _loginUrl = "http://localhost:3000/api/login"
+  private _registerUrl = "http://localhost:8001/api/user"
+  private _loginUrl = "http://localhost:8001/api/login"
+
   constructor(private http: HttpClient,
               private _router:Router ) { }
 
@@ -26,7 +27,7 @@ export class AuthService {
   }
 
    loggedIn(){
-     
+
      return !!localStorage.getItem('token')
    }
 

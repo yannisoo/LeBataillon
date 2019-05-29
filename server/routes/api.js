@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/user')
 const mongoose = require('mongoose')
+const jwtUtilis  = require('../utilis/jwt.utilis');
 
 const db = "mongodb+srv://bilal:bilal@cluster0-a45bb.mongodb.net/test?retryWrites=true"
 
@@ -93,25 +94,27 @@ router.post('/login', (req, res) =>{
 })
 
 
-// router.get('/user'), (req, res) =>{
-//
-// let userData =req.body
-//
-// User.findOne({id: userData.id}, (error, user) => {
-//
-//
-//
-//   if (error){
-//     console.log(error)
-//   }else{
-//
-//     res.status(200).send(user.id)
-//   }
-//
-// })
-//
-// }
+router.get('/user', (req, res) =>{
 
+  var headerAuth  = req.headers['authorization'];
+      var userId      = jwtUtilis.getUserId(headerAuth);
+
+      if (userId < 0)
+        return res.status(400).json({ 'error': 'wrong token' });
+
+      User.findOne({
+        attributes: [ 'uid', 'email' ],
+        where: { id: userId }
+      }).then(function(user) {
+        if (user) {
+          res.status(201).json(user);
+        } else {
+          res.status(404).json({ 'error': 'user not found' });
+        }
+      }).catch(function(err) {
+        res.status(500).json({ 'error': 'cannot fetch user' });
+      });
+    })
 
 router.get('/events', (req, res) =>{
 

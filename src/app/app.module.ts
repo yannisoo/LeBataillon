@@ -22,9 +22,11 @@ import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { ProjectMainComponent } from './project/project-main/project-main.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { RegisterComponent } from './register/register.component'
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
 import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
 import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component'
+
 
 
 @NgModule({
@@ -39,9 +41,11 @@ import { ProjectMainEmptyComponent } from './project/project-main-empty/project-
     LoginComponent,
     ProjectMainComponent,
     LandingPageComponent,
+    RegisterComponent,
     SuiviClientComponent,
     PdfGenComponent,
     ProjectMainEmptyComponent
+
 
   ],
   imports: [
