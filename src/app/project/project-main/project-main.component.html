@@ -6,7 +6,9 @@
     <embed src="assets/pdf/bill_template.pdf" width="100%" height="100%" type="application/pdf">
   </div>
   <div class="left-main">
+
     <button (click)="delBill(2)" class="btn-floating btn-large waves-effect waves-light grey bin" [routerLinkActive]=""><i class="material-icons">delete</i></button>
+
     <div class="client">
     <h5 *ngIf="!this.selected.bill_number && !this.selected.quotation_number">Informations client</h5>
     <h5 *ngIf="this.selected.bill_number">Informations client de la facture: {{this.selected.bill_number}}</h5>
