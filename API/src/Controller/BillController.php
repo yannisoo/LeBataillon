@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use Swift_Attachment;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -185,20 +186,44 @@ class BillController extends FOSRestController
 
     }
 
-    public function index($name, \Swift_Mailer $mailer)
+
+    /**
+     * Send Bill.
+     * @Rest\Post("/billSend/{id}")
+     *
+     * @param $id
+     * @return Response
+     */
+
+    public function SendEmail($id, \Swift_Mailer $mailer)
     {
+
+        $repositoryBill = $this->getDoctrine()->getRepository(Bill::class);
+        $bill = $repositoryBill->find($id);
+        $projectId = $bill->getProjectId();
+        $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+        $project = $repositoryProject->find($projectId);
+        //$email = $project->getEmail();
+
+
         $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('send@example.com')
-            ->setTo('recipient@example.com')
+            ->setFrom('angsymftest@gmail.com')
+            ->setTo('angsymftest@gmail.com')
+            ->attach(Swift_Attachment::fromPath('../../src/assets/pdf/bill_template.pdf'))
             ->setBody(
                 $this->renderView(
-                // templates/emails/registration.html.twig
-                    'emails/registration.html.twig',
-                    ['name' => $name]
-                ),
+                    'emails/facture_email.html.twig', [
+                        'billnumber' => $bill->getBillNumber(),
+                        'name' => $project->getName(),
+                        'descritpion' => $project->getDescription()
+
+                ]),
                 'text/html'
             );
-          }
+
+        $mailer->send($message);
+        return $this->handleView($this->view(['status' => 'ok']));
+    }
 
             /*
              * If you also want to include a plaintext version of the message
@@ -208,12 +233,7 @@ class BillController extends FOSRestController
                     ['name' => $name]
                 ),
                 'text/plain'
-            )
-            */
-        // ;
+            )*/
 
-        // $mailer->send($message);
-        //
-        // return $this->render(...);
 
 }
