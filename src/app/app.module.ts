@@ -22,6 +22,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
 import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
 
+import { FileSelectDirective } from 'ng2-file-upload';
+
+
+import { FilterPipe } from './pipe/search/filter.pipe'
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +42,9 @@ import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
     ProjectMainComponent,
     LandingPageComponent,
     SuiviClientComponent,
-    PdfGenComponent
+    PdfGenComponent,
+    FileSelectDirective,
+    FilterPipe
 
   ],
   imports: [
