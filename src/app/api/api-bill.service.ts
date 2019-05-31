@@ -8,7 +8,7 @@ import { Bill } from './class/bill';
 })
 export class ApibillService {
   // Define API
-  apiURL = 'http://127.0.0.1:8000/api';
+  apiURL = 'http://127.0.0.1:8001/api';
   constructor(private http: HttpClient) { }
   /*========================================
   CRUD Methods for consuming RESTful API
@@ -66,6 +66,15 @@ export class ApibillService {
         retry(1),
         catchError(this.handleError)
       )
+  }
+
+  // HttpClient API post() method => Send Bill
+  sendBill(id): Observable<Bill> {
+    return this.http.post<Bill>(this.apiURL + '/billSend/' + id, this.httpOptions)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        )
   }
   postPdf(data){
     return this.http.post(this.apiURL + '/pdf', JSON.stringify(data), this.httpOptions)

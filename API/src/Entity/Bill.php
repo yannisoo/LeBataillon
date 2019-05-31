@@ -254,52 +254,32 @@ class Bill
     private $unitPrice15;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $totalPrice;
-
-    /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $emailReminder;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $callReminder;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $bill_description;
-
-    /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $paymentPeriod;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $downpayment;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $status;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $remaining;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $limit_date;
 
@@ -308,10 +288,32 @@ class Bill
      */
     private $client;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $mainbill_description;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $price_total;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pdf_path;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function setUserId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getBillNumber(): ?string
@@ -878,62 +880,38 @@ class Bill
         return $this;
     }
 
-    public function getTotalPrice(): ?int
-    {
-        return $this->totalPrice;
-    }
-
-    public function setTotalPrice(int $totalPrice): self
-    {
-        $this->totalPrice = $totalPrice;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(string $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getEmailReminder(): ?\DateTimeInterface
+    public function getEmailReminder(): ?string
     {
         return $this->emailReminder;
     }
 
-    public function setEmailReminder(?\DateTimeInterface $emailReminder): self
+    public function setEmailReminder(?string $emailReminder): self
     {
         $this->emailReminder = $emailReminder;
 
         return $this;
     }
 
-    public function getCallReminder(): ?\DateTimeInterface
+    public function getCallReminder(): ?string
     {
         return $this->callReminder;
     }
 
-    public function setCallReminder(?\DateTimeInterface $callReminder): self
+    public function setCallReminder(?string $callReminder): self
     {
         $this->callReminder = $callReminder;
-
-        return $this;
-    }
-
-    public function getBillDescription(): ?string
-    {
-        return $this->bill_description;
-    }
-
-    public function setBillDescription(string $bill_description): self
-    {
-        $this->bill_description = $bill_description;
 
         return $this;
     }
@@ -950,48 +928,24 @@ class Bill
         return $this;
     }
 
-    public function getDownpayment(): ?int
-    {
-        return $this->downpayment;
-    }
-
-    public function setDownpayment(?int $downpayment): self
-    {
-        $this->downpayment = $downpayment;
-
-        return $this;
-    }
-
-    public function getStatus(): ?string
+    public function getStatus(): ?int
     {
         return $this->status;
     }
 
-    public function setStatus(?string $status): self
+    public function setStatus(?int $status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function getRemaining(): ?int
-    {
-        return $this->remaining;
-    }
-
-    public function setRemaining(?int $remaining): self
-    {
-        $this->remaining = $remaining;
-
-        return $this;
-    }
-
-    public function getLimitDate(): ?\DateTimeInterface
+    public function getLimitDate(): ?string
     {
         return $this->limit_date;
     }
 
-    public function setLimitDate(?\DateTimeInterface $limit_date): self
+    public function setLimitDate(?string $limit_date): self
     {
         $this->limit_date = $limit_date;
 
@@ -1006,6 +960,42 @@ class Bill
     public function setClient(?string $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getMainbillDescription(): ?string
+    {
+        return $this->mainbill_description;
+    }
+
+    public function setMainbillDescription(?string $mainbill_description): self
+    {
+        $this->mainbill_description = $mainbill_description;
+
+        return $this;
+    }
+
+    public function getPriceTotal(): ?int
+    {
+        return $this->price_total;
+    }
+
+    public function setPriceTotal(?int $price_total): self
+    {
+        $this->price_total = $price_total;
+
+        return $this;
+    }
+
+    public function getPdfPath(): ?string
+    {
+        return $this->pdf_path;
+    }
+
+    public function setPdfPath(?string $pdf_path): self
+    {
+        $this->pdf_path = $pdf_path;
 
         return $this;
     }

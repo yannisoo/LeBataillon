@@ -6,6 +6,8 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Quotation;
+use App\Entity\Agency;
+use App\Entity\Project;
 use App\Form\QuotationType;
 /**
  * Movie controller.
@@ -61,15 +63,36 @@ class QuotationController extends FOSRestController
      */
     public function postQuotationAction(Request $request)
     {
-        $page = new Quotation();
-        $form = $this->createForm(QuotationType::class, $page);
+        $quotation = new Quotation();
+        $form = $this->createForm(QuotationType::class, $quotation);
         $data = json_decode($request->getContent(), true);
+
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($page);
+            $em->persist($quotation);
             $em->flush();
+
+            $projectId = $quotation->getProjectId();
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $project = $repositoryProject->find($quotation->getProjectId());
+
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $agency = $repositoryProject->find('6');
+
+            $path = $request->server->get('DOCUMENT_ROOT');
+            $path = rtrim($path, "/");
+            $html = $this->renderView('quotation_pdf.html.twig', array(
+                        'quotation' => $quotation,
+                        'project' => $project,
+                        'agency' => $agency,
+                      ));
+            $output = $path . $request->server->get('BASE');
+            $output .= $quotation->getPdfPath();
+            $this->get('knp_snappy.pdf')->generateFromHtml($html, $output, array());
             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+
+
         }
         return $this->handleView($this->view($form->getErrors()));
     }
@@ -111,5 +134,42 @@ class QuotationController extends FOSRestController
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
+    }
+    /**
+     * Send Quotation.
+     * @Rest\Post("/quotationSend/{id}")
+     *
+     * @param $id
+     * @return Response
+     */
+
+    public function SendEmail($id, \Swift_Mailer $mailer)
+    {
+
+        $repositoryQuotation = $this->getDoctrine()->getRepository(Quotation::class);
+        $quotation = $repositoryQuotation->find($id);
+        $projectId = $quotation->getProjectId();
+        $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+        $project = $repositoryProject->find($projectId);
+        //$email = $project->getEmail();
+
+
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('angsymftest@gmail.com')
+            ->setTo('yannis.b8@gmail.com')
+            ->attach(Swift_Attachment::fromPath('../../src/assets/pdf/bill_template.pdf'))
+            ->setBody(
+                $this->renderView(
+                    'emails/facture_email.html.twig', [
+                        'quotationnumber' => $quotation->getQuotationNumber(),
+                        'name' => $project->getName(),
+                        'descritpion' => $project->getDescription()
+
+                ]),
+                'text/html'
+            );
+
+        $mailer->send($message);
+        return $this->handleView($this->view(['status' => 'ok']));
     }
 }

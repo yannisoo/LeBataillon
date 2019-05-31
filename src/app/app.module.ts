@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { MatButtonModule } from '@angular/material';
 
 import { EventService } from './auth/event.service';
 import {AuthService} from './auth/auth.service';
@@ -19,8 +22,12 @@ import { ProjectNavbarComponent } from './project/project-navbar/project-navbar.
 import { ProjectSingleComponent } from './project/project-single/project-single.component';
 import { ProjectMainComponent } from './project/project-main/project-main.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { RegisterComponent } from './register/register.component'
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
-import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component'
+import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
+import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component';
+import { CreateQuotationComponent } from './create-quotation/create-quotation.component'
+
 
 import { FileSelectDirective } from 'ng2-file-upload';
 
@@ -41,17 +48,25 @@ import { FilterPipe } from './pipe/search/filter.pipe'
     LoginComponent,
     ProjectMainComponent,
     LandingPageComponent,
+    RegisterComponent,
     SuiviClientComponent,
     PdfGenComponent,
     FileSelectDirective,
-    FilterPipe
+    FilterPipe,
+    ProjectMainEmptyComponent,
+    CreateQuotationComponent
+
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PdfViewerModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    // MatButtonModule
   ],
   providers: [AuthService, AuthGuard, EventService,{
        provide: HTTP_INTERCEPTORS,

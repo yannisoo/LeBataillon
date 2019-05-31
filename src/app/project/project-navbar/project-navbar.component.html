@@ -1,16 +1,19 @@
-<app-project-main [Project]= Project [selected]= selected></app-project-main>
+<app-project-main *ngIf="this.selected" [Bill]= Bill [Project]= Project [selected]= selected></app-project-main>
+<app-project-main-empty *ngIf="!this.selected" [Bill]= Bill [Project]= Project ></app-project-main-empty>
 <nav>
   <ul>
 
     <li class="sidebar-first-title">
-      <a href="#"><h5>Projet : {{this.Project.name}}</h5></a>
+      <a routerLink="/project/{{this.Project.id}}">
+        <h5>Projet : {{this.Project.name}}</h5>
+      </a>
     </li>
 
     <li>
       <a class="sidebar-subtitle first-subtitle">Facture</a>
       <div>
         <ul>
-          <li *ngFor="let Bill of Bill" (click)="onSelect(this.Bill)"><a>{{this.Bill.bill_number}}</a></li>
+          <li *ngFor="let Bill of Bill" (click)="onSelect(this.Bill)"><a>{{this.Bill.bill_number}}_facture</a></li>
         </ul>
       </div>
     </li>

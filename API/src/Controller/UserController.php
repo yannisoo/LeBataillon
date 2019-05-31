@@ -5,6 +5,8 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Entity\User;
 use App\Form\UserType;
 /**
@@ -46,7 +48,7 @@ class UserController extends FOSRestController
      *
      * @return Response
      */
-    public function postUserAction(Request $request)
+    public function postUserAction(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $page = new User();
         $form = $this->createForm(UserType::class, $page);
@@ -54,6 +56,8 @@ class UserController extends FOSRestController
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $hach = $encoder->encodePassword($page, $page->getPassword());
+            $page->setPassword($hach);
             $em->persist($page);
             $em->flush();
             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
@@ -99,4 +103,18 @@ class UserController extends FOSRestController
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
     }
+
+    /**
+        * @Rest\Post("/login", name="security_login")
+        */
+       public function login(AuthenticationUtils $authenticationUtils): Response
+       {
+           // choper l'erreur si il y en a une
+           $error = $authenticationUtils->getLastAuthenticationError();
+           // last username entered by the user
+           $lastUsername = $authenticationUtils->getLastUsername();
+
+          return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+       }
+
 }
