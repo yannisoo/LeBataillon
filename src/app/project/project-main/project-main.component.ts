@@ -38,6 +38,12 @@ export class ProjectMainComponent implements OnInit {
   // })
   // }
 
+  sendBill(id) {
+    this.apiBill.sendBill(this.selected.id).subscribe((data: {}) => {
+      console.log(this.Project);
+    });
+  }
+
   updateRemaining(id) {
     console.log(this.Project.remaining);
     console.log(this.selected.price_total);

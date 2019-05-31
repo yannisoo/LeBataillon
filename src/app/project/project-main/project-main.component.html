@@ -51,7 +51,7 @@
       </button>
     </div>
     <div class="valid">
-      <button *ngIf="this.selected.status == 1" (click)="updateRemaining(this.selected.project_id)" class="btn waves-effect waves-light bouton_waiting" type="submit" name="action">Valider le paiement
+      <button *ngIf="this.selected.status == 1" (click)="updateRemaining(this.selected.project_id); sendBill(this.selected.id)" class="btn waves-effect waves-light bouton_waiting" type="submit" name="action">Valider le paiement
         <i class="material-icons right">check</i>
       </button>
       <div *ngIf="this.selected.status == 0" (click)="updateRemaining(this.selected.project_id)" class="btn waves-effect waves-light done " type="submit" name="action">Paiement Validé
