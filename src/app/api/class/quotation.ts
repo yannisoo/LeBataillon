@@ -1,11 +1,5 @@
 export class Quotation {
   id: number;
-  name: string;
-  contact: string;
-  address: string;
-  city: string;
-  postcode: string;
-  project_name: string;
   quotation_number: string;
   quantity1: number;
   description1: string;
@@ -54,4 +48,5 @@ export class Quotation {
   unit_price15: number;
   project_id: number;
   created_at: string;
+  pricetotal: string;
 }

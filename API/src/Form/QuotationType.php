@@ -10,7 +10,6 @@ class QuotationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('date')
         ->add('name')
         ->add('contact')
         ->add('address')
@@ -33,7 +32,6 @@ class QuotationType extends AbstractType
         ->add('description5')
         ->add('unit_price5')
         ->add('quantity5')
-        ->add('quotation_id')
         ->add('description6')
         ->add('unit_price6')
         ->add('quantity6')
@@ -66,6 +64,8 @@ class QuotationType extends AbstractType
         ->add('quantity15')
         ->add('project_id')
         ->add('created_at')
+        ->add('pdf_path')
+        ->add('price_total')
             ->add('save', SubmitType::class)
         ;
     }
@@ -73,7 +73,8 @@ class QuotationType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Quotation::class,
-            'csrf_protection' => false
+            'csrf_protection' => false,
+            "allow_extra_fields" => true
         ));
     }
 }

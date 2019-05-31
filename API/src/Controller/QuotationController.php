@@ -6,6 +6,8 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Quotation;
+use App\Entity\Agency;
+use App\Entity\Project;
 use App\Form\QuotationType;
 /**
  * Movie controller.
@@ -59,17 +61,38 @@ class QuotationController extends FOSRestController
      *
      * @return Response
      */
-    public function postQuotationAction(Request $request)
+    public function postBillAction(Request $request)
     {
-        $page = new Quotation();
-        $form = $this->createForm(QuotationType::class, $page);
+        $quotation = new Quotation();
+        $form = $this->createForm(QuotationType::class, $quotation);
         $data = json_decode($request->getContent(), true);
+
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($page);
+            $em->persist($quotation);
             $em->flush();
+
+            $projectId = $quotation->getProjectId();
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $project = $repositoryProject->find($quotation->getProjectId());
+
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $agency = $repositoryProject->find('6');
+
+            $path = $request->server->get('DOCUMENT_ROOT');
+            $path = rtrim($path, "/");
+            $html = $this->renderView('quotation_pdf.html.twig', array(
+                        'quotation' => $quotation,
+                        'project' => $project,
+                        'agency' => $agency,
+                      ));
+            $output = $path . $request->server->get('BASE');
+            $output .= $quotation->getPdfPath();
+            $this->get('knp_snappy.pdf')->generateFromHtml($html, $output, array());
             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+
+
         }
         return $this->handleView($this->view($form->getErrors()));
     }

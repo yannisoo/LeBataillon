@@ -10,6 +10,7 @@
         "friendsofsymfony/rest-bundle": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0",
         "jms/serializer-bundle": "^2.4",
+        "knplabs/knp-snappy-bundle": "^1.6",
         "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/cors-bundle": "^1.5",
         "sensio/framework-extra-bundle": "^5.3",
@@ -20,12 +21,12 @@
         "symfony/form": "4.2.*",
         "symfony/framework-bundle": "4.2.*",
         "symfony/orm-pack": "^1.0",
-
         "symfony/security-bundle": "4.2.*",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/translation": "4.2.*",
         "symfony/validator": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3"
     },
     "config": {
         "preferred-install": {

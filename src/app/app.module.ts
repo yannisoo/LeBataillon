@@ -25,7 +25,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './register/register.component'
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
 import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
-import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component'
+import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component';
+import { CreateQuotationComponent } from './create-quotation/create-quotation.component'
 
 
 
@@ -44,7 +45,8 @@ import { ProjectMainEmptyComponent } from './project/project-main-empty/project-
     RegisterComponent,
     SuiviClientComponent,
     PdfGenComponent,
-    ProjectMainEmptyComponent
+    ProjectMainEmptyComponent,
+    CreateQuotationComponent
 
 
   ],
