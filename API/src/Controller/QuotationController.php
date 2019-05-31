@@ -61,7 +61,7 @@ class QuotationController extends FOSRestController
      *
      * @return Response
      */
-    public function postBillAction(Request $request)
+    public function postQuotationAction(Request $request)
     {
         $quotation = new Quotation();
         $form = $this->createForm(QuotationType::class, $quotation);
@@ -134,5 +134,42 @@ class QuotationController extends FOSRestController
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
+    }
+    /**
+     * Send Quotation.
+     * @Rest\Post("/quotationSend/{id}")
+     *
+     * @param $id
+     * @return Response
+     */
+
+    public function SendEmail($id, \Swift_Mailer $mailer)
+    {
+
+        $repositoryQuotation = $this->getDoctrine()->getRepository(Quotation::class);
+        $quotation = $repositoryQuotation->find($id);
+        $projectId = $quotation->getProjectId();
+        $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+        $project = $repositoryProject->find($projectId);
+        //$email = $project->getEmail();
+
+
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('angsymftest@gmail.com')
+            ->setTo('yannis.b8@gmail.com')
+            ->attach(Swift_Attachment::fromPath('../../src/assets/pdf/bill_template.pdf'))
+            ->setBody(
+                $this->renderView(
+                    'emails/facture_email.html.twig', [
+                        'quotationnumber' => $quotation->getQuotationNumber(),
+                        'name' => $project->getName(),
+                        'descritpion' => $project->getDescription()
+
+                ]),
+                'text/html'
+            );
+
+        $mailer->send($message);
+        return $this->handleView($this->view(['status' => 'ok']));
     }
 }
