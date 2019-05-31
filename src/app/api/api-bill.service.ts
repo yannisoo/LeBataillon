@@ -67,6 +67,15 @@ export class ApibillService {
         catchError(this.handleError)
       )
   }
+
+  // HttpClient API post() method => Send Bill
+  sendBill(id): Observable<Bill> {
+    return this.http.post<Bill>(this.apiURL + '/billSend/' + id, this.httpOptions)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        )
+  }
   postPdf(data){
     return this.http.post(this.apiURL + '/pdf', JSON.stringify(data), this.httpOptions)
       .pipe(
