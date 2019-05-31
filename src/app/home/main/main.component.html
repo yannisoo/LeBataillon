@@ -1,10 +1,19 @@
 <main>
   <h1>Les projets</h1>
-  <a class="btn-floating btn-large waves-effect waves-light blue-grey search"><i class="material-icons">search</i></a>
+  <div class="test">
+    <a class="btn-floating btn-large waves-effect waves-light blue-grey search scale-transition" [ngClass]="status ? 'scale-out' : 'scale-in'" (click)="searchBar()">
+      <i class="material-icons">search</i>
+    </a>
+    <input [(ngModel)]="searchText" class="scale-transition" [ngClass]="status ? 'scale-in' : 'scale-out'"  type="text">
+    <a class="btn-floating btn-large waves-effect waves-light blue-grey search scale-transition" [ngClass]="status ? 'scale-in' : 'scale-out'" (click)="searchBar()">
+      <i class="material-icons">search</i>
+    </a>
+  </div>
   <div>
-    <ul>
+    <ul ng-init="project = this.Project">
       <li><a routerLink="/create-project"><img src="/assets/images/folderAdd.png" alt=""></a></li>
-      <li *ngFor="let Project of Project">
+      <li *ngFor="let Project of Project | filter:searchText">
+
         <a [ngSwitch]="this.Project.status" routerLink="/project/{{this.Project.id}}">
           <img style="width: 200px; height: 200px" *ngSwitchCase="1" src="assets/images/folderInProgress.png" alt="">
           <img style="width: 200px; height: 200px" *ngSwitchCase="0" src="assets/images/folderDone.png" alt="">

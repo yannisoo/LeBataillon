@@ -29,6 +29,12 @@ import { ProjectMainEmptyComponent } from './project/project-main-empty/project-
 import { CreateQuotationComponent } from './create-quotation/create-quotation.component'
 
 
+import { FileSelectDirective } from 'ng2-file-upload';
+
+
+import { FilterPipe } from './pipe/search/filter.pipe'
+
+
 
 @NgModule({
   declarations: [
@@ -45,8 +51,11 @@ import { CreateQuotationComponent } from './create-quotation/create-quotation.co
     RegisterComponent,
     SuiviClientComponent,
     PdfGenComponent,
+    FileSelectDirective,
+    FilterPipe,
     ProjectMainEmptyComponent,
     CreateQuotationComponent
+
 
 
   ],

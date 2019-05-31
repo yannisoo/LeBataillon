@@ -31,7 +31,7 @@ export class PdfGenComponent implements OnInit {
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
       console.log(pdf)
-      // pdf.save("assets/pdf" + new Date() + ".pdf"); // Generated PDF
+      pdf.save("assetss/pdf" + new Date() + ".pdf"); // Generated PDF
     });
   }
 
