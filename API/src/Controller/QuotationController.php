@@ -96,6 +96,43 @@ class QuotationController extends FOSRestController
         }
         return $this->handleView($this->view($form->getErrors()));
     }
+    /**
+     * Create Page.
+     * @Rest\Post("/quotationNan")
+     *
+     * @return Response
+     */
+    public function postQuotationNanAction(Request $request)
+    {
+        $quotation = new Quotation();
+        $form = $this->createForm(QuotationType::class, $quotation);
+        $data = json_decode($request->getContent(), true);
+
+        $form->submit($data);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($quotation);
+            $em->flush();
+
+
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $agency = $repositoryProject->find('6');
+
+            $path = $request->server->get('DOCUMENT_ROOT');
+            $path = rtrim($path, "/");
+            $html = $this->renderView('quotationNan_pdf.html.twig', array(
+                        'quotation' => $quotation,
+                        'agency' => $agency,
+                      ));
+            $output = $path . $request->server->get('BASE');
+            $output .= $quotation->getPdfPath();
+            $this->get('knp_snappy.pdf')->generateFromHtml($html, $output, array());
+            return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+
+
+        }
+        return $this->handleView($this->view($form->getErrors()));
+    }
 
     /**
      * Update Page.
