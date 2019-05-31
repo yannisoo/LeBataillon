@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Ng2UploaderModule } from 'ng2-uploader';
 // import { MatButtonModule } from '@angular/material';
 
 import { EventService } from './auth/event.service';
@@ -69,7 +68,6 @@ import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-
     PdfViewerModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Ng2UploaderModule
     // MatButtonModule
   ],
   providers: [AuthService, AuthGuard, EventService,{
