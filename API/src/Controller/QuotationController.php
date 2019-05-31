@@ -156,12 +156,12 @@ class QuotationController extends FOSRestController
 
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('angsymftest@gmail.com')
-            ->setTo('yannis.b8@gmail.com')
+            ->setTo('angsymftest@gmail.com')
             ->attach(Swift_Attachment::fromPath( '.' . $quotation->getPdfPath()))
             ->setBody(
                 $this->renderView(
-                    'emails/facture_email.html.twig', [
-                        'billnumber' => $quotation->getQuotationNumber(),
+                    'emails/devis_email.html.twig', [
+                        'devisnumber' => $quotation->getQuotationNumber(),
                         'name' => $project->getName(),
                         'descritpion' => $project->getDescription()
 
