@@ -1,10 +1,10 @@
-<app-project-main *ngIf="this.selected" [Bill]= Bill [Project]= Project [selected]= selected></app-project-main>
+<app-project-main *ngIf="this.selected" [url]=url [Bill]= Bill [Project]= Project [selected]= selected></app-project-main>
 <app-project-main-empty *ngIf="!this.selected" [Bill]= Bill [Project]= Project ></app-project-main-empty>
 <nav>
   <ul>
 
     <li class="sidebar-first-title">
-      <a routerLink="/project/{{this.Project.id}}">
+      <a routerLink="/project/{{this.Project.id}}" (click)="unselected()">
         <h5>Projet : {{this.Project.name}}</h5>
       </a>
     </li>

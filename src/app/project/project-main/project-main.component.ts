@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApibillService} from '../../api/api-bill.service';
 import {Router} from '@angular/router';
 import {ApiprojectService} from '../../api/api-project.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -14,22 +13,18 @@ export class ProjectMainComponent implements OnInit {
   @Input() Project: any;
   @Input() selected: any;
   @Input() Bill: any;
-  url:any;
-  dangerousVideoUrl: any;
+  @Input() url:any;
 
   constructor(
       public apiBill: ApibillService,
       public apiProject: ApiprojectService,
       public router: Router,
-      public sanitizer: DomSanitizer
   ) {
 
   }
 
   ngOnInit() {
-    this.dangerousVideoUrl = "http://127.0.0.1:8001" + this.selected.pdf_path;
-    this.url =
-        this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
+
 }
 
   // delBill(id) {
@@ -45,10 +40,6 @@ export class ProjectMainComponent implements OnInit {
   }
 
   updateRemaining(id) {
-    console.log(this.Project.remaining);
-    console.log(this.selected.price_total);
-    console.log(this.selected);
-
     this.Project.remaining = this.Project.remaining - this.selected.price_total;
     console.log(this.Project.remaining);
     console.log(this.Project)
