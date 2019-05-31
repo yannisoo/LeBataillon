@@ -74,7 +74,6 @@ class QuotationController extends FOSRestController
             $em->persist($quotation);
             $em->flush();
 
-            $projectId = $quotation->getProjectId();
             $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
             $project = $repositoryProject->find($quotation->getProjectId());
 

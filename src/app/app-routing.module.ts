@@ -13,6 +13,7 @@ import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
 import { LoginComponent } from './login/login.component';
 import { ListeComponent } from './liste-devis/liste/liste.component';
 import { CreateQuotationComponent } from './create-quotation/create-quotation.component';
+import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-create-quotation/noproject-create-quotation.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'devis', component: ListeComponent },
   { path: 'suivi-client', component: SuiviClientComponent},
   { path: 'create-bill', component: PdfGenComponent},
-  { path: 'create-quotation/:id', component: CreateQuotationComponent}
+  { path: 'create-quotation/:id', component: CreateQuotationComponent},
+  { path: 'create-quotation', component: NoprojectCreateQuotationComponent}
 
 ];
 

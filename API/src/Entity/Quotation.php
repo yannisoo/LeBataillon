@@ -296,6 +296,31 @@ class Quotation
      */
     private $pdf_path;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_client;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_contact;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_address;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_city;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_postcode;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -969,6 +994,66 @@ class Quotation
     public function setPdfPath(?string $pdf_path): self
     {
         $this->pdf_path = $pdf_path;
+
+        return $this;
+    }
+
+    public function getProjectClient(): ?string
+    {
+        return $this->project_client;
+    }
+
+    public function setProjectClient(?string $project_client): self
+    {
+        $this->project_client = $project_client;
+
+        return $this;
+    }
+
+    public function getProjectContact(): ?string
+    {
+        return $this->project_contact;
+    }
+
+    public function setProjectContact(?string $project_contact): self
+    {
+        $this->project_contact = $project_contact;
+
+        return $this;
+    }
+
+    public function getProjectAddress(): ?string
+    {
+        return $this->project_address;
+    }
+
+    public function setProjectAddress(?string $project_address): self
+    {
+        $this->project_address = $project_address;
+
+        return $this;
+    }
+
+    public function getProjectCity(): ?string
+    {
+        return $this->project_city;
+    }
+
+    public function setProjectCity(?string $project_city): self
+    {
+        $this->project_city = $project_city;
+
+        return $this;
+    }
+
+    public function getProjectPostcode(): ?string
+    {
+        return $this->project_postcode;
+    }
+
+    public function setProjectPostcode(?string $project_postcode): self
+    {
+        $this->project_postcode = $project_postcode;
 
         return $this;
     }

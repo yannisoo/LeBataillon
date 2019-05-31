@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Ng2UploaderModule } from 'ng2-uploader';
 // import { MatButtonModule } from '@angular/material';
 
 import { EventService } from './auth/event.service';
@@ -32,7 +33,8 @@ import { CreateQuotationComponent } from './create-quotation/create-quotation.co
 import { FileSelectDirective } from 'ng2-file-upload';
 
 
-import { FilterPipe } from './pipe/search/filter.pipe'
+import { FilterPipe } from './pipe/search/filter.pipe';
+import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-create-quotation/noproject-create-quotation.component'
 
 
 
@@ -54,7 +56,8 @@ import { FilterPipe } from './pipe/search/filter.pipe'
     FileSelectDirective,
     FilterPipe,
     ProjectMainEmptyComponent,
-    CreateQuotationComponent
+    CreateQuotationComponent,
+    NoprojectCreateQuotationComponent
 
 
 
@@ -66,6 +69,7 @@ import { FilterPipe } from './pipe/search/filter.pipe'
     PdfViewerModule,
     HttpClientModule,
     ReactiveFormsModule,
+    Ng2UploaderModule
     // MatButtonModule
   ],
   providers: [AuthService, AuthGuard, EventService,{
