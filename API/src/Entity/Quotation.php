@@ -286,6 +286,16 @@ class Quotation
      */
     private $CreatedAt;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $price_total;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pdf_path;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -935,6 +945,30 @@ class Quotation
     public function setCreatedAt(?\DateTimeInterface $CreatedAt): self
     {
         $this->CreatedAt = $CreatedAt;
+
+        return $this;
+    }
+
+    public function getPriceTotal(): ?int
+    {
+        return $this->price_total;
+    }
+
+    public function setPriceTotal(?int $price_total): self
+    {
+        $this->price_total = $price_total;
+
+        return $this;
+    }
+
+    public function getPdfPath(): ?string
+    {
+        return $this->pdf_path;
+    }
+
+    public function setPdfPath(?string $pdf_path): self
+    {
+        $this->pdf_path = $pdf_path;
 
         return $this;
     }

@@ -137,6 +137,21 @@
             "./config/packages/prod/jms_serializer.yaml"
         ]
     },
+    "knplabs/knp-snappy": {
+        "version": "v1.1.0"
+    },
+    "knplabs/knp-snappy-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c81bdcf4a9d4e7b1959071457f9608631865d381"
+        },
+        "files": [
+            "./config/packages/knp_snappy.yaml"
+        ]
+    },
     "lcobucci/jwt": {
         "version": "3.3.1"
     },
@@ -325,11 +340,12 @@
     "symfony/polyfill-php72": {
         "version": "v1.11.0"
     },
-
+    "symfony/process": {
+        "version": "v4.2.9"
+    },
     "symfony/profiler-pack": {
         "version": "v1.0.4"
     },
-
     "symfony/property-access": {
         "version": "v4.2.8"
     },
@@ -460,6 +476,9 @@
     },
     "twig/twig": {
         "version": "v2.10.0"
+    },
+    "wemersonjanuario/wkhtmltopdf-windows": {
+        "version": "0.12.2.3"
     },
     "willdurand/jsonp-callback-validator": {
         "version": "v1.1.0"

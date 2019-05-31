@@ -1,0 +1,14 @@
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "%kernel.root_dir%/../vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf.exe"
+        options:
+           page-size: A4
+           dpi: 300
+           image-quality: 80
+           user-style-sheet: "%kernel.root_dir%/../templates/quotation.css"
+
+    image:
+        enabled:    true
+        binary:     "%kernel.root_dir%/../vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf.exe"
+        options:    []

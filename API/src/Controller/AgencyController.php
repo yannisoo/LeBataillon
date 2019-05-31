@@ -15,7 +15,7 @@ class AgencyController extends FOSRestController
 {
     /**
      * Lists agency.
-     * @Rest\Get("/agency")
+     * @Rest\Get("/agencys")
      *
      * @return Response
      */
