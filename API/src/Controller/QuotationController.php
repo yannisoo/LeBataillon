@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use Swift_Attachment;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -157,11 +158,11 @@ class QuotationController extends FOSRestController
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('angsymftest@gmail.com')
             ->setTo('yannis.b8@gmail.com')
-            ->attach(Swift_Attachment::fromPath('../../src/assets/pdf/bill_template.pdf'))
+            ->attach(Swift_Attachment::fromPath( '.' . $quotation->getPdfPath()))
             ->setBody(
                 $this->renderView(
                     'emails/facture_email.html.twig', [
-                        'quotationnumber' => $quotation->getQuotationNumber(),
+                        'billnumber' => $quotation->getQuotationNumber(),
                         'name' => $project->getName(),
                         'descritpion' => $project->getDescription()
 

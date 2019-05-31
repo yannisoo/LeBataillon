@@ -199,7 +199,7 @@ class BillController extends FOSRestController
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('angsymftest@gmail.com')
             ->setTo('yannis.b8@gmail.com')
-            ->attach(Swift_Attachment::fromPath('../../src/assets/pdf/bill_template.pdf'))
+            ->attach(Swift_Attachment::fromPath( '.' . $bill->getPdfPath()))
             ->setBody(
                 $this->renderView(
                     'emails/facture_email.html.twig', [
