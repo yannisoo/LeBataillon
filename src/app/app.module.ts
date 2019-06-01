@@ -35,7 +35,8 @@ import { FilterPipe } from './pipe/search/filter.pipe';
 import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-create-quotation/noproject-create-quotation.component';
 import { CreateBillComponent } from './create-bill/create-bill.component';
 import { ModifyBillComponent } from './modify-bill/modify-bill.component';
-import { ModifyQuotationComponent } from './modify-quotation/modify-quotation.component'
+import { ModifyQuotationComponent } from './modify-quotation/modify-quotation.component';
+import { AgencyInfoComponent } from './agency-info/agency-info.component'
 
 
 
@@ -60,7 +61,8 @@ import { ModifyQuotationComponent } from './modify-quotation/modify-quotation.co
     NoprojectCreateQuotationComponent,
     CreateBillComponent,
     ModifyBillComponent,
-    ModifyQuotationComponent
+    ModifyQuotationComponent,
+    AgencyInfoComponent
 
 
 

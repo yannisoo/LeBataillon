@@ -1,0 +1,66 @@
+<div class="container">
+  <h3>
+    Informations de l'agence
+  </h3>
+
+  <div>
+    <div>
+      Nom de l'entreprise
+      <input class="modify" [(ngModel)]="this.Agency.name" type="text">
+    </div>
+    <div>
+      Email
+      <input class="modify" [(ngModel)]="this.Agency.email" type="text">
+    </div>
+    <div>
+      Ville
+      <input class="modify" [(ngModel)]="this.Agency.city" type="text">
+    </div>
+    <div>
+      Adresse de l'entreprise
+      <input class="modify" [(ngModel)]="this.Agency.address" type="text">
+    </div>
+    <div>
+      N° Téléphone Mobile
+      <input class="modify" [(ngModel)]="this.Agency.phone_mobile" type="text">
+    </div>
+    <div>
+      N° Téléphone Fixe
+      <input class="modify" [(ngModel)]="this.Agency.phone_work" type="text">
+    </div>
+    <div>
+      N° SIRET
+      <input class="modify" [(ngModel)]="this.Agency.sirep" type="text">
+    </div>
+    <div>
+      Code Banque
+      <input class="modify" [(ngModel)]="this.Agency.bank_code" type="text">
+    </div>
+    <div>
+      Code Guichet
+      <input class="modify" [(ngModel)]="this.Agency.counter_code" type="text">
+    </div>
+    <div>
+      N° du Compte
+      <input class="modify" [(ngModel)]="this.Agency.account_number" type="text">
+    </div>
+    <div>
+      Nom Agence
+      <input class="modify" [(ngModel)]="this.Agency.zone_agency" type="text">
+    </div>
+    <div>
+      Clé RIB
+      <input class="modify" [(ngModel)]="this.Agency.rib_key" type="text">
+    </div>
+    <div>
+      IBAN
+      <input class="modify" [(ngModel)]="this.Agency.iban" type="text">
+    </div>
+    <div>
+      BIC
+      <input class="modify" [(ngModel)]="this.Agency.bic" type="text">
+    </div>
+    <a class="waves-effect waves-light btn create" (click)="updateAgency()">Modifier les informations de l'agence</a>
+  </div>
+
+</div>

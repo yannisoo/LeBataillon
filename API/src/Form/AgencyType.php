@@ -17,6 +17,14 @@ class AgencyType extends AbstractType
             ->add('SIREP')
             ->add('phone_work')
             ->add('phone_mobile')
+            ->add('email')
+            ->add('rib_key')
+            ->add('iban')
+            ->add('bic')
+            ->add('counter_code')
+            ->add('bank_code')
+            ->add('zone_agency')
+            ->add('account_number')
             ->add('save', SubmitType::class)
         ;
     }
@@ -24,7 +32,8 @@ class AgencyType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Agency::class,
-            'csrf_protection' => false
+            'csrf_protection' => false,
+            "allow_extra_fields" => true
         ));
     }
 }

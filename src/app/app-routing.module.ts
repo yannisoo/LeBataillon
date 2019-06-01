@@ -16,6 +16,7 @@ import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-
 import {CreateBillComponent} from './create-bill/create-bill.component';
 import {ModifyBillComponent} from './modify-bill/modify-bill.component';
 import { ModifyQuotationComponent } from './modify-quotation/modify-quotation.component';
+import {AgencyInfoComponent} from './agency-info/agency-info.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'create-quotation/:id', component: CreateQuotationComponent},
   { path: 'modify-bill/:id', component: ModifyBillComponent},
   { path: 'create-bill/:id', component: CreateBillComponent},
-  { path: 'create-quotation', component: NoprojectCreateQuotationComponent}
+  { path: 'create-quotation', component: NoprojectCreateQuotationComponent},
+  { path: 'agency', component: AgencyInfoComponent}
 
 ];
 
