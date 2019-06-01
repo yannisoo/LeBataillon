@@ -86,6 +86,11 @@ class Agency
      */
     private $bic;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -255,6 +260,18 @@ class Agency
     public function setBic(?string $bic): self
     {
         $this->bic = $bic;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

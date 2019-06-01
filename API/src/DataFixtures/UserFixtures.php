@@ -14,7 +14,7 @@ class UserFixtures extends Fixture
         for ($i = 0; $i < 4; $i++) {
 
             $user = new User();
-            $user->setName('cdp '.$i);
+            $user->setUserName('cdp '.$i);
             $user->setEmail('email'.$i.'@gmail.com');
             $user->setPassword('admin');
             $user->setRole('cdp');
@@ -25,7 +25,7 @@ class UserFixtures extends Fixture
         for ($i = 0; $i < 2; $i++) {
 
             $user = new User();
-            $user->setName('comptable '.$i);
+            $user->setUserName('comptable '.$i);
             $user->setEmail('email'.$i.'@gmail.com');
             $user->setPassword('admin');
             $user->setRole('comptable');
@@ -34,7 +34,7 @@ class UserFixtures extends Fixture
         }
 
             $user = new User();
-            $user->setName('Master');
+            $user->setUserName('Master');
             $user->setEmail('email.master@gmail.com');
             $user->setPassword('admin');
             $user->setRole('master');
