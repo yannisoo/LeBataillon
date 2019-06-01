@@ -106,7 +106,9 @@ class UserController extends FOSRestController
     }
 
     /**
-        * @Route("/login", name="security_login")
+
+        * @Route("/login")
+
         */
        public function login()
        {
@@ -120,6 +122,8 @@ class UserController extends FOSRestController
 
 
 
+
+           return $this->render('User/login.html.twig');
        }
 
 }

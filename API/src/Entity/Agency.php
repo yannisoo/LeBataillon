@@ -51,6 +51,41 @@ class Agency
      */
     private $phone_mobile;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bank_code;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $counter_code;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $account_number;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $rib_key;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $zone_agency;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $iban;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bic;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +171,90 @@ class Agency
     public function setPhoneMobile(?int $phone_mobile): self
     {
         $this->phone_mobile = $phone_mobile;
+
+        return $this;
+    }
+
+    public function getBankCode(): ?string
+    {
+        return $this->bank_code;
+    }
+
+    public function setBankCode(?string $bank_code): self
+    {
+        $this->bank_code = $bank_code;
+
+        return $this;
+    }
+
+    public function getCounterCode(): ?string
+    {
+        return $this->counter_code;
+    }
+
+    public function setCounterCode(?string $counter_code): self
+    {
+        $this->counter_code = $counter_code;
+
+        return $this;
+    }
+
+    public function getAccountNumber(): ?string
+    {
+        return $this->account_number;
+    }
+
+    public function setAccountNumber(?string $account_number): self
+    {
+        $this->account_number = $account_number;
+
+        return $this;
+    }
+
+    public function getRibKey(): ?string
+    {
+        return $this->rib_key;
+    }
+
+    public function setRibKey(?string $rib_key): self
+    {
+        $this->rib_key = $rib_key;
+
+        return $this;
+    }
+
+    public function getZoneAgency(): ?string
+    {
+        return $this->zone_agency;
+    }
+
+    public function setZoneAgency(?string $zone_agency): self
+    {
+        $this->zone_agency = $zone_agency;
+
+        return $this;
+    }
+
+    public function getIban(): ?string
+    {
+        return $this->iban;
+    }
+
+    public function setIban(?string $iban): self
+    {
+        $this->iban = $iban;
+
+        return $this;
+    }
+
+    public function getBic(): ?string
+    {
+        return $this->bic;
+    }
+
+    public function setBic(?string $bic): self
+    {
+        $this->bic = $bic;
 
         return $this;
     }
