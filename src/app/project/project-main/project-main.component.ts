@@ -18,6 +18,8 @@ export class ProjectMainComponent implements OnInit {
   @Input() Quotation: any;
   @Input() url:any;
 
+  send = 'Envoyer';
+
   constructor(
       public apiBill: ApibillService,
       public apiQuotation: ApiQuotationService,
@@ -27,13 +29,17 @@ export class ProjectMainComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
 
 }
+
   sendBill(id) {
     if (window.confirm('Confirmez-vous l\'envoi de la facture ?')) {
       this.apiBill.sendBill(this.selected.id).subscribe((data: {}) => {
         console.log(this.Project);
+        this.send = 'Envoyé';
+        this.selected.status_send = 1;
       });
     }
   }
@@ -42,6 +48,8 @@ export class ProjectMainComponent implements OnInit {
     if (window.confirm('Confirmez-vous l\'envoi du devis ?')) {
       this.apiQuotation.sendQuotation(this.selected.id).subscribe((data: {}) => {
         console.log(this.Project);
+        this.send = 'Envoyé';
+        this.selected.status_send = 1;
       });
     }
   }

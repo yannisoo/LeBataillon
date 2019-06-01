@@ -303,6 +303,11 @@ class Bill
      */
     private $pdf_path;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $statusSend;
+
 
 
     public function getId(): ?integer
@@ -996,6 +1001,18 @@ class Bill
     public function setPdfPath(?string $pdf_path): self
     {
         $this->pdf_path = $pdf_path;
+
+        return $this;
+    }
+
+    public function getStatusSend(): ?int
+    {
+        return $this->statusSend;
+    }
+
+    public function setStatusSend(?int $statusSend): self
+    {
+        $this->statusSend = $statusSend;
 
         return $this;
     }
