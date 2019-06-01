@@ -75,6 +75,16 @@ export class ApiQuotationService {
         catchError(this.handleError)
       )
   }
+
+  // HttpClient API post() method => Send Quotation
+  sendQuotation(id): Observable<Quotation> {
+    return this.http.post<Quotation>(this.apiURL + '/quotationSend/' + id, this.httpOptions)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        )
+  }
+
   // Error handling
   handleError(error) {
     let errorMessage = '';

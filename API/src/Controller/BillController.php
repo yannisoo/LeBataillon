@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use App\Entity\Agency;
 use Swift_Attachment;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -98,11 +99,15 @@ class BillController extends FOSRestController
             $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
             $project = $repositoryProject->find($bill->getProjectId());
 
+            $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
+            $agency = $repositoryAgency->find('18');
+
             $path = $request->server->get('DOCUMENT_ROOT');
             $path = rtrim($path, "/");
-            $html = $this->renderView('bill_pdf.html', array(
+            $html = $this->renderView('pdf_bill.html', array(
                         'bill' => $bill,
-                        'project' => $project
+                        'project' => $project,
+                        'agency' => $agency
                       ));
             $output = $path . $request->server->get('BASE');
             $output .= $bill->getPdfPath();
@@ -114,28 +119,6 @@ class BillController extends FOSRestController
 
         }
         return $this->handleView($this->view($form->getErrors()));
-    }
-
-
-    /**
-     * Create Page.
-     * @Rest\Post("/pdf")
-     *
-     * @return Response
-     */
-    public function postPdfAction(Request $request)
-    {
-      $path = $request->server->get('DOCUMENT_ROOT');
-      $path = rtrim($path, "/");
-      $html = $this->renderView('quotation_pdf.html', array());
-      $output = $path . $request->server->get('BASE');        // C:/wamp64/www/project/web
-      $output .= '/pdf/contract-da.pdf';
-        // return $this->handleView($this->view(['status' => $output], Response::HTTP_CREATED));
-      $this->get('knp_snappy.pdf')->generateFromHtml($html, $output, array());
-      // return $this->redirectToRoute('contract');
-      return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
-
-
     }
 
 
@@ -199,20 +182,20 @@ class BillController extends FOSRestController
         $projectId = $bill->getProjectId();
         $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
         $project = $repositoryProject->find($projectId);
+        $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
+        $agency = $repositoryAgency->find('18');
         //$email = $project->getEmail();
 
 
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('angsymftest@gmail.com')
-            ->setTo('yannis.b8@gmail.com')
+            ->setTo('angsymftest@gmail.com')
             ->attach(Swift_Attachment::fromPath( '.' . $bill->getPdfPath()))
             ->setBody(
                 $this->renderView(
                     'emails/facture_email.html.twig', [
-                        'billnumber' => $bill->getBillNumber(),
-                        'name' => $project->getName(),
-                        'descritpion' => $project->getDescription()
-
+                        'bill' => $bill,
+                        'agency' => $agency,
                 ]),
                 'text/html'
             );

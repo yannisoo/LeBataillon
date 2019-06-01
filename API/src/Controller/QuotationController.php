@@ -78,8 +78,8 @@ class QuotationController extends FOSRestController
             $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
             $project = $repositoryProject->find($quotation->getProjectId());
 
-            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
-            $agency = $repositoryProject->find('6');
+            $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
+            $agency = $repositoryAgency->find('18');
 
             $path = $request->server->get('DOCUMENT_ROOT');
             $path = rtrim($path, "/");
@@ -267,12 +267,12 @@ class QuotationController extends FOSRestController
 
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('angsymftest@gmail.com')
-            ->setTo('yannis.b8@gmail.com')
+            ->setTo('angsymftest@gmail.com')
             ->attach(Swift_Attachment::fromPath( '.' . $quotation->getPdfPath()))
             ->setBody(
                 $this->renderView(
-                    'emails/facture_email.html.twig', [
-                        'billnumber' => $quotation->getQuotationNumber(),
+                    'emails/devis_email.html.twig', [
+                        'devisnumber' => $quotation->getQuotationNumber(),
                         'name' => $project->getName(),
                         'descritpion' => $project->getDescription()
 
