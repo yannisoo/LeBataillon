@@ -64,6 +64,7 @@ class BillType extends AbstractType
         ->add('call_reminder')
         ->add('mainbill_description')
         ->add('payment_period')
+        ->add('statusSend')
         ->add('pdf_path')
         ->add('limit_date')
             ->add('save', SubmitType::class)

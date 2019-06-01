@@ -30,8 +30,10 @@
     <p class="centered">Cout total: <br> <span class="price">{{this.Project.total_price}}€</span></p>
     </div>
     <p class="centered"> Restant du: <br><span class="price">{{this.Project.remaining}}€</span></p>
-    <button *ngIf="this.Project.status == 2" class="btn waves-effect waves-light" type="submit" name="action" (click)="SendProblem()">Envoyer au service juridique
+
+    <button *ngIf="this.Project.status == 2" class="btn waves-effect waves-light bouton" type="submit" name="action" (click)="SendProblem()">Envoyer au service juridique
       <i class="material-icons right">warning</i>
     </button>
-</div>
+
+    </div>
 </div>

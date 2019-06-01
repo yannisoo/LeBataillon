@@ -62,13 +62,15 @@ export class ProjectNavbarComponent implements OnInit {
     })
   }
   onSelect(object): void {
-    this.selected = object;
-    console.log(this.selected)
-    this.dangerousVideoUrl = "http://127.0.0.1:8001" + this.selected.pdf_path;
-    this.url =
-      this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
-  }
-  unselected() {
-    this.selected = 0;
-  }
+
+  this.selected = object;
+  console.log(this.selected)
+  this.dangerousVideoUrl = "http://127.0.0.1:8001" + this.selected.pdf_path;
+  this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
+
+}
+unselected(){
+  this.selected = 0;
+}
+
 }

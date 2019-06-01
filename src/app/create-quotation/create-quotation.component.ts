@@ -128,6 +128,7 @@ export class CreateQuotationComponent implements OnInit {
     this.Quotation.quotation_number = formatDate(this.myDate, 'ddMMyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
     this.Quotation.pdf_path = '/' + this.Project.name + '/quotation/Devis_' + this.Quotation.quotation_number + '.pdf';
     this.Quotation.status = 1;
+    this.Quotation.statusSend = 0;
     this.Quotation.created_at = this.myDate;
     this.Project.total_price = 0;
     this.Project.remaining = 0;

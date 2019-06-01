@@ -321,6 +321,11 @@ class Quotation
      */
     private $project_postcode;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $statusSend;
+
     public function getId(): ?integer
     {
         return $this->id;
@@ -1054,6 +1059,18 @@ class Quotation
     public function setProjectPostcode(?string $project_postcode): self
     {
         $this->project_postcode = $project_postcode;
+
+        return $this;
+    }
+
+    public function getStatusSend(): ?string
+    {
+        return $this->statusSend;
+    }
+
+    public function setStatusSend(?string $statusSend): self
+    {
+        $this->statusSend = $statusSend;
 
         return $this;
     }
