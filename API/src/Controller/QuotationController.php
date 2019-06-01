@@ -77,8 +77,8 @@ class QuotationController extends FOSRestController
             $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
             $project = $repositoryProject->find($quotation->getProjectId());
 
-            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
-            $agency = $repositoryProject->find('6');
+            $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
+            $agency = $repositoryAgency->find('18');
 
             $path = $request->server->get('DOCUMENT_ROOT');
             $path = rtrim($path, "/");
