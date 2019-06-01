@@ -22,6 +22,13 @@ export class ProjectMainEmptyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
+
+  SendProblem(){
+      return this.apiQuotation.sendProblem(this.Project.id).subscribe((data: {}) => {
+      this.Quotation = data;
+      console.log(this.Bill);
+  })}
 
 }

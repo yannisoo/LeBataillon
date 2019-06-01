@@ -51,6 +51,15 @@ export class ApiQuotationService {
         catchError(this.handleError)
       )
   }
+
+  // HttpClient API post() method => Create admin
+  sendProblem(id): Observable<Quotation> {
+    return this.http.post<Quotation>(this.apiURL + '/zipzip/' + id, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
   // HttpClient API post() method => Create admin
   createQuotationNan(terms): Observable<Quotation> {
     return this.http.post<Quotation>(this.apiURL + '/quotationNan', JSON.stringify(terms), this.httpOptions)

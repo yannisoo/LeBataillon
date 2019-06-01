@@ -42,14 +42,12 @@
     </div>-->
 
     <div class="button">
-      <button class="btn waves-effect waves-light">Modifier
-        <i class="material-icons right">edit</i>
-      </button>
 
-      <button *ngIf="this.selected.bill_number" class="btn waves-effect waves-light" type="submit" name="action"  routerLink="/modify-bill/{{ this.selected.id }}">Modifier
+
+      <button *ngIf="this.selected.bill_number" class="btn waves-effect waves-light" type="submit" name="action"  routerLink="/modify-bill/{{this.selected.id}}">Modifier
         <i class="material-icons right">send</i>
       </button>
-      <button *ngIf="this.selected.quotation_number" class="btn waves-effect waves-light" type="submit" name="action" (click)="/modify-quotation/{{ this.selected.id }}">Modifier
+      <button *ngIf="this.selected.quotation_number" class="btn waves-effect waves-light" type="submit" name="action" routerLink="/modify-quotation/{{this.selected.id}}">Modifier
         <i class="material-icons right">send</i>
       </button>
 

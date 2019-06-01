@@ -243,7 +243,7 @@ class QuotationController extends FOSRestController
                 ->attach(Swift_Attachment::fromPath($zipName))
                 ->setBody(
                     $this->renderView(
-                        'emails/facture_email.html.twig', [
+                        'emails/probleme.html.twig', [
                             'name' => $project->getName(),
                             'descritpion' => $project->getDescription()
 
