@@ -11,19 +11,18 @@
 
     <div class="client">
     <h5 *ngIf="!this.selected.bill_number && !this.selected.quotation_number">Informations client</h5>
-    <h5 *ngIf="this.selected.bill_number">Informations client de la facture: {{this.selected.bill_number}}</h5>
-    <h5 *ngIf="this.selected.quotation_number">Informations client du devis: {{this.selected.quotation_number}}</h5>
-    <p>Nom Entreprise: {{this.Project.name}}</p>
-    <p>Nom Contact: {{this.Project.contact}}</p>
-    <p>Adresse: {{this.Project.address}}</p>
-    <p>Ville: {{this.Project.city}}</p>
-    <p>Code Postal: {{this.Project.postcode}}</p>
-    <p>Téléphone: {{this.Project.phone}}</p>
-    <p>email: {{this.Project.email}}</p>
+    <h5 *ngIf="this.selected.bill_number">Informations sur de la facture: {{this.selected.bill_number}}</h5>
+    <h5 *ngIf="this.selected.quotation_number">Informations sur le devis: {{this.selected.quotation_number}}</h5>
+    <p>Créer le : {{this.selected.created_at | date:'d/M/yy'}}</p>
+    <p *ngIf="this.selected.email_reminder">Dernier rappel email: {{this.selected.email_reminder | date:'d/M/yy'}}</p>
+    <p *ngIf="this.selected.call_reminder">Dernier rappel téléphonique: {{this.selected.call_reminder | date:'d/M/yy'}}</p>
+    <p>Date limite: {{this.selected.limit_date | date:'d/m/yy'}}</p>
+    <p>Cout total HT: {{this.selected.price_total  | number: '0.01'}}€</p>
+    <p>Cout total TTC: {{this.selected.price_total * 1.2 | number: '0.01'}}€</p>
     </div>
 
 
-    <div class="radio">
+    <!-- <div class="radio">
       <h6>Délai de paiement :</h6>
       <div>
         <input class="with-gap" type="radio" id="30" name="drone" value="huey"
@@ -40,7 +39,7 @@
         <input class="with-gap" type="radio" id="45" name="drone" value="louie">
         <label for="45">45 jours fin de mois</label>
       </div>
-    </div>
+    </div>-->
 
     <div class="button">
       <button class="btn waves-effect waves-light">Modifier

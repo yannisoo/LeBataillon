@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+      <div class="block">
+      <header>
+        <div class="devisSide">
+          <h1>Devis</h1>
+          <h2>N°: #{{quotation.quotationnumber}}-{{quotation.projectname}}/date</h2>
+          <h3 class="first">CLIENT : {{quotation.projectname}}</h3>
+          <h3>CONTACT : {{quotation.projectcontact}}</h3>
+          <h3>Projet : {{quotation.projectname}}</h3>
+          <h3>{{quotation.projectaddress}} {{quotation.projectcity}} {{quotation.projectpostcode}}</h3>
+        </div>
+      </header>
+      <p class="right_text">Sauf précision, tous les prix affichés sont hors taxe</p>
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" colspan="4">Designation de la prestation</th>
+      <th scope="col">Prix unitaire HT</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Montant</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if quotation.description1 %}
+    <tr>
+      <td colspan="4">{{quotation.description1}} <br><br><br></td>
+      <td>{{quotation.unitprice1}}€</td>
+      <td>{{quotation.quantity1}}</td>
+      <td>{{quotation.quantity1 * quotation.unitprice1}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description2 %}
+    <tr>
+      <td colspan="4">{{quotation.description2}}<br><br><br></td>
+      <td>{{quotation.unitprice2}}€</td>
+      <td>{{quotation.quantity2}}</td>
+      <td>{{quotation.quantity2 * quotation.unitprice2}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description3 %}
+    <tr>
+      <td colspan="4">{{quotation.description3}}<br><br><br></td>
+      <td>{{quotation.unitprice3}}</td>
+      <td>{{quotation.quantity3}}</td>
+      <td>{{quotation.quantity3 * quotation.unitprice3}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description4 %}
+    <tr>
+      <td colspan="4">{{quotation.description4}}<br><br><br></td>
+      <td>{{quotation.unitprice4}}</td>
+      <td>{{quotation.quantity4}}</td>
+      <td>{{quotation.quantity4 * quotation.unitprice4}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description5 %}
+    <tr>
+      <td colspan="4">{{quotation.description5}}<br><br><br></td>
+      <td>{{quotation.unitprice5}}</td>
+      <td>{{quotation.quantity5}}</td>
+      <td>{{quotation.quantity5 * quotation.unitprice5}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description6 %}
+    <tr>
+      <td colspan="4">{{quotation.description6}}<br><br><br></td>
+      <td>{{quotation.unitprice6}}</td>
+      <td>{{quotation.quantity6}}</td>
+      <td>{{quotation.quantity6 * quotation.unitprice6}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description7 %}
+    <tr>
+      <td colspan="4">{{quotation.description7}}<br><br><br></td>
+      <td>{{quotation.unitprice7}}</td>
+      <td>{{quotation.quantity7}}</td>
+      <td>{{quotation.quantity7 * quotation.unitprice7}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description8 %}
+    <tr>
+      <td colspan="4">{{quotation.description8}}<br><br><br></td>
+      <td>{{quotation.unitprice8}}</td>
+      <td>{{quotation.quantity8}}</td>
+      <td>{{quotation.quantity8 * quotation.unitprice8}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description9 %}
+    <tr>
+      <td colspan="4">{{quotation.description9}}<br><br><br></td>
+      <td>{{quotation.unitprice9}}</td>
+      <td>{{quotation.quantity9}}</td>
+      <td>{{quotation.quantity9 * quotation.unitprice9}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description10 %}
+    <tr>
+      <td colspan="4">{{quotation.description10}}<br><br><br></td>
+      <td>{{quotation.unitprice10}}</td>
+      <td>{{quotation.quantity10}}</td>
+      <td>{{quotation.quantity10 * quotation.unitprice10}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description11 %}
+    <tr>
+      <td colspan="4">{{quotation.description11}}<br><br><br></td>
+      <td>{{quotation.unitprice11}}</td>
+      <td>{{quotation.quantity11}}</td>
+      <td>{{quotation.quantity11 * quotation.unitprice11}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description12 %}
+    <tr>
+      <td colspan="4">{{quotation.description12}}<br><br><br></td>
+      <td>{{quotation.unitprice12}}</td>
+      <td>{{quotation.quantity12}}</td>
+      <td>{{quotation.quantity12 * quotation.unitprice12}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description13 %}
+    <tr>
+      <td colspan="4">{{quotation.description13}}<br><br><br></td>
+      <td>{{quotation.unitprice13}}</td>
+      <td>{{quotation.quantity13}}</td>
+      <td>{{quotation.quantity13 * quotation.unitprice13}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description14 %}
+    <tr>
+      <td colspan="4">{{quotation.description14}}<br><br><br></td>
+      <td>{{quotation.unitprice14}}</td>
+      <td>{{quotation.quantity14}}</td>
+      <td>{{quotation.quantity14 * quotation.unitprice14}}€</td>
+    </tr>
+    {% endif %}
+    {% if quotation.description15 %}
+    <tr>
+      <td colspan="4">{{quotation.description15}}<br><br><br></td>
+      <td>{{quotation.unitprice15}}</td>
+      <td>{{quotation.quantity15}}</td>
+      <td>{{quotation.quantity15 * quotation.unitprice15}}€</td>
+    </tr>
+    {% endif %}
+
+    <tr>
+      <td colspan="4">Total hors taxes</td>
+      <td></td>
+      <td></td>
+      <td>{{quotation.pricetotal}}€</td>
+    </tr>
+    <tr>
+      <td colspan="4">TVA (20%)</td>
+      <td></td>
+      <td></td>
+      <td>{{quotation.pricetotal * 0.2}}€</td>
+    </tr>
+
+  </tbody>
+  <tfoot class="table-dark">
+    <td colspan="4">Net à payer TTC</td>
+    <td></td>
+    <td></td>
+    <td>{{quotation.pricetotal * 1.2}}€</td>
+  </tfoot>
+</table>
+
+<p class="Bon">Bon pour accord. Acceptation de la proposition tarifaire ainsi que des conditions de vente jointes et du règlement.</p>
+<p class="fait">Fait à ................................................ Le ....................................</p>
+<p class="signature">Signature + Cachet</p>
+
+
+<p class="outcast firstoutcast"><b>{{agency.name}}</b></p>
+<p class="outcast">{{agency.address}}</p>
+<p class="outcast"><b>{{agency.postcode}} - {{agency.city}} (France)</b></p>
+<div class="footerBegin">
+  <div class="left">
+    <div></div>
+    <div>
+        <p class="outcast"><b>Cordonnées Bancaires :</b> xxx</p>
+        <p class="outcast">IBAN : XXXXXXXXXXXXX</p>
+    </div>
+</div>
+<div class="right">
+  <p class="outcast"><b>Tél : {{agency.phone}}  </b></p>
+  <p class="outcast"><b>Mail : </b></p>
+</div>
+</div>
+<p class="conditions"><b>conditions de règlement :</b></p>
+<p class='dontlook'>Pour toute commande dont le montant s’élève à plus de  trois milles euros hors taxe, un acompte de 30% ( trentes pourcents) est facturé. 50% (cinquantes pourcents) pourront être facturés au cours du projet, répartis sur un certain nombre de jalons.10% (dix pourcents) lors de la livraison. 10% (dix pourcents) après recette /validation."</p>
+</div>
+    </body>
+</html>
