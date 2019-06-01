@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190531184047 extends AbstractMigration
+final class Version20190601054224 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,7 @@ final class Version20190531184047 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE quotation ADD price_total INT DEFAULT NULL, ADD pdf_path VARCHAR(255) DEFAULT NULL, ADD project_client VARCHAR(255) DEFAULT NULL, ADD project_contact VARCHAR(255) DEFAULT NULL, ADD project_address VARCHAR(255) DEFAULT NULL, ADD project_city VARCHAR(255) DEFAULT NULL, ADD project_postcode VARCHAR(255) DEFAULT NULL');
-        $this->addSql('ALTER TABLE bill ADD pdf_path VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE bill CHANGE created_at created_at VARCHAR(255) DEFAULT NULL, CHANGE email_reminder email_reminder VARCHAR(255) DEFAULT NULL, CHANGE call_reminder call_reminder VARCHAR(255) DEFAULT NULL, CHANGE limit_date limit_date VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +30,6 @@ final class Version20190531184047 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE bill DROP pdf_path');
-        $this->addSql('ALTER TABLE quotation DROP price_total, DROP pdf_path, DROP project_client, DROP project_contact, DROP project_address, DROP project_city, DROP project_postcode');
+        $this->addSql('ALTER TABLE bill CHANGE created_at created_at DATETIME DEFAULT NULL, CHANGE email_reminder email_reminder DATETIME DEFAULT NULL, CHANGE call_reminder call_reminder DATETIME DEFAULT NULL, CHANGE limit_date limit_date DATETIME DEFAULT NULL');
     }
 }

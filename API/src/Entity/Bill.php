@@ -269,7 +269,7 @@ class Bill
     private $callReminder;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $paymentPeriod;
 
@@ -885,7 +885,7 @@ class Bill
         return $this->createdAt;
     }
 
-    public function setCreatedAt(string $createdAt): self
+    public function setCreatedAt(?string $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -916,12 +916,12 @@ class Bill
         return $this;
     }
 
-    public function getPaymentPeriod(): ?int
+    public function getPaymentPeriod(): ?string
     {
         return $this->paymentPeriod;
     }
 
-    public function setPaymentPeriod(int $paymentPeriod): self
+    public function setPaymentPeriod(string $paymentPeriod): self
     {
         $this->paymentPeriod = $paymentPeriod;
 

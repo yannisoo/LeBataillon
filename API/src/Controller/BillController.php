@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -86,6 +87,7 @@ class BillController extends FOSRestController
         $form = $this->createForm(BillType::class, $bill);
         $data = json_decode($request->getContent(), true);
 
+
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -145,11 +147,15 @@ class BillController extends FOSRestController
      */
     public function UpdatePage(Request $request, Bill $page)
     {
+      
         $form = $this->createForm(BillType::class, $page);
+
         $data = json_decode($request->getContent(), true);
+
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($page);
             $em->flush();
             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
