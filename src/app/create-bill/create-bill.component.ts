@@ -119,18 +119,18 @@ export class CreateBillComponent implements OnInit {
     if (isNaN(totale15)) {
       totale15 = 0;
     }
-    console.log(totale1);
-    console.log(totale2);
-    console.log(totale3);
-    this.Bill.pricetotale = +totale1 + totale2 + totale3 + totale4 + totale5 + totale6 + totale7 + totale8 + totale9 + totale10 + totale11 + totale12 + totale13 + totale14 + totale15;
-    if (isNaN(this.Bill.pricetotale)) {
-      this.Bill.pricetotale = totale1;
+    this.Bill.price_total = +totale1 + totale2 + totale3 + totale4 + totale5 + totale6 + totale7 + totale8 + totale9 + totale10 + totale11 + totale12 + totale13 + totale14 + totale15;
+    if (isNaN(this.Bill.price_total)) {
+      this.Bill.price_total = totale1;
     }
-    console.log(this.Bill.pricetotale);
+    console.log(this.Bill.price_total);
   }
   sendBill() {
-    this.Bill.bill_number = formatDate(this.myDate, 'dmyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
+    console.log(this.Bill.price_total);
+    this.Bill.bill_number = formatDate(this.myDate, 'ddMMyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
     this.Bill.pdf_path = '/' + this.Project.name + '/Bill/Facture_' + this.Bill.bill_number + '.pdf';
+    this.Bill.status = 1;
+    this.Bill.created_at = this.myDate;
     this.apiBill.createBill(this.Bill).subscribe((data: {}) => {
       this.router.navigate(['/project/', this.Project.id]);
     }); }

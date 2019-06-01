@@ -118,15 +118,18 @@ export class CreateQuotationComponent implements OnInit {
     if (isNaN(total15)) {
       total15 = 0;
     }
-    this.Quotation.pricetotal = total1 + total2 + total3 + total4 + total5 + total6 + total7 + total8 + total9 + total10 + total11 + total12 + total13 + total14 + total15;
-    if (isNaN(this.Quotation.pricetotal)) {
-      this.Quotation.pricetotal = total1;
+    this.Quotation.price_total = total1 + total2 + total3 + total4 + total5 + total6 + total7 + total8 + total9 + total10 + total11 + total12 + total13 + total14 + total15;
+    if (isNaN(this.Quotation.price_total)) {
+      this.Quotation.price_total = total1;
     }
-    console.log(this.Quotation.pricetotal);
+    console.log(this.Quotation.price_total);
   }
   sendQuotation() {
-    this.Quotation.quotation_number = formatDate(this.myDate, 'dmyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
+    this.Quotation.quotation_number = formatDate(this.myDate, 'ddMMyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
     this.Quotation.pdf_path = '/' + this.Project.name + '/quotation/Devis_' + this.Quotation.quotation_number + '.pdf';
+    this.Quotation.status = 1;
+    this.Quotation.created_at = this.myDate;
+    console.log(this.Quotation);
     this.apiQuotation.createQuotation(this.Quotation).subscribe((data: {}) => {
     this.router.navigate(['/project/', this.Project.id]);
   }); }

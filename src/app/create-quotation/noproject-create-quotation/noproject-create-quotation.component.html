@@ -5,7 +5,7 @@
       <header>
         <div class="devisSide">
           <h1>Devis</h1>
-          <h2>N°: {{myDate | date:'dmyy' }}_{{this.Quotation.project_name}}_{{uniqueNumber}}</h2>
+          <h2>N°: {{myDate | date:'dMyy' }}_{{this.Quotation.project_name}}_{{uniqueNumber}}</h2>
           <div class="projectinfos"><h3>CLIENT : </h3><input [(ngModel)]="this.Quotation.project_client" class="project" placeholder="Nom entreprise client" type="text"></div>
           <div class="projectinfos"><h3>CONTACT : </h3><input [(ngModel)]="this.Quotation.project_contact" class="project" placeholder="Contact client" type="text"></div>
           <div class="projectinfos"><h3>Projet : </h3><input [(ngModel)]="this.Quotation.project_name"  class="project" placeholder="Nom du projet" type="text"></div>

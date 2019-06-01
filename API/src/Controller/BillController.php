@@ -100,7 +100,7 @@ class BillController extends FOSRestController
             $project = $repositoryProject->find($bill->getProjectId());
 
             $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
-            $agency = $repositoryAgency->find('18');
+            $agency = $repositoryAgency->find('1');
 
             $path = $request->server->get('DOCUMENT_ROOT');
             $path = rtrim($path, "/");
@@ -130,7 +130,7 @@ class BillController extends FOSRestController
      */
     public function UpdatePage(Request $request, Bill $page)
     {
-      
+
         $form = $this->createForm(BillType::class, $page);
 
         $data = json_decode($request->getContent(), true);
@@ -183,7 +183,7 @@ class BillController extends FOSRestController
         $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
         $project = $repositoryProject->find($projectId);
         $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
-        $agency = $repositoryAgency->find('18');
+        $agency = $repositoryAgency->find('1');
         //$email = $project->getEmail();
 
 

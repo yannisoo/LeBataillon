@@ -49,7 +49,7 @@ export class NoprojectCreateQuotationComponent implements OnInit {
       console.log(this.Quotation.pricetotal);
     }
     sendQuotation(){
-      this.Quotation.quotation_number = "Devis_" + formatDate(this.myDate, 'dmyy', 'en') + "_" + this.Project.name + "_" + this.uniqueNumber;
+      this.Quotation.quotation_number = "Devis_" + formatDate(this.myDate, 'ddMMyy', 'en') + "_" + this.Project.name + "_" + this.uniqueNumber;
       this.Quotation.pdf_path = '/' + this.Project.name + '/quotation/' + this.Quotation.quotation_number + ".pdf";
       this.apiQuotation.createQuotationNan(this.Quotation).subscribe((data: {}) => {
       this.router.navigate(['/projects'])

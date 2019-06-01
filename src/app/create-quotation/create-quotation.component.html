@@ -5,7 +5,7 @@
       <header>
         <div class="devisSide">
           <h1>Devis</h1>
-          <h2>N°: {{myDate | date:'dmyy' }}_{{Project.name}}_{{uniqueNumber}}</h2>
+          <h2>N°: {{myDate | date:'dMyy' }}_{{Project.name}}_{{uniqueNumber}}</h2>
           <h3 class="first">CLIENT : {{Project.name}}</h3>
           <h3>CONTACT : {{Project.contact}}</h3>
           <h3>Projet : {{Project.name}}</h3>
@@ -118,13 +118,13 @@
             <td colspan="4">Total hors taxes</td>
             <td></td>
             <td></td>
-            <td><span *ngIf="this.Quotation.pricetotal">{{Quotation.pricetotal}}€</span></td>
+            <td><span *ngIf="this.Quotation.price_total">{{Quotation.price_total | number: '0.01'}}€</span></td>
           </tr>
           <tr>
             <td colspan="4">TVA (20%)</td>
             <td></td>
             <td></td>
-            <td><span *ngIf="this.Quotation.pricetotal">{{Quotation.pricetotal * 0.2}}€</span></td>
+            <td><span *ngIf="this.Quotation.price_total">{{Quotation.price_total * 0.2 | number: '0.01'}}€</span></td>
           </tr>
 
         </tbody>
@@ -132,7 +132,7 @@
           <td colspan="4">Net à payer TTC</td>
           <td></td>
           <td></td>
-          <td><span *ngIf="this.Quotation.pricetotal">{{Quotation.pricetotal * 1.2}}€</span></td>
+          <td><span *ngIf="this.Quotation.price_total">{{Quotation.price_total * 1.2 | number: '0.01'}}€</span></td>
         </tfoot>
       </table>
 

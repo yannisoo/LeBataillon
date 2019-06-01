@@ -16,7 +16,7 @@
     <p>Créer le : {{this.selected.created_at | date:'d/M/yy'}}</p>
     <p *ngIf="this.selected.email_reminder">Dernier rappel email: {{this.selected.email_reminder | date:'d/M/yy'}}</p>
     <p *ngIf="this.selected.call_reminder">Dernier rappel téléphonique: {{this.selected.call_reminder | date:'d/M/yy'}}</p>
-    <p>Date limite: {{this.selected.limit_date | date:'d/m/yy'}}</p>
+    <p>Date limite: {{this.selected.limit_date | date:'d/M/yy'}}</p>
     <p>Cout total HT: {{this.selected.price_total  | number: '0.01'}}€</p>
     <p>Cout total TTC: {{this.selected.price_total * 1.2 | number: '0.01'}}€</p>
     </div>

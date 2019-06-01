@@ -10,9 +10,9 @@
     <header>
         <div class="devisSide">
             <h1>Facture</h1>
-            <h2>N°: #yolo-truc/date</h2>
+            <h2>N°: #{{bill.billnumber}}-{{project.name}}</h2>
             <h2>PO: XXXXXX</h2>
-            <h2>Date: XX/XX/XXXX</h2>
+            <h2>Date: {{bill.createdat|date("d/m/Y")  }}</h2>
         </div>
     </header>
     <div class="client">
