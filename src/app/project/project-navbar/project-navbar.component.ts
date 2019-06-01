@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ApibillService} from "../../api/api-bill.service";
 import { ApiQuotationService } from 'src/app/api/api-quotation.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import {ApiprojectService} from "../../api/api-project.service";
 
 @Component({
   selector: 'app-project-navbar',
@@ -13,7 +14,7 @@ export class ProjectNavbarComponent implements OnInit {
   @Input() Project = {}
 
   Bill: any = [];
-  selected: any;
+  selected: any = 0;
   Quotation: any = [];
   url:any;
   dangerousVideoUrl: any;
@@ -23,6 +24,7 @@ export class ProjectNavbarComponent implements OnInit {
       public apiBill: ApibillService,
       public router: Router,
       public apiQuotation: ApiQuotationService,
+      public apiProject: ApiprojectService,
       public sanitizer: DomSanitizer
   ) {
     this.route.params.subscribe( params =>  this.loadBill(params['id']));
@@ -31,6 +33,21 @@ export class ProjectNavbarComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  delBill(id) {
+    this.apiBill.deleteBill(id).subscribe((data: {}) => {
+      this.route.params.subscribe( params =>  this.loadBill(params['id']));
+    });
+  }
+
+  delQuotation(id) {
+    this.apiQuotation.deleteQuotation(id).subscribe((data: {}) => {
+      this.route.params.subscribe( params =>  this.loadQuotation(params['id']));
+    });
+  }
+
+
 
   loadBill(id){
     return this.apiBill.getBillsByProjectId(id).subscribe((data: {}) => {

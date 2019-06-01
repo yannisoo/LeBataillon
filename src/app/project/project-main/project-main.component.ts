@@ -3,6 +3,7 @@ import { ApibillService } from '../../api/api-bill.service';
 import {Router} from '@angular/router';
 import { ApiprojectService } from '../../api/api-project.service';
 import { ApiQuotationService } from '../../api/api-quotation.service';
+import {renderComponent} from "@angular/core/src/render3";
 
 
 @Component({
@@ -29,13 +30,6 @@ export class ProjectMainComponent implements OnInit {
   ngOnInit() {
 
 }
-
-  // delBill(id) {
-  // return this.api.deleteBill(id).subscribe((data: {}) => {
-  //
-  // })
-  // }
-
   sendBill(id) {
     if (window.confirm('Confirmez-vous l\'envoi de la facture ?')) {
       this.apiBill.sendBill(this.selected.id).subscribe((data: {}) => {
