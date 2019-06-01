@@ -12,7 +12,7 @@ class Quotation
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -321,7 +321,7 @@ class Quotation
      */
     private $project_postcode;
 
-    public function getId(): ?string
+    public function getId(): ?integer
     {
         return $this->id;
     }

@@ -33,7 +33,9 @@ import { FileSelectDirective } from 'ng2-file-upload';
 
 import { FilterPipe } from './pipe/search/filter.pipe';
 import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-create-quotation/noproject-create-quotation.component';
-import { CreateBillComponent } from './create-bill/create-bill.component'
+import { CreateBillComponent } from './create-bill/create-bill.component';
+import { ModifyBillComponent } from './modify-bill/modify-bill.component';
+import { ModifyQuotationComponent } from './modify-quotation/modify-quotation.component'
 
 
 
@@ -56,7 +58,9 @@ import { CreateBillComponent } from './create-bill/create-bill.component'
     ProjectMainEmptyComponent,
     CreateQuotationComponent,
     NoprojectCreateQuotationComponent,
-    CreateBillComponent
+    CreateBillComponent,
+    ModifyBillComponent,
+    ModifyQuotationComponent
 
 
 
