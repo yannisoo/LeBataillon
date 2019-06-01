@@ -132,5 +132,4 @@ class User implements UserInterface
 
 
 
-
 }

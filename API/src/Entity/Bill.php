@@ -13,7 +13,7 @@ class Bill
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -305,11 +305,11 @@ class Bill
 
 
 
-    public function getId(): ?string
+    public function getId(): ?integer
     {
         return $this->id;
     }
-    public function setUserId(?string $id): self
+    public function setUserId(?int $id): self
     {
         $this->id = $id;
 

@@ -13,7 +13,7 @@
     <h5 *ngIf="!this.selected.bill_number && !this.selected.quotation_number">Informations client</h5>
     <h5 *ngIf="this.selected.bill_number">Informations sur de la facture: {{this.selected.bill_number}}</h5>
     <h5 *ngIf="this.selected.quotation_number">Informations sur le devis: {{this.selected.quotation_number}}</h5>
-    <p>Créer le : {{this.selected.created_at | date:'d/M/yy'}}</p>
+    <p>Créer le : {{this.selected.created_at | date:'d/M/yy'}}{{this.selected._created_at | date:'d/M/yy'}}</p>
     <p *ngIf="this.selected.email_reminder">Dernier rappel email: {{this.selected.email_reminder | date:'d/M/yy'}}</p>
     <p *ngIf="this.selected.call_reminder">Dernier rappel téléphonique: {{this.selected.call_reminder | date:'d/M/yy'}}</p>
     <p>Date limite: {{this.selected.limit_date | date:'d/M/yy'}}</p>
@@ -42,9 +42,18 @@
     </div>-->
 
     <div class="button">
-      <button class="btn waves-effect waves-light">Modifier
-        <i class="material-icons right">edit</i>
+
+
+      <button *ngIf="this.selected.bill_number" class="btn waves-effect waves-light" type="submit" name="action"  routerLink="/modify-bill/{{this.selected.id}}">Modifier
+        <i class="material-icons right">send</i>
       </button>
+      <button *ngIf="this.selected.quotation_number" class="btn waves-effect waves-light" type="submit" name="action" routerLink="/modify-quotation/{{this.selected.id}}">Modifier
+        <i class="material-icons right">send</i>
+      </button>
+
+
+
+
       <button *ngIf="this.selected.bill_number" class="btn waves-effect waves-light" type="submit" name="action" (click)="sendBill(this.selected.id)">Envoyer
         <i class="material-icons right">send</i>
       </button>

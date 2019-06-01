@@ -9,6 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\LoginType;
 /**
  * Movie controller.
  * @Route("/api", name="api_")
@@ -105,17 +106,24 @@ class UserController extends FOSRestController
     }
 
     /**
+
         * @Route("/login")
+
         */
-       public function login(AuthenticationUtils $authenticationUtils): Response
+       public function login()
        {
-           // choper l'erreur si il y en a une
-           $error = $authenticationUtils->getLastAuthenticationError();
-           // last username entered by the user
-           $lastUsername = $authenticationUtils->getLastUsername();
+         // $repository = $this->getDoctrine()->getRepository(User::class);
+         // $user = $repository->findAll();
+
+
+             return $this->render('user/login.html.twig');
+
+
+
+
+
 
            return $this->render('User/login.html.twig');
-
        }
 
 }

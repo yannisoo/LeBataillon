@@ -15,6 +15,7 @@
         "nelmio/cors-bundle": "^1.5",
         "sensio/framework-extra-bundle": "^5.3",
         "symfony/console": "4.2.*",
+        "symfony/debug": "4.2.*",
         "symfony/dotenv": "4.2.*",
         "symfony/filesystem": "4.2.*",
         "symfony/flex": "^1.1",

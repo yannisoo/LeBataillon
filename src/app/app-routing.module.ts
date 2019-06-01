@@ -14,6 +14,8 @@ import { ListeComponent } from './liste-devis/liste/liste.component';
 import { CreateQuotationComponent } from './create-quotation/create-quotation.component';
 import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-create-quotation/noproject-create-quotation.component';
 import {CreateBillComponent} from './create-bill/create-bill.component';
+import {ModifyBillComponent} from './modify-bill/modify-bill.component';
+import { ModifyQuotationComponent } from './modify-quotation/modify-quotation.component';
 
 
 const routes: Routes = [
@@ -26,7 +28,9 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'devis', component: ListeComponent },
   { path: 'suivi-client', component: SuiviClientComponent},
+  { path: 'modify-quotation/:id', component: ModifyQuotationComponent},
   { path: 'create-quotation/:id', component: CreateQuotationComponent},
+  { path: 'modify-bill/:id', component: ModifyBillComponent},
   { path: 'create-bill/:id', component: CreateBillComponent},
   { path: 'create-quotation', component: NoprojectCreateQuotationComponent}
 
