@@ -24,7 +24,6 @@ import { ProjectMainComponent } from './project/project-main/project-main.compon
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './register/register.component'
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
-import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
 import { ProjectMainEmptyComponent } from './project/project-main-empty/project-main-empty.component';
 import { CreateQuotationComponent } from './create-quotation/create-quotation.component'
 
@@ -32,7 +31,9 @@ import { CreateQuotationComponent } from './create-quotation/create-quotation.co
 import { FileSelectDirective } from 'ng2-file-upload';
 
 
-import { FilterPipe } from './pipe/search/filter.pipe'
+import { FilterPipe } from './pipe/search/filter.pipe';
+import { NoprojectCreateQuotationComponent } from './create-quotation/noproject-create-quotation/noproject-create-quotation.component';
+import { CreateBillComponent } from './create-bill/create-bill.component'
 
 
 
@@ -50,11 +51,12 @@ import { FilterPipe } from './pipe/search/filter.pipe'
     LandingPageComponent,
     RegisterComponent,
     SuiviClientComponent,
-    PdfGenComponent,
     FileSelectDirective,
     FilterPipe,
     ProjectMainEmptyComponent,
-    CreateQuotationComponent
+    CreateQuotationComponent,
+    NoprojectCreateQuotationComponent,
+    CreateBillComponent
 
 
 

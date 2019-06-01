@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApibillService} from '../../api/api-bill.service';
+import { ApibillService } from '../../api/api-bill.service';
 import {Router} from '@angular/router';
-import {ApiprojectService} from '../../api/api-project.service';
+import { ApiprojectService } from '../../api/api-project.service';
+import { ApiQuotationService } from '../../api/api-quotation.service';
 
 
 @Component({
@@ -13,10 +14,12 @@ export class ProjectMainComponent implements OnInit {
   @Input() Project: any;
   @Input() selected: any;
   @Input() Bill: any;
+  @Input() Quotation: any;
   @Input() url:any;
 
   constructor(
       public apiBill: ApibillService,
+      public apiQuotation: ApiQuotationService,
       public apiProject: ApiprojectService,
       public router: Router,
   ) {
@@ -34,9 +37,19 @@ export class ProjectMainComponent implements OnInit {
   // }
 
   sendBill(id) {
-    this.apiBill.sendBill(this.selected.id).subscribe((data: {}) => {
-      console.log(this.Project);
-    });
+    if (window.confirm('Confirmez-vous l\'envoi de la facture ?')) {
+      this.apiBill.sendBill(this.selected.id).subscribe((data: {}) => {
+        console.log(this.Project);
+      });
+    }
+  }
+
+  sendQuotation(id) {
+    if (window.confirm('Confirmez-vous l\'envoi du devis ?')) {
+      this.apiQuotation.sendQuotation(this.selected.id).subscribe((data: {}) => {
+        console.log(this.Project);
+      });
+    }
   }
 
   updateRemaining(id) {

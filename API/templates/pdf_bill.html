@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+<div class="block">
+    <header>
+        <div class="devisSide">
+            <h1>Facture</h1>
+            <h2>N°: #{{bill.billnumber}}-{{project.name}}</h2>
+            <h2>PO: XXXXXX</h2>
+            <h2>Date: {{bill.createdat|date("d/m/Y")  }}</h2>
+        </div>
+    </header>
+    <div class="client">
+        <h5>CLIENT: NOM CLIENT - Adresse Client</h5>
+        <h5>Contact: Nom du contact</h5>
+        <h5>Projet: Nom du projet</h5>
+    </div>
+    <div class="yolo">
+        <div class="left-side">
+            <p>
+                Tribord Digital <br><br>
+                12 rue du Château Landon<br>
+                75010 - Paris ( France )
+            </p>
+            <br>
+            <p>
+                Tél :<span > 01 85 73 39 87</span><br>
+                Mobile :<span > 06 12 34 56 78</span>
+                <br>
+            </p>
+            <br>
+            <p>
+                Dénomination juridique<br>
+                RCS 815 409 347  R.C.S. PARIS<br>
+                TVA INTRA : FR88815409347
+            </p>
+            <br>
+            <p>
+                <strong>https://triborddigital.com/</strong> <br><br>
+                Le délai de paiement de cette<br>
+                Facture est de, X jours, à<br>
+                compter de sa date d’édition.
+            </p>
+        </div>
+        <div class="tesrelou">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="2">Designation de la prestation</th>
+                    <th scope="col">Montant</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if bill.description1 %}
+                <tr>
+                    <td colspan="2">{{bill.description1}} <br><br><br></td>
+                    <td>{{bill.unitprice1}}€</td>
+                </tr>
+                {% endif %}
+                {% if bill.description2 %}
+                <tr>
+                    <td colspan="2">{{bill.description2}}<br><br><br></td>
+                    <td>{{bill.unitprice2}}€</td>
+
+                </tr>
+                {% endif %}
+                {% if bill.description3 %}
+                <tr>
+                    <td colspan="2">{{bill.description3}}<br><br><br></td>
+                    <td>{{bill.unitprice3}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description4 %}
+                <tr>
+                    <td colspan="2">{{bill.description4}}<br><br><br></td>
+                    <td>{{bill.unitprice4}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description5 %}
+                <tr>
+                    <td colspan="2">{{bill.description5}}<br><br><br></td>
+                    <td>{{bill.unitprice5}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description6 %}
+                <tr>
+                    <td colspan="2">{{bill.description6}}<br><br><br></td>
+                    <td>{{bill.unitprice6}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description7 %}
+                <tr>
+                    <td colspan="2">{{bill.description7}}<br><br><br></td>
+                    <td>{{bill.unitprice7}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description8 %}
+                <tr>
+                    <td colspan="2">{{bill.description8}}<br><br><br></td>
+                    <td>{{bill.unitprice8}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description9 %}
+                <tr>
+                    <td colspan="2">{{bill.description9}}<br><br><br></td>
+                    <td>{{bill.unitprice9}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description10 %}
+                <tr>
+                    <td colspan="2">{{bill.description10}}<br><br><br></td>
+                    <td>{{bill.unitprice10}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description11 %}
+                <tr>
+                    <td colspan="2">{{bill.description11}}<br><br><br></td>
+                    <td>{{bill.unitprice11}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description12 %}
+                <tr>
+                    <td colspan="2">{{bill.description12}}<br><br><br></td>
+                    <td>{{bill.unitprice12}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description13 %}
+                <tr>
+                    <td colspan="2">{{bill.description13}}<br><br><br></td>
+                    <td>{{bill.unitprice13}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description14 %}
+                <tr>
+                    <td colspan="2">{{bill.description14}}<br><br><br></td>
+                    <td>{{bill.unitprice14}}</td>
+                </tr>
+                {% endif %}
+                {% if bill.description15 %}
+                <tr>
+                    <td colspan="2">{{bill.description15}}<br><br><br></td>
+                    <td>{{bill.unitprice15}}</td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td colspan="2">Total hors taxes</td>
+                    <td>{{bill.pricetotal}}€</td>
+                </tr>
+                <tr>
+                    <td colspan="2">TVA (20%)</td>
+                    <td>{{bill.pricetotal * 0.2}}€</td>
+                </tr>
+
+                </tbody>
+                <tfoot class="table-dark">
+                <td colspan="2">Net à payer TTC</td>
+                <td>{{bill.pricetotal * 1.2}}€</td>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="sign">
+        <h6>Signature: ............................</h6>
+    </div>
+    <div class="footer">
+        <hr>
+        <p>Toute somme qui n'aura pas été réglée par le Client dans les délais mentionnés, ci-dessous et ce, à compter de la date de facturation; portera intérêt de retard au taux de dix pourcent (10%) par jour de retard conformément à l'article L. 441-6 du Code de commerce.</p>
+    </div>
+
+    <div class="rib">
+        <h3>Relevé d'Identité Bancaire</h3>
+        <p>Code Banque: 12345</p>
+        <p>Code Guichet: 12345</p>
+        <p>Numéro de compte: 1234567891A</p>
+        <p>Clé RIB: 12</p>
+        <p>Banque-Ville-Agence</p>
+        <h5>IBAN</h5>
+        <p>  FROO | 1234 | 5123 | 4512 | 3456 | 7891 | A12 </p>
+        <h5>BIC</h5>
+        <p>ABCDEFGH</p>
+    </div>
+   </div>
+</body>
+</html>

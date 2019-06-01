@@ -7,6 +7,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Quotation;
+use App\Entity\Bill;
 use App\Entity\Agency;
 use App\Entity\Project;
 use App\Form\QuotationType;
@@ -74,18 +75,54 @@ class QuotationController extends FOSRestController
             $em->persist($quotation);
             $em->flush();
 
-            $projectId = $quotation->getProjectId();
             $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
             $project = $repositoryProject->find($quotation->getProjectId());
 
-            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
-            $agency = $repositoryProject->find('6');
+            $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
+            $agency = $repositoryAgency->find('1');
 
             $path = $request->server->get('DOCUMENT_ROOT');
             $path = rtrim($path, "/");
             $html = $this->renderView('quotation_pdf.html.twig', array(
                         'quotation' => $quotation,
                         'project' => $project,
+                        'agency' => $agency,
+                      ));
+            $output = $path . $request->server->get('BASE');
+            $output .= $quotation->getPdfPath();
+            $this->get('knp_snappy.pdf')->generateFromHtml($html, $output, array());
+            return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+
+
+        }
+        return $this->handleView($this->view($form->getErrors()));
+    }
+    /**
+     * Create Page.
+     * @Rest\Post("/quotationNan")
+     *
+     * @return Response
+     */
+    public function postQuotationNanAction(Request $request)
+    {
+        $quotation = new Quotation();
+        $form = $this->createForm(QuotationType::class, $quotation);
+        $data = json_decode($request->getContent(), true);
+
+        $form->submit($data);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($quotation);
+            $em->flush();
+
+
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $agency = $repositoryProject->find('1');
+
+            $path = $request->server->get('DOCUMENT_ROOT');
+            $path = rtrim($path, "/");
+            $html = $this->renderView('quotationNan_pdf.html.twig', array(
+                        'quotation' => $quotation,
                         'agency' => $agency,
                       ));
             $output = $path . $request->server->get('BASE');
@@ -136,6 +173,79 @@ class QuotationController extends FOSRestController
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
     }
+
+
+    /**
+     * justique Quotation.
+     * @Rest\Post("/zipzip/{id}")
+     *
+     *@param $id
+     * @return Response
+     */
+    public function JuridiqueQuotation(Request $request, \Swift_Mailer $mailer, $id)
+    {
+
+
+            $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
+            $project = $repositoryProject->find($id);
+
+            $repositoryBill = $this->getDoctrine()->getRepository(Bill::class);
+            $bill = $repositoryBill->findBy([ 'project_id' => $id]);
+
+            $repositoryQuotation = $this->getDoctrine()->getRepository(Quotation::class);
+            $quotation = $repositoryQuotation->findBy([ 'project_id' => $id]);
+
+
+            // Create new Zip Archive.
+            $zip = new \ZipArchive();
+
+            // The name of the Zip documents.
+            $zipName = $project->getName() .  '.zip';
+
+
+
+            $zip->open($zipName,  \ZipArchive::CREATE);
+            foreach ($bill as $bill) {
+              $zip->addFromString(basename($bill->getPdfPath()),  file_get_contents('.' .  $bill->getPdfPath()));
+            }
+            foreach ($quotation as $quotation) {
+              $zip->addFromString(basename($bill->getPdfPath()),  file_get_contents('.' .  $bill->getPdfPath()));
+            }
+            $zip->close();
+
+
+            $response = new Response(file_get_contents($zipName));
+            $response->headers->set('Content-Type', 'application/zip');
+            $response->headers->set('Content-Disposition', 'attachment;filename="' . $zipName . '"');
+            $response->headers->set('Content-length', filesize($zipName));
+
+
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('angsymftest@gmail.com')
+                ->setTo('yannis.b8@gmail.com')
+                ->attach(Swift_Attachment::fromPath($zipName))
+                ->setBody(
+                    $this->renderView(
+                        'emails/facture_email.html.twig', [
+                            'name' => $project->getName(),
+                            'descritpion' => $project->getDescription()
+
+                    ]),
+                    'text/html'
+                );
+
+            $mailer->send($message);
+            return $this->handleView($this->view(['status' => 'ok']));
+        }
+
+
+
+
+
+
+
+
     /**
      * Send Quotation.
      * @Rest\Post("/quotationSend/{id}")
@@ -157,12 +267,12 @@ class QuotationController extends FOSRestController
 
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('angsymftest@gmail.com')
-            ->setTo('yannis.b8@gmail.com')
+            ->setTo('angsymftest@gmail.com')
             ->attach(Swift_Attachment::fromPath( '.' . $quotation->getPdfPath()))
             ->setBody(
                 $this->renderView(
-                    'emails/facture_email.html.twig', [
-                        'billnumber' => $quotation->getQuotationNumber(),
+                    'emails/devis_email.html.twig', [
+                        'devisnumber' => $quotation->getQuotationNumber(),
                         'name' => $project->getName(),
                         'descritpion' => $project->getDescription()
 

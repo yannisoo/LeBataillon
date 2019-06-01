@@ -5,7 +5,7 @@
       <header>
         <div class="devisSide">
           <h1>Devis</h1>
-          <h2>N°: {{myDate | date:'dmyy' }}_{{Project.name}}_{{uniqueNumber}}</h2>
+          <h2>N°: {{myDate | date:'dMyy' }}_{{Project.name}}_{{uniqueNumber}}</h2>
           <h3 class="first">CLIENT : {{Project.name}}</h3>
           <h3>CONTACT : {{Project.contact}}</h3>
           <h3>Projet : {{Project.name}}</h3>
@@ -25,92 +25,92 @@
         <tbody>
           <tr>
             <td colspan="4"><input [(ngModel)]="this.Quotation.description1" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price1" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity1" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price1" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity1" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity1">{{this.Quotation.unit_price1 * this.Quotation.quantity1}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description1">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description2" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price2" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity2" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price2" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity2" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity2">{{this.Quotation.unit_price2 * this.Quotation.quantity2}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description2">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description3" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price3" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity3" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price3" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity3" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity3">{{this.Quotation.unit_price3 * this.Quotation.quantity3}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description3">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description4" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price4" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity4" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price4" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity4" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity4">{{this.Quotation.unit_price4 * this.Quotation.quantity4}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description4">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description5" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price5" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity5" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price5" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity5" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity5">{{this.Quotation.unit_price5 * this.Quotation.quantity5}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description5">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description6" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price6" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity6" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price6" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity6" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity6">{{this.Quotation.unit_price6 * this.Quotation.quantity6}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description6">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description7" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price7" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity7" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price7" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity7" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity7">{{this.Quotation.unit_price7 * this.Quotation.quantity7}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description7">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description8" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price8" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity8" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price8" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity8" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity8">{{this.Quotation.unit_price8 * this.Quotation.quantity8}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description8">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description9" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price9" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity9" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price9" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity9" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity9">{{this.Quotation.unit_price9 * this.Quotation.quantity9}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description9">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description10" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price10" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity10" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price10" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity10" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity10">{{this.Quotation.unit_price10 * this.Quotation.quantity10}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description10">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description11" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price11" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity11" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price11" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity11" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity11">{{this.Quotation.unit_price11 * this.Quotation.quantity11}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description11">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description12" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price12" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity12" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price12" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity12" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity12">{{this.Quotation.unit_price12 * this.Quotation.quantity12}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description12">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description13" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price13" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity13" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price13" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity13" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity13">{{this.Quotation.unit_price13 * this.Quotation.quantity13}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description13">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description14" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price14" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity14" type="text" placeholder="Quantité"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price14" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity14" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity14">{{this.Quotation.unit_price14 * this.Quotation.quantity14}}€</span></td>
           </tr>
           <tr *ngIf="this.Quotation.description14">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description15" type="text" placeholder="Description"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.unit_price15" type="text" placeholder="Prix unitaire"></td>
-            <td><input (ngModelChange)="totalprice()" [(ngModel)]="this.Quotation.quantity15" type="text" placeholder="Quantité"></td>
+            <td><input  [(ngModel)]="this.Quotation.unit_price15" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input  [(ngModel)]="this.Quotation.quantity15" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity15">{{this.Quotation.unit_price15 * this.Quotation.quantity15}}€</span></td>
           </tr>
 
@@ -118,13 +118,13 @@
             <td colspan="4">Total hors taxes</td>
             <td></td>
             <td></td>
-            <td><span *ngIf="this.Quotation.pricetotal">{{Quotation.pricetotal}}€</span></td>
+            <td><span *ngIf="this.Quotation.price_total">{{Quotation.price_total | number: '0.01'}}€</span></td>
           </tr>
           <tr>
             <td colspan="4">TVA (20%)</td>
             <td></td>
             <td></td>
-            <td><span *ngIf="this.Quotation.pricetotal">{{Quotation.pricetotal * 0.2}}€</span></td>
+            <td><span *ngIf="this.Quotation.price_total">{{Quotation.price_total * 0.2 | number: '0.01'}}€</span></td>
           </tr>
 
         </tbody>
@@ -132,7 +132,7 @@
           <td colspan="4">Net à payer TTC</td>
           <td></td>
           <td></td>
-          <td><span *ngIf="this.Quotation.pricetotal">{{Quotation.pricetotal * 1.2}}€</span></td>
+          <td><span *ngIf="this.Quotation.price_total">{{Quotation.price_total * 1.2 | number: '0.01'}}€</span></td>
         </tfoot>
       </table>
 

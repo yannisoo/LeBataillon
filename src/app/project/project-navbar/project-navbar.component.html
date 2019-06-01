@@ -1,5 +1,5 @@
-<app-project-main *ngIf="this.selected" [url]=url [Bill]= Bill [Project]= Project [selected]= selected></app-project-main>
-<app-project-main-empty *ngIf="!this.selected" [Bill]= Bill [Project]= Project ></app-project-main-empty>
+<app-project-main *ngIf="this.selected" [url]=url [Bill]= Bill [Quotation]= Quotation [Project]= Project [selected]= selected></app-project-main>
+<app-project-main-empty *ngIf="!this.selected" [Bill]= Bill [Quotation]= Quotation [Project]= Project ></app-project-main-empty>
 <nav>
   <ul>
 
@@ -13,7 +13,12 @@
       <a class="sidebar-subtitle first-subtitle">Facture</a>
       <div>
         <ul>
-          <li *ngFor="let Bill of Bill" (click)="onSelect(this.Bill)"><a>{{this.Bill.bill_number}}_facture</a></li>
+          <li *ngFor="let Bill of Bill" (click)="onSelect(this.Bill)">
+            <a>{{this.Bill.bill_number}}_facture</a>
+          </li>
+          <li>
+            <a routerLink="/create-bill/{{ this.Project.id }}">Créer une facture</a>
+          </li>
         </ul>
       </div>
     </li>
@@ -22,7 +27,12 @@
       <a class="sidebar-subtitle">Devis</a>
         <div>
           <ul>
-            <li (click)="onSelect(this.Quotation)" *ngFor="let Quotation of Quotation"><a>{{this.Quotation.quotation_number}}</a></li>
+            <li (click)="onSelect(this.Quotation)" *ngFor="let Quotation of Quotation">
+              <a>{{this.Quotation.quotation_number}}</a>
+            </li>
+            <li>
+              <a routerLink="/create-quotation/{{ this.Project.id }}">Créer un devis</a>
+            </li>
           </ul>
         </div>
     </li>

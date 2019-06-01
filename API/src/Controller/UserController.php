@@ -106,27 +106,18 @@ class UserController extends FOSRestController
     }
 
     /**
-        * @Rest\Post("/login", name="security_login")
+        * @Route("/login", name="security_login")
         */
-       public function login(AuthenticationUtils $authenticationUtils): Response
+       public function login()
        {
          // $repository = $this->getDoctrine()->getRepository(User::class);
          // $user = $repository->findAll();
 
-         $form = $this->createForm(LoginType::class);
-         $data = json_decode($request->getContent(), true);
-         $form->submit($data);
-         if ($form->isSubmitted() && $form->isValid()) {
 
-           $error = $authenticationUtils->getLastAuthenticationError();
-
-           $lastUsername = $authenticationUtils->getLastUsername();
+             return $this->render('user/login.html.twig');
 
 
-             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
-         }
 
-              return $this->handleView($this->view($form->getErrors()));
 
 
        }

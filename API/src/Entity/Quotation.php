@@ -12,7 +12,7 @@ class Quotation
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $id;
 
@@ -57,12 +57,12 @@ class Quotation
     private $description1;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price1;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity1;
 
@@ -72,12 +72,12 @@ class Quotation
     private $description2;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price2;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity2;
 
@@ -87,12 +87,12 @@ class Quotation
     private $description3;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price3;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity3;
 
@@ -102,12 +102,12 @@ class Quotation
     private $description4;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price4;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity4;
 
@@ -117,12 +117,12 @@ class Quotation
     private $description5;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price5;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity5;
 
@@ -132,12 +132,12 @@ class Quotation
     private $description6;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price6;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity6;
 
@@ -147,12 +147,12 @@ class Quotation
     private $description7;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price7;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity7;
 
@@ -162,12 +162,12 @@ class Quotation
     private $description8;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price8;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity8;
 
@@ -177,12 +177,12 @@ class Quotation
     private $description9;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price9;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity9;
 
@@ -192,12 +192,12 @@ class Quotation
     private $description10;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price10;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity10;
 
@@ -207,12 +207,12 @@ class Quotation
     private $description11;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price11;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity11;
 
@@ -222,12 +222,12 @@ class Quotation
     private $description12;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price12;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity12;
 
@@ -237,12 +237,12 @@ class Quotation
     private $description13;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price13;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity13;
 
@@ -252,12 +252,12 @@ class Quotation
     private $description14;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price14;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity14;
 
@@ -267,27 +267,27 @@ class Quotation
     private $description15;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $unit_price15;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $quantity15;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $project_id;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $CreatedAt;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $price_total;
 
@@ -296,7 +296,32 @@ class Quotation
      */
     private $pdf_path;
 
-    public function getId(): ?int
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_client;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_contact;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_address;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_city;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $project_postcode;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -397,24 +422,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice1(): ?int
+    public function getUnitPrice1(): ?string
     {
         return $this->unit_price1;
     }
 
-    public function setUnitPrice1(?int $unit_price1): self
+    public function setUnitPrice1(?string $unit_price1): self
     {
         $this->unit_price1 = $unit_price1;
 
         return $this;
     }
 
-    public function getQuantity1(): ?int
+    public function getQuantity1(): ?string
     {
         return $this->quantity1;
     }
 
-    public function setQuantity1(?int $quantity1): self
+    public function setQuantity1(?string $quantity1): self
     {
         $this->quantity1 = $quantity1;
 
@@ -433,24 +458,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice2(): ?int
+    public function getUnitPrice2(): ?string
     {
         return $this->unit_price2;
     }
 
-    public function setUnitPrice2(?int $unit_price2): self
+    public function setUnitPrice2(?string $unit_price2): self
     {
         $this->unit_price2 = $unit_price2;
 
         return $this;
     }
 
-    public function getQuantity2(): ?int
+    public function getQuantity2(): ?string
     {
         return $this->quantity2;
     }
 
-    public function setQuantity2(?int $quantity2): self
+    public function setQuantity2(?string $quantity2): self
     {
         $this->quantity2 = $quantity2;
 
@@ -469,24 +494,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice3(): ?int
+    public function getUnitPrice3(): ?string
     {
         return $this->unit_price3;
     }
 
-    public function setUnitPrice3(?int $unit_price3): self
+    public function setUnitPrice3(?string $unit_price3): self
     {
         $this->unit_price3 = $unit_price3;
 
         return $this;
     }
 
-    public function getQuantity3(): ?int
+    public function getQuantity3(): ?string
     {
         return $this->quantity3;
     }
 
-    public function setQuantity3(?int $quantity3): self
+    public function setQuantity3(?string $quantity3): self
     {
         $this->quantity3 = $quantity3;
 
@@ -505,24 +530,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice4(): ?int
+    public function getUnitPrice4(): ?string
     {
         return $this->unit_price4;
     }
 
-    public function setUnitPrice4(?int $unit_price4): self
+    public function setUnitPrice4(?string $unit_price4): self
     {
         $this->unit_price4 = $unit_price4;
 
         return $this;
     }
 
-    public function getQuantity4(): ?int
+    public function getQuantity4(): ?string
     {
         return $this->quantity4;
     }
 
-    public function setQuantity4(?int $quantity4): self
+    public function setQuantity4(?string $quantity4): self
     {
         $this->quantity4 = $quantity4;
 
@@ -541,24 +566,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice5(): ?int
+    public function getUnitPrice5(): ?string
     {
         return $this->unit_price5;
     }
 
-    public function setUnitPrice5(?int $unit_price5): self
+    public function setUnitPrice5(?string $unit_price5): self
     {
         $this->unit_price5 = $unit_price5;
 
         return $this;
     }
 
-    public function getQuantity5(): ?int
+    public function getQuantity5(): ?string
     {
         return $this->quantity5;
     }
 
-    public function setQuantity5(?int $quantity5): self
+    public function setQuantity5(?string $quantity5): self
     {
         $this->quantity5 = $quantity5;
 
@@ -577,24 +602,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice6(): ?int
+    public function getUnitPrice6(): ?string
     {
         return $this->unit_price6;
     }
 
-    public function setUnitPrice6(?int $unit_price6): self
+    public function setUnitPrice6(?string $unit_price6): self
     {
         $this->unit_price6 = $unit_price6;
 
         return $this;
     }
 
-    public function getQuantity6(): ?int
+    public function getQuantity6(): ?string
     {
         return $this->quantity6;
     }
 
-    public function setQuantity6(?int $quantity6): self
+    public function setQuantity6(?string $quantity6): self
     {
         $this->quantity6 = $quantity6;
 
@@ -613,24 +638,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice7(): ?int
+    public function getUnitPrice7(): ?string
     {
         return $this->unit_price7;
     }
 
-    public function setUnitPrice7(?int $unit_price7): self
+    public function setUnitPrice7(?string $unit_price7): self
     {
         $this->unit_price7 = $unit_price7;
 
         return $this;
     }
 
-    public function getQuantity7(): ?int
+    public function getQuantity7(): ?string
     {
         return $this->quantity7;
     }
 
-    public function setQuantity7(?int $quantity7): self
+    public function setQuantity7(?string $quantity7): self
     {
         $this->quantity7 = $quantity7;
 
@@ -649,24 +674,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice8(): ?int
+    public function getUnitPrice8(): ?string
     {
         return $this->unit_price8;
     }
 
-    public function setUnitPrice8(?int $unit_price8): self
+    public function setUnitPrice8(?string $unit_price8): self
     {
         $this->unit_price8 = $unit_price8;
 
         return $this;
     }
 
-    public function getQuantity8(): ?int
+    public function getQuantity8(): ?string
     {
         return $this->quantity8;
     }
 
-    public function setQuantity8(?int $quantity8): self
+    public function setQuantity8(?string $quantity8): self
     {
         $this->quantity8 = $quantity8;
 
@@ -685,24 +710,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice9(): ?int
+    public function getUnitPrice9(): ?string
     {
         return $this->unit_price9;
     }
 
-    public function setUnitPrice9(?int $unit_price9): self
+    public function setUnitPrice9(?string $unit_price9): self
     {
         $this->unit_price9 = $unit_price9;
 
         return $this;
     }
 
-    public function getQuantity9(): ?int
+    public function getQuantity9(): ?string
     {
         return $this->quantity9;
     }
 
-    public function setQuantity9(?int $quantity9): self
+    public function setQuantity9(?string $quantity9): self
     {
         $this->quantity9 = $quantity9;
 
@@ -721,24 +746,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice10(): ?int
+    public function getUnitPrice10(): ?string
     {
         return $this->unit_price10;
     }
 
-    public function setUnitPrice10(?int $unit_price10): self
+    public function setUnitPrice10(?string $unit_price10): self
     {
         $this->unit_price10 = $unit_price10;
 
         return $this;
     }
 
-    public function getQuantity10(): ?int
+    public function getQuantity10(): ?string
     {
         return $this->quantity10;
     }
 
-    public function setQuantity10(?int $quantity10): self
+    public function setQuantity10(?string $quantity10): self
     {
         $this->quantity10 = $quantity10;
 
@@ -757,24 +782,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice11(): ?int
+    public function getUnitPrice11(): ?string
     {
         return $this->unit_price11;
     }
 
-    public function setUnitPrice11(?int $unit_price11): self
+    public function setUnitPrice11(?string $unit_price11): self
     {
         $this->unit_price11 = $unit_price11;
 
         return $this;
     }
 
-    public function getQuantity11(): ?int
+    public function getQuantity11(): ?string
     {
         return $this->quantity11;
     }
 
-    public function setQuantity11(?int $quantity11): self
+    public function setQuantity11(?string $quantity11): self
     {
         $this->quantity11 = $quantity11;
 
@@ -793,24 +818,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice12(): ?int
+    public function getUnitPrice12(): ?string
     {
         return $this->unit_price12;
     }
 
-    public function setUnitPrice12(?int $unit_price12): self
+    public function setUnitPrice12(?string $unit_price12): self
     {
         $this->unit_price12 = $unit_price12;
 
         return $this;
     }
 
-    public function getQuantity12(): ?int
+    public function getQuantity12(): ?string
     {
         return $this->quantity12;
     }
 
-    public function setQuantity12(?int $quantity12): self
+    public function setQuantity12(?string $quantity12): self
     {
         $this->quantity12 = $quantity12;
 
@@ -829,24 +854,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice13(): ?int
+    public function getUnitPrice13(): ?string
     {
         return $this->unit_price13;
     }
 
-    public function setUnitPrice13(?int $unit_price13): self
+    public function setUnitPrice13(?string $unit_price13): self
     {
         $this->unit_price13 = $unit_price13;
 
         return $this;
     }
 
-    public function getQuantity13(): ?int
+    public function getQuantity13(): ?string
     {
         return $this->quantity13;
     }
 
-    public function setQuantity13(?int $quantity13): self
+    public function setQuantity13(?string $quantity13): self
     {
         $this->quantity13 = $quantity13;
 
@@ -865,24 +890,24 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice14(): ?int
+    public function getUnitPrice14(): ?string
     {
         return $this->unit_price14;
     }
 
-    public function setUnitPrice14(?int $unit_price14): self
+    public function setUnitPrice14(?string $unit_price14): self
     {
         $this->unit_price14 = $unit_price14;
 
         return $this;
     }
 
-    public function getQuantity14(): ?int
+    public function getQuantity14(): ?string
     {
         return $this->quantity14;
     }
 
-    public function setQuantity14(?int $quantity14): self
+    public function setQuantity14(?string $quantity14): self
     {
         $this->quantity14 = $quantity14;
 
@@ -901,60 +926,60 @@ class Quotation
         return $this;
     }
 
-    public function getUnitPrice15(): ?int
+    public function getUnitPrice15(): ?string
     {
         return $this->unit_price15;
     }
 
-    public function setUnitPrice15(?int $unit_price15): self
+    public function setUnitPrice15(?string $unit_price15): self
     {
         $this->unit_price15 = $unit_price15;
 
         return $this;
     }
 
-    public function getQuantity15(): ?int
+    public function getQuantity15(): ?string
     {
         return $this->quantity15;
     }
 
-    public function setQuantity15(?int $quantity15): self
+    public function setQuantity15(?string $quantity15): self
     {
         $this->quantity15 = $quantity15;
 
         return $this;
     }
 
-    public function getProjectId(): ?int
+    public function getProjectId(): ?string
     {
         return $this->project_id;
     }
 
-    public function setProjectId(?int $project_id): self
+    public function setProjectId(?string $project_id): self
     {
         $this->project_id = $project_id;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?string
     {
         return $this->CreatedAt;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $CreatedAt): self
+    public function setCreatedAt(?string $CreatedAt): self
     {
         $this->CreatedAt = $CreatedAt;
 
         return $this;
     }
 
-    public function getPriceTotal(): ?int
+    public function getPriceTotal(): ?string
     {
         return $this->price_total;
     }
 
-    public function setPriceTotal(?int $price_total): self
+    public function setPriceTotal(?string $price_total): self
     {
         $this->price_total = $price_total;
 
@@ -969,6 +994,66 @@ class Quotation
     public function setPdfPath(?string $pdf_path): self
     {
         $this->pdf_path = $pdf_path;
+
+        return $this;
+    }
+
+    public function getProjectClient(): ?string
+    {
+        return $this->project_client;
+    }
+
+    public function setProjectClient(?string $project_client): self
+    {
+        $this->project_client = $project_client;
+
+        return $this;
+    }
+
+    public function getProjectContact(): ?string
+    {
+        return $this->project_contact;
+    }
+
+    public function setProjectContact(?string $project_contact): self
+    {
+        $this->project_contact = $project_contact;
+
+        return $this;
+    }
+
+    public function getProjectAddress(): ?string
+    {
+        return $this->project_address;
+    }
+
+    public function setProjectAddress(?string $project_address): self
+    {
+        $this->project_address = $project_address;
+
+        return $this;
+    }
+
+    public function getProjectCity(): ?string
+    {
+        return $this->project_city;
+    }
+
+    public function setProjectCity(?string $project_city): self
+    {
+        $this->project_city = $project_city;
+
+        return $this;
+    }
+
+    public function getProjectPostcode(): ?string
+    {
+        return $this->project_postcode;
+    }
+
+    public function setProjectPostcode(?string $project_postcode): self
+    {
+        $this->project_postcode = $project_postcode;
 
         return $this;
     }
