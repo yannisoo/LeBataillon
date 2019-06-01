@@ -105,7 +105,7 @@ class UserController extends FOSRestController
     }
 
     /**
-        * @Rest\Post("/login", name="security_login")
+        * @Route("/login")
         */
        public function login(AuthenticationUtils $authenticationUtils): Response
        {
@@ -114,7 +114,8 @@ class UserController extends FOSRestController
            // last username entered by the user
            $lastUsername = $authenticationUtils->getLastUsername();
 
-          return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+           return $this->render('User/login.html.twig');
+
        }
 
 }
