@@ -18,11 +18,11 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
   add() {
-    this.Project.status = 0
+    this.Project.status = 1
     this.api.createProject(this.Project).subscribe((data: {}) => {
-    this.Project = data
-    this.router.navigate(['/project/', this.Project.id])
-  })
-}
+      this.Project = data
+      this.router.navigate(['/project/', this.Project.id])
+    })
+  }
 
 }
