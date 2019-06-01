@@ -82,6 +82,11 @@ class Project
      */
     private $total_price;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $company;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -244,6 +249,18 @@ class Project
     public function setTotalPrice(?int $total_price): self
     {
         $this->total_price = $total_price;
+
+        return $this;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?string $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }

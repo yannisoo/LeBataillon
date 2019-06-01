@@ -14,7 +14,7 @@ export class CreateQuotationComponent implements OnInit {
   Agency: any = {};
   @Input('ngModel') Quotation: any = {};
   myDate = new Date();
-  uniqueNumber = Math.floor(Math.random() * 9999);
+  uniqueNumber = Math.floor(Math.random() * 99999);
 
 
 

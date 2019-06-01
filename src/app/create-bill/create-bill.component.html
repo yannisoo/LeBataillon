@@ -7,13 +7,13 @@
   <header>
     <div class="devisSide">
       <h1>Facture</h1>
-      <h2>N°: {{myDate | date:'ddMMyy' }}_{{Project.name}}_{{uniqueNumber}}</h2>
+      <h2>N°: {{myDate | date:'dMyy' }}_{{Project.name}}_{{uniqueNumber}}</h2>
       <h2>PO: XXXXXX</h2>
       <h2>Date: {{myDate | date:'dd/MM/yy' }}</h2>
     </div>
   </header>
   <div class="client">
-    <h5>CLIENT: entreprise - {{Project.address}}</h5>
+    <h5>CLIENT: {{Project.company}} - {{Project.address}}</h5>
     <h5>Contact: {{Project.contact}}</h5>
     <h5>Projet: {{Project.name}}</h5>
   </div>
@@ -186,15 +186,15 @@
 
   <div class="rib">
     <h3>Relevé d'Identité Bancaire</h3>
-    <p>Code Banque: 12345</p>
-    <p>Code Guichet: 12345</p>
-    <p>Numéro de compte: 1234567891A</p>
-    <p>Clé RIB: 12</p>
-    <p>Banque-Ville-Agence</p>
+    <p>Code Banque: {{Agency.bank_code}}</p>
+    <p>Code Guichet: {{Agency.counter_code}}</p>
+    <p>Numéro de compte: {{Agency.account_number}}</p>
+    <p>Clé RIB: {{Agency.rib_key}}</p>
+    <p></p>
     <h5>IBAN</h5>
-    <p>  FROO | 1234 | 5123 | 4512 | 3456 | 7891 | A12 </p>
+    <p>{{Agency.iban}}</p>
     <h5>BIC</h5>
-    <p>ABCDEFGH</p>
+    <p>{{Agency.bic}}</p>
   </div>
 </div>
 </div>
