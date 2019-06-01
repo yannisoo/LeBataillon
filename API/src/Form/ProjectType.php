@@ -21,6 +21,8 @@ class ProjectType extends AbstractType
         ->add('userid')
         ->add('status')
         ->add('remaining')
+        ->add('total_price')
+        ->add('downpayment')
             ->add('save', SubmitType::class)
         ;
     }

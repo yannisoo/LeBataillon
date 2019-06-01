@@ -129,9 +129,19 @@ export class CreateQuotationComponent implements OnInit {
     this.Quotation.pdf_path = '/' + this.Project.name + '/quotation/Devis_' + this.Quotation.quotation_number + '.pdf';
     this.Quotation.status = 1;
     this.Quotation.created_at = this.myDate;
+    this.Project.total_price = 0;
+    this.Project.remaining = 0;
+    this.Project.total_price += this.Quotation.price_total;
+    this.Project.remaining += this.Quotation.price_total;
     console.log(this.Quotation);
+    console.log(this.Project)
     this.apiQuotation.createQuotation(this.Quotation).subscribe((data: {}) => {
-    this.router.navigate(['/project/', this.Project.id]);
-  }); }
+
+
+      this.apiProject.updateProject(this.Project.id, this.Project).subscribe((data: {}) => {
+        this.router.navigate(['/project/', this.Project.id]);
+      });
+    });
+  }
 
 }

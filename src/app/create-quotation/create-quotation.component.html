@@ -109,8 +109,8 @@
           </tr>
           <tr *ngIf="this.Quotation.description14">
             <td colspan="4"><input [(ngModel)]="this.Quotation.description15" type="text" placeholder="Description"></td>
-            <td><input  [(ngModel)]="this.Quotation.unit_price15" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
-            <td><input  [(ngModel)]="this.Quotation.quantity15" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.unit_price15" type="text" placeholder="Prix unitaire" (ngModelChange)="totalprice()"></td>
+            <td><input [(ngModel)]="this.Quotation.quantity15" type="text" placeholder="Quantité" (ngModelChange)="totalprice()"></td>
             <td><span *ngIf="this.Quotation.quantity15">{{this.Quotation.unit_price15 * this.Quotation.quantity15}}€</span></td>
           </tr>
 
