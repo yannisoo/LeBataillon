@@ -1,30 +1,32 @@
 <table class="striped">
   <thead>
     <tr>
-        <th>N°Facture</th>
-        <th>Client</th>
-        <th>Montant a régler</th>
-        <th>Accompte</th>
-        <th>Statut</th>
-        <th>Reste a percevoir</th>
-        <th>Date limite de reglement</th>
-        <th>1ère relance  email</th>
-        <th>2ème relance téléphonique</th>
-        <th>Paiement réel</th>
-        <th>Ecart (en jour)</th>
+      <th>N°Facture</th>
+      <th>Client</th>
+      <th>Montant a régler</th>
+      <th>Accompte</th>
+      <th>Statut</th>
+      <th>Reste a percevoir</th>
+      <th>Date limite de reglement</th>
+      <th>1ère relance email</th>
+      <th>2ème relance téléphonique</th>
+      <th>Paiement réel</th>
+      <th>Ecart (en jour)</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let Bill of Bill">
       <td>{{this.Bill.bill_number}}</td>
       <td>{{this.Bill.client}}</td>
-      <td>{{this.Bill.total_price}}€</td>
+      <td>{{this.Bill.price_total}}€</td>
       <td>{{this.Bill.downpayment}}</td>
-      <td>{{this.Bill.status}}</td>
+      <td *ngIf="this.Bill.status ==1">En attente</td>
+      <td *ngIf="this.Bill.status ==2">Retard</td>
+      <td *ngIf="this.Bill.status ==0">Payé</td>
       <td>{{this.Bill.xpatate}}</td>
-      <td>{{this.Bill.limit_date  | date }}</td>
-      <td>{{this.Bill.email_reminder  | date }}</td>
-      <td>{{this.Bill.call_reminder  | date }}</td>
+      <td>{{this.Bill.limit_date | date }}</td>
+      <td></td>
+      <td>{{this.Bill.call_reminder | date }}</td>
       <td>{{this.Bill.total_price }}</td>
       <td>Ecart 1</td>
     </tr>
@@ -37,7 +39,7 @@
       <td>Montant total</td>
       <td></td>
       <td></td>
-      <td>Reste  total</td>
+      <td>Reste total</td>
       <td></td>
       <td></td>
       <td></td>

@@ -141,6 +141,13 @@ class BillController extends FOSRestController
             $em->persist($bill);
             $em->flush();
 
+            $path = $request->server->get('DOCUMENT_ROOT');
+            $path = rtrim($path, "/");
+            $output = $path . $request->server->get('BASE');
+            $output .= $bill->getPdfPath();
+            if (!file_exists($output)) {
+
+
                         $projectId = $bill->getProjectId();
                         $repositoryProject = $this->getDoctrine()->getRepository(Project::class);
                         $project = $repositoryProject->find($bill->getProjectId());
@@ -148,21 +155,19 @@ class BillController extends FOSRestController
                         $repositoryAgency = $this->getDoctrine()->getRepository(Agency::class);
                         $agency = $repositoryAgency->find('1');
 
-                        $path = $request->server->get('DOCUMENT_ROOT');
-                        $path = rtrim($path, "/");
+
                         $html = $this->renderView('pdf_bill.html', array(
                                     'bill' => $bill,
                                     'project' => $project,
                                     'agency' => $agency
                                   ));
-                        $output = $path . $request->server->get('BASE');
-                        $output .= $bill->getPdfPath();
+
                           // return $this->handleView($this->view(['status' => $output], Response::HTTP_CREATED));
                         $this->get('knp_snappy.pdf')->generateFromHtml($html, $output, array());
+                          }
                         // return $this->redirectToRoute('contract');
-                        return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+                        return $this->handleView($this->view(['status' => 'ok']));
 
-            return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
         }
         return $this->handleView($this->view($form->getErrors()));
     }

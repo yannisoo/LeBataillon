@@ -40,7 +40,7 @@
       <p>
         <strong>https://triborddigital.com/</strong> <br><br>
         Le délai de paiement de cette<br>
-        Facture est de, {{Bill.payment_period}} jours, à<br>
+        Facture est de, <span *ngIf="this.Bill.payment_period == 3">1 mois et 45 jours</span><span *ngIf="this.Bill.payment_period == 1">60 jours</span><span *ngIf="this.Bill.payment_period == 0">30 jours</span>, à<br>
         compter de sa date d’édition.
       </p>
     </div>
@@ -179,6 +179,23 @@
   <div class="sign">
     <h6>Signature: ............................</h6>
   </div>
+  <div class="radio">
+    <h6>Délai de paiement :</h6>
+    <div>
+      <input [(ngModel)]="this.Bill.payment_period" class="with-gap" type="radio" id="30" name="drone" value="0">
+      <label for="30">30 jours</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="this.Bill.payment_period" class="with-gap" type="radio" id="60" name="drone" value="1">
+      <label for="60">60 jours</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="this.Bill.payment_period" class="with-gap" type="radio" id="45" name="drone" value="2">
+      <label for="45">45 jours fin de mois</label>
+    </div>
+  </div>
   <div class="footer">
     <hr>
     <p>Toute somme qui n'aura pas été réglée par le Client dans les délais mentionnés, ci-dessous et ce, à compter de la date de facturation; portera intérêt de retard au taux de dix pourcent (10%) par jour de retard conformément à l'article L. 441-6 du Code de commerce.</p>
@@ -197,6 +214,7 @@
     <p>{{Agency.bic}}</p>
   </div>
 </div>
+
 </div>
 <a class="waves-effect waves-light btn create" (click)="sendBill()">Créer la facture</a>
 </div>

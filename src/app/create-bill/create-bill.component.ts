@@ -126,14 +126,29 @@ export class CreateBillComponent implements OnInit {
     console.log(this.Bill.price_total);
   }
   sendBill() {
-    console.log(this.Bill.price_total);
     this.Bill.bill_number = formatDate(this.myDate, 'ddMMyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
     this.Bill.pdf_path = '/' + this.Project.name + '/Bill/Facture_' + this.Bill.bill_number + '.pdf';
     this.Bill.status = 1;
+
     this.Bill.statusSend = 0;
-    this.Bill.created_at = this.myDate;
+
+    this.Bill.limit_date = new Date();
+    console.log(this.Bill.payment_period )
+    if (this.Bill.payment_period == 0){
+
+      this.Bill.limit_date.setDate(this.myDate.getDate() + 30);
+    }
+    if (this.Bill.payment_period == 1){
+      this.Bill.limit_date.setDate(this.myDate.getDate() + 60);
+    }
+    if (this.Bill.payment_period == 2){
+      this.Bill.limit_date.setMonth(this.myDate.getMonth() + 1);
+      this.Bill.limit_date.setDate(this.myDate.getDate() + 45);
+    }
+      this.Bill.created_at = new Date();
     this.apiBill.createBill(this.Bill).subscribe((data: {}) => {
       this.router.navigate(['/project/', this.Project.id]);
-    }); }
+    });
+   }
 
 }

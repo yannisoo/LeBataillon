@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApibillService } from '../api/api-bill.service';
-import {ApiprojectService} from "../api/api-project.service";
+import { ApiprojectService } from "../api/api-project.service";
 
 
 @Component({
@@ -11,10 +11,10 @@ import {ApiprojectService} from "../api/api-project.service";
 export class SuiviClientComponent implements OnInit {
   Bill: any = [];
   Project: any = [];
-    constructor(
-      public api: ApibillService,
-      public api2: ApiprojectService,
-    ) { }
+  constructor(
+    public api: ApibillService,
+    public api2: ApiprojectService,
+  ) { }
 
   ngOnInit() {
     this.loadBills();
@@ -31,18 +31,18 @@ export class SuiviClientComponent implements OnInit {
   loadProjects() {
     return this.api2.getProjects().subscribe((data: {}) => {
       this.Project = data;
-      this.fuck(this.Bill)
+      this.fuck()
     });
   }
 
-  fuck(Bill){
-      console.log('test')
+  fuck() {
+    console.log('test')
 
-    for (Bill of Bill) {
-        //console.log(Bill)
-      var tempProj = this.Project.find(item => item.id === Bill.project_id)
-      console.log(tempProj)
-      Bill.xpatate = tempProj.remaining
+    for (this.Bill of this.Bill) {
+      console.log(this.Bill)
+      var tempProj = this.Project.find(item => item.id == this.Bill.project_id)
+      console.log(this.Project)
+
     }
 
   }
