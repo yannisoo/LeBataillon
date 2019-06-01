@@ -65,6 +65,7 @@ class BillType extends AbstractType
         ->add('mainbill_description')
         ->add('payment_period')
         ->add('pdf_path')
+        ->add('limit_date')
             ->add('save', SubmitType::class)
         ;
     }
