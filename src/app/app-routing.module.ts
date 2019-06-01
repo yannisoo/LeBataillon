@@ -9,7 +9,6 @@ import { MainComponent } from './home/main/main.component';
 
 import { RegisterComponent} from './register/register.component'
 import { SuiviClientComponent } from './suivi-client/suivi-client.component';
-import { PdfGenComponent } from './create-bill/pdf-gen/pdf-gen.component';
 import { LoginComponent } from './login/login.component';
 import { ListeComponent } from './liste-devis/liste/liste.component';
 import { CreateQuotationComponent } from './create-quotation/create-quotation.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'devis', component: ListeComponent },
   { path: 'suivi-client', component: SuiviClientComponent},
-  { path: 'create-bill', component: PdfGenComponent},
   { path: 'create-quotation/:id', component: CreateQuotationComponent},
   { path: 'create-quotation', component: NoprojectCreateQuotationComponent}
 
