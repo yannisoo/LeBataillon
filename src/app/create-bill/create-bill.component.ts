@@ -130,6 +130,7 @@ export class CreateBillComponent implements OnInit {
     this.Bill.bill_number = formatDate(this.myDate, 'ddMMyy', 'en') + '_' + this.Project.name + '_' + this.uniqueNumber;
     this.Bill.pdf_path = '/' + this.Project.name + '/Bill/Facture_' + this.Bill.bill_number + '.pdf';
     this.Bill.status = 1;
+    this.Bill.statusSend = 0;
     this.Bill.created_at = this.myDate;
     this.apiBill.createBill(this.Bill).subscribe((data: {}) => {
       this.router.navigate(['/project/', this.Project.id]);
