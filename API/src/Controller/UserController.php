@@ -9,6 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\LoginType;
 /**
  * Movie controller.
  * @Route("/api", name="api_")
@@ -109,12 +110,25 @@ class UserController extends FOSRestController
         */
        public function login(AuthenticationUtils $authenticationUtils): Response
        {
-           // choper l'erreur si il y en a une
+         // $repository = $this->getDoctrine()->getRepository(User::class);
+         // $user = $repository->findAll();
+
+         $form = $this->createForm(LoginType::class);
+         $data = json_decode($request->getContent(), true);
+         $form->submit($data);
+         if ($form->isSubmitted() && $form->isValid()) {
+
            $error = $authenticationUtils->getLastAuthenticationError();
-           // last username entered by the user
+
            $lastUsername = $authenticationUtils->getLastUsername();
 
-          return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+
+             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+         }
+
+              return $this->handleView($this->view($form->getErrors()));
+
+
        }
 
 }
