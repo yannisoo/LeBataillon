@@ -225,7 +225,7 @@ class QuotationController extends FOSRestController
               $zip->addFromString(basename($bill->getPdfPath()),  file_get_contents('.' .  $bill->getPdfPath()));
             }
             foreach ($quotation as $quotation) {
-              $zip->addFromString(basename($bill->getPdfPath()),  file_get_contents('.' .  $bill->getPdfPath()));
+              $zip->addFromString(basename($quotation->getPdfPath()),  file_get_contents('.' .  $quotation->getPdfPath()));
             }
             $zip->close();
 
@@ -239,7 +239,7 @@ class QuotationController extends FOSRestController
 
             $message = (new \Swift_Message('Hello Email'))
                 ->setFrom('angsymftest@gmail.com')
-                ->setTo('yannis.b8@gmail.com')
+                ->setTo('angsymftest@gmail.com')
                 ->attach(Swift_Attachment::fromPath($zipName))
                 ->setBody(
                     $this->renderView(

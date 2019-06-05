@@ -1,7 +1,7 @@
 knp_snappy:
     pdf:
         enabled:    true
-        binary:     "%kernel.root_dir%/../vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf.exe"
+        binary:     "/usr/local/bin/wkhtmltopdf"
         options:
            page-size: A4
            dpi: 300
@@ -10,5 +10,5 @@ knp_snappy:
 
     image:
         enabled:    true
-        binary:     "%kernel.root_dir%/../vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf.exe"
+        binary:     "/usr/local/bin/wkhtmltoimage"
         options:    []
